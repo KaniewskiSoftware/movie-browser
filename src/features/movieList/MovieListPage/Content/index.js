@@ -16,7 +16,7 @@ const Content = ({ title, year, tags, rate, votes }) => (
       <Rating>
         <Star />
         <Rate>{rate}</Rate>
-        <GreyText>{votes && `${votes} votes`}</GreyText>
+        {votes && <GreyText>{`${votes} votes`}</GreyText>}
       </Rating>
     )}
   </Container>
