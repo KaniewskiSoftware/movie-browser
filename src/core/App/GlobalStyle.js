@@ -8,4 +8,11 @@ export const GlobalStyle = createGlobalStyle`
     *,::after,::before {
         box-sizing: inherit;
     }
+
+    body {
+        min-height: 100vh;
+        margin: 0;
+        background-color: ${({ theme }) => theme.color.background};
+        font-family: 'Poppins', sans-serif;
+    }
 `;
