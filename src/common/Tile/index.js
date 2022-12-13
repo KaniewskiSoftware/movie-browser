@@ -1,10 +1,9 @@
 import { Container } from "./styled";
 
-const Tile = ({Image, Content}) => {
+const Tile = ({ children }) => (
     <Container>
-        {Image}
-        {Content}
+        {children}
     </Container>
-}
+)
 
 export default Tile;
