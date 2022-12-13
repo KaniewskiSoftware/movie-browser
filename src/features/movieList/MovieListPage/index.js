@@ -1,11 +1,12 @@
-import Container from "../../../common/Container"
+import Container from "../../../common/Container";
+import Tile from "../../../common/Tile";
 
 const MovieListPage = () => {
-    return (
-        <Container>
-
-        </Container>
-    )
-}
+  return (
+    <Container>
+      <Tile />
+    </Container>
+  );
+};
 
 export default MovieListPage;

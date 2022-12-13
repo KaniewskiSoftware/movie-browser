@@ -1,6 +1,12 @@
 export const theme = {
-    color: {
-        background: "#F5F5FA",
-        tileBackground: "#FFFFFF",
-    }
-}
+  color: {
+    common: {
+      background: "#F5F5FA",
+    },
+    tile: {
+      primaryText: "#000000",
+      background: "#FFFFFF",
+      boxShadow: "rgba(186, 199, 213, 0.5)",
+    },
+  },
+};
