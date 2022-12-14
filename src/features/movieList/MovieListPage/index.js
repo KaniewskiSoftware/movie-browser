@@ -10,13 +10,7 @@ const MovieListPage = () => {
     <Container>
       <Tile>
         <Image src={poster} alt="" />
-        <Content
-          title="Mulan"
-          year="2020"
-          tags={tags}
-          rate="7,8"
-          votes="32"
-        />
+        <Content title="Mulan" year="2020" tags={tags} rate="7,8" votes="32" />
       </Tile>
       <Tile>
         <Image src={poster} alt="" />
@@ -50,13 +44,7 @@ const MovieListPage = () => {
       </Tile>
       <Tile>
         <Image src={poster} alt="" />
-        <Content
-          title="Mulan"
-          year="2020"
-          tags={tags}
-          rate="7,8"
-          votes="32"
-        />
+        <Content title="Mulan" year="2020" tags={tags} rate="7,8" votes="32" />
       </Tile>
       <Tile>
         <Image src={poster} alt="" />
