@@ -5,7 +5,7 @@ export const Image = styled.img`
   width: 100%;
   height: 434px;
   aspect-ratio: 2/3;
-  object-fit: cover;
+  /* object-fit: cover; */
   border-radius: 5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallDesktop}) {

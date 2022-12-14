@@ -1,26 +1,23 @@
 import Container from "./Container";
 import Tile from "../../../common/Tile";
 import { Image } from "./Image";
-import NotFound from "./NotFound";
-import { Background, Camera } from "./NotFound/styled";
 import Content from "./Content";
 import poster from "./Image/poster.png";
-import grey from "./Image/grey.png";
 import poster1 from "./Image/picturebig.jpg";
 import poster2 from "./Image/picturesmall.jpg";
-import poster3 from "./Image/noposter.svg"
+import notfound from "./Image/noposter.svg"
 import { tags } from "./Content/tags"; // Tymczasowa tablica z gatunkami filmowymi, później będą pobierane z API.
 
 const MovieListPage = () => {
   return (
     <Container>
       <Tile>
-        {poster ? <Image src={poster} alt="" /> : <Image src={grey} alt="" />}
+        {poster ? <Image src={poster} alt="" /> : <Image src={notfound} alt="" />}
         <Content title="Mulan" year="2020" tags={tags} rate="7,8" votes="32" />
       </Tile>
       <Tile>
         
-      <Image src={poster3} alt=""></Image>
+      <Image src={notfound} alt=""></Image>
         <Content
           title="Mulan"
           year="2020"
