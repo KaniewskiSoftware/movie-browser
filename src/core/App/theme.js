@@ -1,4 +1,10 @@
 export const theme = {
+  breakpoints: {
+    small: "467px",
+    mobile: "767px",
+    medium: "991px",
+    large: "1023px"
+  },
   color: {
     common: {
       background: "#F5F5FA",

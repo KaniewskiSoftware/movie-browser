@@ -1,4 +1,4 @@
-import Container from "../../../common/Container";
+import Container from "./Container";
 import Tile from "../../../common/Tile";
 import { Image } from "./Image";
 import Content from "./Content";

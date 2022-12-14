@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     body {
         min-height: 100vh;
         margin: 0;
-        padding: 16px;
+        padding: 0 16px;
         background-color: ${({ theme }) => theme.color.common.background};
         font-family: 'Poppins', sans-serif;
     }
