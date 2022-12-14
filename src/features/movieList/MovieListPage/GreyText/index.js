@@ -6,4 +6,8 @@ export const GreyText = styled.p`
   font-size: 16px;
   line-height: 1.5;
   color: ${({ theme }) => theme.color.tile.secondaryText};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    font-size: 13px;
+  }
 `;

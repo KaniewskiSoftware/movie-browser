@@ -9,4 +9,8 @@ export const Container = styled.article`
   box-shadow: 0px 4px 12px ${({ theme }) => theme.color.tile.boxShadow};
   background-color: ${({ theme }) => theme.color.tile.background};
   color: ${({ theme }) => theme.color.tile.primaryText};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    flex-direction: row;
+  }
 `;
