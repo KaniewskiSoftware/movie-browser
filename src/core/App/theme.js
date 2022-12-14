@@ -5,6 +5,7 @@ export const theme = {
     mobile: "767px",
     medium: "991px",
     large: "1023px",
+    smallDesktop: "1279px",
   },
   color: {
     common: {
@@ -16,6 +17,7 @@ export const theme = {
       background: "#FFFFFF",
       boxShadow: "rgba(186, 199, 213, 0.5)",
       tagBackground: "#E4E6F0",
+      imageBackground: "#C4C4C4",
     },
   },
 };

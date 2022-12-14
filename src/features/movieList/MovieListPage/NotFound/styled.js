@@ -1,16 +1,17 @@
 import styled from "styled-components";
+import { ReactComponent as Video } from "./video.svg";
 
-export const Image = styled.img`
+export const Background = styled.div`
   display: block;
+  justify-content: center;
   width: 100%;
-  height: 434px;
-  aspect-ratio: 2/3;
-  object-fit: cover;
+  height: 100%;
+  max-height: 434px;
   border-radius: 5px;
+  background-color: ${({ theme }) => theme.color.tile.imageBackground};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.smallDesktop}) {
     max-height: 380px;
-    width: auto;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
@@ -23,10 +24,23 @@ export const Image = styled.img`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     width: 40%;
+    max-height: 240px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
     max-width: 114px;
     max-height: 169px;
+  }
+`;
+
+export const Camera = styled(Video)`
+  width: 100px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+    width: 70px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    width: 48px;
   }
 `;
