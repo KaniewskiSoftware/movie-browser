@@ -5,7 +5,7 @@ import Content from "./Content";
 import poster from "./Image/poster.png";
 import poster1 from "./Image/picturebig.jpg";// Tymczasowe zdjęcie
 import poster2 from "./Image/picturesmall.jpg";// Tymczasowe zdjęcie
-import notfound from "./Image/noposter.svg"
+import notfound from "./Image/noposter.png"
 import { tags } from "./Content/tags"; // Tymczasowa tablica z gatunkami filmowymi, później będą pobierane z API.
 
 const MovieListPage = () => {
