@@ -1,11 +1,13 @@
 import Header from "../Header";
-import { Spinner } from "./styled";
+import { Spinner, SpinnerBox, Wrapper } from "./styled";
 
 const Loader = () => (
-    <>
+    <Wrapper>
         <Header title={`Search results for “Mulan”`} />
-        <Spinner />
-    </>
+        <SpinnerBox>
+            <Spinner />
+        </SpinnerBox>
+    </Wrapper>
 );
 
 export default Loader;

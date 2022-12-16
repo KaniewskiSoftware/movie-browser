@@ -1,6 +1,22 @@
 import styled, { keyframes } from 'styled-components';
 import { ReactComponent as spinner } from "./icon-spinner.svg";
 
+const Wrapper = styled.div`
+  margin: 0 auto;
+  max-width: 1368px;
+`;
+
+const SpinnerBox = styled.div`
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin-top: 120px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    margin-top: 24px;
+  };
+`;
+
 const rotation = keyframes` 
   0% {
     transform: rotate(0deg);
@@ -11,12 +27,14 @@ const rotation = keyframes`
 `;
 
 const Spinner = styled(spinner)`
-    position: absolute;
-    width: 91px;
-    height: 91px;
-    left: calc(50% - 91px/2 + 0.5px);
-    top: 313px;
-    animation: ${rotation} 1.5s linear infinite;
+  width: 91px;
+  height: 91px;
+  animation: ${rotation} 1.5s linear infinite;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 24px;
+    height: 24px;
+  };
 `;
 
-export { Spinner };
+export { Spinner, SpinnerBox, Wrapper };
