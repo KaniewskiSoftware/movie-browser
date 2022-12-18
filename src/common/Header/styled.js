@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const PageTitle = styled.header`
+const PageTitle = styled.div`
     font-weight: 600;
     font-size: 36px;
     line-height: 120%;
