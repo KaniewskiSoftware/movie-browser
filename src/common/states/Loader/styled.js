@@ -18,22 +18,18 @@ const SpinnerBox = styled.div`
 `;
 
 const rotation = keyframes` 
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
+  to {
     transform: rotate(360deg);
   }
 `;
 
 const Spinner = styled(spinner)`
   width: 91px;
-  height: 91px;
+  height: auto;
   animation: ${rotation} 1.5s linear infinite;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     width: 24px;
-    height: 24px;
   };
 `;
 
