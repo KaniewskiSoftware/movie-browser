@@ -10,6 +10,9 @@ export const theme = {
   color: {
     common: {
       background: "#F5F5FA",
+      black: "#18181B",
+      darkerGrey: "#7E839A",
+      white: "#FFFFFF",
     },
     tile: {
       primaryText: "#18181B",
