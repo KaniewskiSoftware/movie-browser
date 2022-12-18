@@ -63,9 +63,13 @@ export const Loupe = styled.img`
   height: 18px;
   width: 18px;
   margin: 15px 25px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+   margin: 12px 20px;
+  }
 `;
 export const Input = styled.input`
   border: none;
+  outline: none;
 
   ::placeholder {
     color: ${({ theme }) => theme.color.common.darkerGrey};
