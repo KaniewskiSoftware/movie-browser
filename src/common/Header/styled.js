@@ -36,7 +36,6 @@ export const Logo = styled.img`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     width: 120px;
     height: 30px;
-    margin: auto 10px;
   }
 `;
 export const InputWrapper = styled.div`
@@ -56,9 +55,9 @@ export const InputWrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     width: 288px;
     height: 44px;
-    margin: 10px;
   }
 `;
+
 export const Loupe = styled.img`
   height: 18px;
   width: 18px;
@@ -67,6 +66,7 @@ export const Loupe = styled.img`
    margin: 12px 20px;
   }
 `;
+
 export const Input = styled.input`
   border: none;
   outline: none;

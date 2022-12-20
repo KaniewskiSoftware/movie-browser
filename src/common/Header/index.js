@@ -1,7 +1,7 @@
 import { Input, InputWrapper, Logo, Loupe, StyledHeader, Wrapper } from "./styled";
 import png from "./Logo.png";
 import svg from "./Search.svg"
-import Navigation from "../../features/navigation";
+import Navigation from "../../features/Navigation";
 
 const Header = () => (
   <StyledHeader>
