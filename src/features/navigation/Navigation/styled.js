@@ -23,14 +23,14 @@ export const Item = styled.li`
 
 export const StyledNavLink = styled(NavLink)`
   text-decoration: none;
-  color: ${({ theme }) => theme.color.common.white};
+  color: ${({ theme }) => theme.colors.header.primary};
   font-size: 14px;
   line-height: 21px;
   font-weight: 600;
   padding: 8px 24px;
 
   &.active {
-    border: 1px solid #ffffff;
+    border: 1px solid ${({ theme }) => theme.colors.header.primary};
     border-radius: 24px;
   }
 

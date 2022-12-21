@@ -6,7 +6,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  color: ${({ theme }) => theme.color.tile.primaryText};
+  color: ${({ theme }) => theme.colors.primaryText};
 `;
 
 export const Title = styled.h2`
@@ -36,7 +36,7 @@ export const Tag = styled.div`
   border-radius: 5px;
   line-height: 1.4;
   font-weight: 400;
-  background-color: ${({ theme }) => theme.color.tile.tagBackground};
+  background-color: ${({ theme }) => theme.colors.tile.tagBackground};
   text-align: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
