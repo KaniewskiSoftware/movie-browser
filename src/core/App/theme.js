@@ -4,6 +4,8 @@ const colorNames = {
   mystic: "#E4E6F0",
   silver: "#C4C4C4",
   waterloo: "#7E839A",
+  dodgerBlue: "hsl(220, 100%, 60%)",
+  blueRibbon: "hsl(220, 100%, 50%)",
   scienceBlue: "#0044CC",
   woodSmoke: "#18181B",
 };
@@ -16,7 +18,7 @@ const common = {
     medium: "991px",
     large: "1023px",
     smallDesktop: "1279px",
-    mediumDesktop: "1440px"
+    mediumDesktop: "1440px",
   },
   boxShadow: "0px 4px 12px rgba(186, 199, 213, 0.5)",
 };
@@ -43,6 +45,8 @@ export const theme = {
     states: {
       buttonBackground: colorNames.scienceBlue,
       buttonText: colorNames.white,
+      buttonHover: colorNames.blueRibbon,
+      buttonActive: colorNames.dodgerBlue,
     },
   },
 };

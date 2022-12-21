@@ -53,13 +53,15 @@ const Button = styled.button`
   background: ${({ theme }) => theme.colors.states.buttonBackground};
   border-radius: 5px;
   border: none;
+  transition: background-color 1s;
+  cursor: pointer;
+
   &:hover {
-    background: hsl(220, 100%, 50%);
-    cursor: pointer;
-    transition: 1s;
+    background: ${({ theme }) => theme.colors.states.buttonHover};
   }
+
   &:active {
-    background: hsl(220, 100%, 60%);
+    background: ${({ theme }) => theme.colors.states.buttonActive};
   }
 `;
 
