@@ -1,4 +1,4 @@
-import { delay, call, put, takeLatest } from "@reduxjs/toolkit/dist/utils";
+import { delay, call, put, takeLatest } from "redux-saga/effects"
 import { getMovies } from "./movieListAPI";
 import {
   fetchMovies,

@@ -1,21 +1,21 @@
 import { Container, Rate, Rating, Star, Tag, Tags, Title } from "./styled";
 import { GreyText } from "../GreyText";
 
-const Content = ({ title, year, tags, rate, votes }) => (
+const Content = ({ title, year, genres, rate, votes }) => (
   <Container>
     {title && <Title>{title}</Title>}
     {year && <GreyText>{year}</GreyText>}
-    {tags && (
+    {genres && (
       <Tags>
-        {tags.map((tag) => (
-          <Tag key={tag}>{tag}</Tag>
+        {genres.map((genre) => (
+          <Tag key={genre.id}>{genre.name}</Tag>
         ))}
       </Tags>
     )}
     {rate && (
       <Rating>
         <Star />
-        <Rate>{rate}</Rate>
+        <Rate>{rate.toFixed(2)}</Rate>
         {votes && <GreyText>{`${votes} votes`}</GreyText>}
       </Rating>
     )}

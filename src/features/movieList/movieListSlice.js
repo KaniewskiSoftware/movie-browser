@@ -25,4 +25,9 @@ const movieListSlice = createSlice({
 export const { fetchMovies, fetchMoviesSuccess, fetchMoviesError } =
   movieListSlice.actions;
 
+const selectMovieListState = (state) => state.movieList;
+
+export const selectMovies = (state) => selectMovieListState(state).movies;
+export const selectStatus = (state) => selectMovieListState(state).status;
+
 export default movieListSlice.reducer;

@@ -1,87 +1,43 @@
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import Container from "./Container";
 import Tile from "../../../common/Tile";
 import { Image } from "./Image";
 import Content from "./Content";
-import poster from "./Image/poster.png";
-import poster1 from "./Image/picturebig.jpg";// Tymczasowe zdjęcie
-import poster2 from "./Image/picturesmall.jpg";// Tymczasowe zdjęcie
-import notfound from "./Image/noposter.png"
-import { tags } from "./Content/tags"; // Tymczasowa tablica z gatunkami filmowymi, później będą pobierane z API.
+import notfound from "./Image/noposter.png";
+import { fetchMovies, selectMovies, selectStatus } from "../movieListSlice";
 
 const MovieListPage = () => {
-  return (
-    <Container>
-      <Tile>
-        {poster ? <Image src={poster} alt="" /> : <Image src={notfound} alt="" />}
-        <Content title="Mulan" year="2020" tags={tags} rate="7,8" votes="32" />
-      </Tile>
-      <Tile>
-        
-      <Image src={notfound} alt=""></Image>
-        <Content
-          title="Mulan"
-          year="2020"
-          // tags={tags}
-          rate="7,8"
-          votes="32"
-        />
-      </Tile>
-      <Tile>
-        <Image src={poster1} alt="" />
-        <Content
-          title="Mulan"
-          // year="2020"
-          tags={tags}
-          rate="7,8"
-          votes="32"
-        />
-      </Tile>
-      <Tile>
-        <Image src={poster2} alt="" />
-        <Content
-          title="Mulan long title long titleMulan long title long"
-          year="2020"
-          tags={tags}
-          rate="7,8"
-          votes="32"
-        />
-      </Tile>
-      <Tile>
-        <Image src={poster} alt="" />
-        <Content title="Mulan" year="2020" tags={tags} rate="7,8" votes="32" />
-      </Tile>
-      <Tile>
-        <Image src={poster} alt="" />
-        <Content
-          title="Mulan"
-          year="2020"
-          // tags={tags}
-          rate="7,8"
-          votes="32"
-        />
-      </Tile>
-      <Tile>
-        <Image src={poster} alt="" />
-        <Content
-          title="Mulan"
-          // year="2020"
-          tags={tags}
-          rate="7,8"
-          votes="32"
-        />
-      </Tile>
-      <Tile>
-        <Image src={poster} alt="" />
-        <Content
-          title="Mulan long title long titleMulan long title long"
-          year="2020"
-          tags={tags}
-          rate="7,8"
-          votes="32"
-        />
-      </Tile>
-    </Container>
-  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchMovies());
+  }, [dispatch]);
+
+  const movies = useSelector(selectMovies);
+  const status = useSelector(selectStatus);
+
+  console.log(movies);
+  if (status === "success") {
+    return (
+      <Container>
+        <Tile>
+          {movies.poster_path ? (
+            <Image src={`https://image.tmdb.org/t/p/original/${movies.poster_path}`} alt="" />
+          ) : (
+            <Image src={notfound} alt="" />
+          )}
+          <Content
+            title={movies.original_title}
+            year={movies.release_date.slice(0,4)}
+            genres={movies.genres}
+            rate={movies.vote_average}
+            votes={movies.vote_count}
+          />
+        </Tile>
+      </Container>
+    );
+  }
 };
 
 export default MovieListPage;
