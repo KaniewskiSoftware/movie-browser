@@ -1,4 +1,16 @@
-export const theme = {
+const colorNames = {
+  white: "#FFFFFF",
+  whisper: "F5F5FA",
+  mystic: "#E4E6F0",
+  silver: "#C4C4C4",
+  waterloo: "#7E839A",
+  dodgerBlue: "hsl(220, 100%, 60%)",
+  blueRibbon: "hsl(220, 100%, 50%)",
+  scienceBlue: "#0044CC",
+  woodSmoke: "#18181B",
+};
+
+const common = {
   breakpoints: {
     tiny: "467px",
     small: "540px",
@@ -6,21 +18,35 @@ export const theme = {
     medium: "991px",
     large: "1023px",
     smallDesktop: "1279px",
+    mediumDesktop: "1440px",
   },
-  color: {
-    common: {
-      background: "#F5F5FA",
-      black: "#18181B",
-      darkerGrey: "#7E839A",
-      white: "#FFFFFF",
+  boxShadow: "0px 4px 12px rgba(186, 199, 213, 0.5)",
+};
+
+export const theme = {
+  ...common,
+  colors: {
+    primaryText: colorNames.woodSmoke,
+    site: {
+      background: colorNames.whisper,
+    },
+    header: {
+      primary: colorNames.white,
+      background: colorNames.woodSmoke,
+      inputBorder: colorNames.mystic,
+      placeholder: colorNames.waterloo,
     },
     tile: {
-      primaryText: "#18181B",
-      secondatyText: "#7E839A",
-      background: "#FFFFFF",
-      boxShadow: "rgba(186, 199, 213, 0.5)",
-      tagBackground: "#E4E6F0",
-      imageBackground: "#C4C4C4",
+      secondaryText: colorNames.waterloo,
+      background: colorNames.white,
+      tagBackground: colorNames.mystic,
+      imageBackground: colorNames.silver,
+    },
+    states: {
+      buttonBackground: colorNames.scienceBlue,
+      buttonText: colorNames.white,
+      buttonHover: colorNames.blueRibbon,
+      buttonActive: colorNames.dodgerBlue,
     },
   },
 };

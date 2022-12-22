@@ -7,12 +7,17 @@ export const Wrapper = styled.section`
   margin: 0 auto;
   max-width: 1368px;
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDesktop}) {
+    margin: 0 24px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.smallDesktop}) {
     grid-template-columns: repeat(3, 1fr);
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     grid-template-columns: repeat(2, 1fr);
+    margin: 0 16px;
     grid-gap: 16px;
   }
 

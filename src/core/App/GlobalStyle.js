@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     body {
         min-height: 100vh;
         margin: 0;
-        background-color: ${({ theme }) => theme.color.common.background};
+        background-color: ${({ theme }) => theme.colors.site.background};
         font-family: 'Poppins', sans-serif;
     }
 `;

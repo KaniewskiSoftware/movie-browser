@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledHeader = styled.div`
   width: 100%;
   height: 94px;
-  background-color: ${({ theme }) => theme.color.common.black};
+  background-color: ${({ theme }) => theme.colors.header.background};
   margin-bottom: 56px;
   display: flex;
   flex-direction: row;
@@ -15,12 +15,12 @@ export const StyledHeader = styled.div`
     align-items: center;
     justify-content: center;
   }
- `;
+`;
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
- `;
+`;
 
 export const Logo = styled.img`
   margin: 23px;
@@ -43,13 +43,13 @@ export const InputWrapper = styled.div`
   flex-direction: row;
   height: 48px;
   width: 432px;
-  border: 1px solid #e4e6f0;
+  border: 1px solid ${({ theme }) => theme.colors.header.inputBorder};
   border-radius: 33px;
   margin: 23px;
-  background-color: ${({ theme }) => theme.color.common.white};
+  background-color: ${({ theme }) => theme.colors.header.primary};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-   margin: 10px;
+    margin: 10px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -63,7 +63,7 @@ export const Loupe = styled.img`
   width: 18px;
   margin: 15px 25px;
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-   margin: 12px 20px;
+    margin: 12px 20px;
   }
 `;
 
@@ -72,6 +72,6 @@ export const Input = styled.input`
   outline: none;
 
   ::placeholder {
-    color: ${({ theme }) => theme.color.common.darkerGrey};
+    color: ${({ theme }) => theme.colors.header.placeholder};
   }
 `;

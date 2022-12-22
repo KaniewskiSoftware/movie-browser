@@ -5,7 +5,7 @@ export const GreyText = styled.p`
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
-  color: ${({ theme }) => theme.color.tile.secondaryText};
+  color: ${({ theme }) => theme.colors.tile.secondaryText};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 14px;
