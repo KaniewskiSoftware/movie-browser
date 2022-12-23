@@ -1,13 +1,21 @@
 import { useSelector } from "react-redux";
 import { selectGenres, selectMovies } from "../../movieListSlice";
-import Wrapper from "./Wrapper";
 import Tile from "../../../../common/Tile";
-import { Image } from "./Image";
-import notfound from "./Image/noposter.png";
-import { Container, Rate, Rating, Star, Tag, Tags, Title } from "./styled";
-import { GreyText } from "../GreyText";
+import notfound from "./noposter.png";
+import {
+  GreyText,
+  Wrapper,
+  Content,
+  Image,
+  Rate,
+  Rating,
+  Star,
+  Tag,
+  Tags,
+  Title,
+} from "./styled";
 
-const Content = () => {
+const Movies = () => {
   const genres = useSelector(selectGenres);
   const movies = useSelector(selectMovies);
 
@@ -23,7 +31,7 @@ const Content = () => {
           ) : (
             <Image src={notfound} alt="" />
           )}
-          <Container>
+          <Content>
             {movie.original_title && <Title>{movie.original_title}</Title>}
             {movie.release_date && (
               <GreyText>{movie.release_date.slice(0, 4)}</GreyText>
@@ -48,11 +56,11 @@ const Content = () => {
                 )}
               </Rating>
             )}
-          </Container>
+          </Content>
         </Tile>
       ))}
     </Wrapper>
   );
 };
 
-export default Content;
+export default Movies;
