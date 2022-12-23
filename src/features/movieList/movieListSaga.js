@@ -18,7 +18,6 @@ function* fetchMoviesHandler() {
     yield put(fetchGenres());
 
     const movies = yield call(getMovies);
-    yield console.log(movies);
     yield put(fetchMoviesSuccess(movies.results));
   } catch (error) {
     yield put(fetchMoviesError());
