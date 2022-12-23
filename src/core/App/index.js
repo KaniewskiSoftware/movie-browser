@@ -4,12 +4,13 @@ import { GlobalStyle } from "./GlobalStyle";
 import { theme } from "./theme";
 import MovieListPage from "../../features/movieList/MovieListPage";
 import Header from "../../common/Header";
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <Normalize />
       <GlobalStyle />
-      <Header/>
+      <Header />
       <MovieListPage />
     </ThemeProvider>
   );
