@@ -1,87 +1,24 @@
-import Container from "./Container";
-import Tile from "../../../common/Tile";
-import { Image } from "./Image";
-import Content from "./Content";
-import poster from "./Image/poster.png";
-import poster1 from "./Image/picturebig.jpg";// Tymczasowe zdjęcie
-import poster2 from "./Image/picturesmall.jpg";// Tymczasowe zdjęcie
-import notfound from "./Image/noposter.png"
-import { tags } from "./Content/tags"; // Tymczasowa tablica z gatunkami filmowymi, później będą pobierane z API.
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMovies, selectStatus } from "../movieListSlice";
+import ErrorPage from "../../../common/states/ErrorPage";
+import Loader from "../../../common/states/Loader";
+import { useEffect } from "react";
+import Movies from "./Movies";
 
 const MovieListPage = () => {
-  return (
-    <Container>
-      <Tile>
-        {poster ? <Image src={poster} alt="" /> : <Image src={notfound} alt="" />}
-        <Content title="Mulan" year="2020" tags={tags} rate="7,8" votes="32" />
-      </Tile>
-      <Tile>
-        
-      <Image src={notfound} alt=""></Image>
-        <Content
-          title="Mulan"
-          year="2020"
-          // tags={tags}
-          rate="7,8"
-          votes="32"
-        />
-      </Tile>
-      <Tile>
-        <Image src={poster1} alt="" />
-        <Content
-          title="Mulan"
-          // year="2020"
-          tags={tags}
-          rate="7,8"
-          votes="32"
-        />
-      </Tile>
-      <Tile>
-        <Image src={poster2} alt="" />
-        <Content
-          title="Mulan long title long titleMulan long title long"
-          year="2020"
-          tags={tags}
-          rate="7,8"
-          votes="32"
-        />
-      </Tile>
-      <Tile>
-        <Image src={poster} alt="" />
-        <Content title="Mulan" year="2020" tags={tags} rate="7,8" votes="32" />
-      </Tile>
-      <Tile>
-        <Image src={poster} alt="" />
-        <Content
-          title="Mulan"
-          year="2020"
-          // tags={tags}
-          rate="7,8"
-          votes="32"
-        />
-      </Tile>
-      <Tile>
-        <Image src={poster} alt="" />
-        <Content
-          title="Mulan"
-          // year="2020"
-          tags={tags}
-          rate="7,8"
-          votes="32"
-        />
-      </Tile>
-      <Tile>
-        <Image src={poster} alt="" />
-        <Content
-          title="Mulan long title long titleMulan long title long"
-          year="2020"
-          tags={tags}
-          rate="7,8"
-          votes="32"
-        />
-      </Tile>
-    </Container>
-  );
+  const dispatch = useDispatch();
+
+  const status = useSelector(selectStatus);
+
+  useEffect(() => {
+    dispatch(fetchMovies());
+  }, [dispatch]);
+
+  return {
+    loading: <Loader />,
+    success: <Movies />,
+    error: <ErrorPage />,
+  }[status];
 };
 
 export default MovieListPage;

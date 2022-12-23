@@ -10,7 +10,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Normalize />
       <GlobalStyle />
-      <Header/>
+      <Header />
       <MovieListPage />
       <Footer/>
     </ThemeProvider>
