@@ -2,7 +2,7 @@ import { apiKey } from "../../common/apiData/apiKey";
 import {apiLink} from "../../common/apiData/apiLink";
 
 export const getMovies = async () => {
-  const response = await fetch(`${apiLink}/movie/popular?api_key=${apiKey}`);
+  const response = await fetch(`${apiLink}/movie/popular?api_key=${apiKey}&language=en`);
 
   if (!response.ok) {
     new Error(response.statusText);
