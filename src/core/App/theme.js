@@ -1,6 +1,6 @@
 const colorNames = {
   white: "#FFFFFF",
-  whisper: "F5F5FA",
+  whisper: "#F5F5FA",
   mystic: "#E4E6F0",
   silver: "#C4C4C4",
   waterloo: "#7E839A",
@@ -13,11 +13,9 @@ const colorNames = {
 const common = {
   breakpoints: {
     tiny: "467px",
-    small: "540px",
     mobile: "767px",
     medium: "991px",
-    large: "1023px",
-    smallDesktop: "1279px",
+    large: "1081px",
     mediumDesktop: "1440px",
   },
   boxShadow: "0px 4px 12px rgba(186, 199, 213, 0.5)",
