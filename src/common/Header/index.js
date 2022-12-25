@@ -1,18 +1,15 @@
-import { Input, InputWrapper, Logo, Loupe, StyledHeader, Wrapper } from "./styled";
+import { Logo, StyledHeader, Wrapper } from "./styled";
 import png from "./Logo.png";
-import svg from "./Search.svg"
 import Navigation from "../../features/navigation/Navigation";
+import Search from "./Search";
 
 const Header = () => (
   <StyledHeader>
     <Wrapper>
-    <Logo src={png} />
-    <Navigation/>
+      <Logo src={png} />
+      <Navigation />
     </Wrapper>
-    <InputWrapper>
-    <Loupe src={svg}/>
-    <Input placeholder="Search for movies..."></Input>
-    </InputWrapper>
+    <Search />
   </StyledHeader>
 );
 
