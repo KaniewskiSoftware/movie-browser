@@ -21,30 +21,6 @@ const Movies = () => {
 
   return (
     <Tiles>
-      <Tile key="test">
-        {
-          <ImageBackground>
-            <Image />
-          </ImageBackground>
-        }
-        <Content>
-          {<Title>Test</Title>}
-          {<GreyText>2020</GreyText>}
-          {
-            <Tags>
-              <Tag>Action</Tag>
-            </Tags>
-          }
-          {
-            <Rating>
-              <Star />
-              <Rate>7</Rate>
-
-              <GreyText>4000</GreyText>
-            </Rating>
-          }
-        </Content>
-      </Tile>
       {movies.map((movie) => (
         <Tile key={movie.original_title}>
           <ImageBackground>
