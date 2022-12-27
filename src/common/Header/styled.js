@@ -4,7 +4,6 @@ export const StyledHeader = styled.div`
   width: 100%;
   height: 94px;
   background-color: ${({ theme }) => theme.colors.header.background};
-  margin-bottom: 56px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;

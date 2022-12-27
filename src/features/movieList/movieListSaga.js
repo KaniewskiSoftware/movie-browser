@@ -1,5 +1,6 @@
 import { delay, call, put, takeLatest } from "redux-saga/effects";
 import { getGenres, getMovies } from "./movieListAPI";
+import { loadingDelay } from "../../common/states/loadingDelay";
 import {
   fetchMovies,
   fetchMoviesError,
@@ -8,8 +9,6 @@ import {
   fetchGenresError,
   fetchGenresSuccess,
 } from "./movieListSlice";
-
-const loadingDelay = 2000;
 
 function* fetchMoviesHandler() {
   try {
