@@ -8,6 +8,8 @@ const colorNames = {
   blueRibbon: "hsl(220, 100%, 50%)",
   scienceBlue: "#0044CC",
   woodSmoke: "#18181B",
+  stormGray: "#74788B",
+  black: "#000000"
 };
 
 const common = {
@@ -46,5 +48,14 @@ export const theme = {
       buttonHover: colorNames.blueRibbon,
       buttonActive: colorNames.dodgerBlue,
     },
+    backdrop: {
+      background: colorNames.black,
+      text: colorNames.white,
+    },
+    detailsTile: {
+      background: colorNames.white,
+      primaryText: colorNames.black,
+      secondaryText: colorNames.stormGray,
+    }
   },
 };
