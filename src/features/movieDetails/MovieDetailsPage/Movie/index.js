@@ -1,11 +1,9 @@
-import { useParams } from "react-router-dom";
 import { Wrapper } from "../../../../common/Wrapper";
-import styled from "styled-components";
 
 const Movie = () => {
-    return (
-        <Wrapper>
+  
+ 
+  return <Wrapper>1234</Wrapper>;
+};
 
-        </Wrapper>
-    )
-}
+export default Movie;

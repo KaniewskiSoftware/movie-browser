@@ -1,8 +1,10 @@
 import { apiKey } from "../../common/apiData/apiKey";
-import {apiLink} from "../../common/apiData/apiLink";
+import { apiLink } from "../../common/apiData/apiLink";
 
 export const getMovies = async () => {
-  const response = await fetch(`${apiLink}/movie/popular?api_key=${apiKey}&language=en`);
+  const response = await fetch(
+    `${apiLink}/movie/popular?api_key=${apiKey}&language=en`
+  );
 
   if (!response.ok) {
     new Error(response.statusText);
@@ -13,10 +15,10 @@ export const getMovies = async () => {
 
 export const getGenres = async () => {
   const response = await fetch(`${apiLink}/genre/movie/list?api_key=${apiKey}`);
-  
-  if(!response.ok) {
+
+  if (!response.ok) {
     new Error(response.statusText);
   }
 
   return await response.json();
-}
+};
