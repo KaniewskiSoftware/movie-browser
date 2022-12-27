@@ -20,7 +20,6 @@ import {
 const Movies = () => {
   const genres = useSelector(selectGenres);
   const movies = useSelector(selectMovies);
-  console.log(movies);
 
   return (
     <Wrapper>
