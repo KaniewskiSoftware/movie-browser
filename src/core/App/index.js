@@ -12,8 +12,8 @@ function App() {
     <ThemeProvider theme={theme}>
       <Normalize />
       <GlobalStyle />
-      <Header />
       <HashRouter>
+        <Header />
         <Switch>
           <Route path="/movies">
             <MovieListPage />
