@@ -7,6 +7,7 @@ import {
   fetchGenres,
   fetchGenresError,
   fetchGenresSuccess,
+  fetchPage,
 } from "./movieListSlice";
 
 const loadingDelay = 2000;
@@ -19,6 +20,7 @@ function* fetchMoviesHandler() {
 
     const movies = yield call(getMovies);
     yield put(fetchMoviesSuccess(movies.results));
+    yield put (fetchPage(movies.page));
   } catch (error) {
     yield put(fetchMoviesError());
   }
