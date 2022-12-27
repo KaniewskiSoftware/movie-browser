@@ -1,6 +1,6 @@
 const colorNames = {
   white: "#FFFFFF",
-  whisper: "F5F5FA",
+  whisper: "#F5F5FA",
   mystic: "#E4E6F0",
   silver: "#C4C4C4",
   waterloo: "#7E839A",
@@ -8,16 +8,16 @@ const colorNames = {
   blueRibbon: "hsl(220, 100%, 50%)",
   scienceBlue: "#0044CC",
   woodSmoke: "#18181B",
+  stormGray: "#74788B",
+  black: "#000000"
 };
 
 const common = {
   breakpoints: {
     tiny: "467px",
-    small: "540px",
     mobile: "767px",
     medium: "991px",
-    large: "1023px",
-    smallDesktop: "1279px",
+    large: "1081px",
     mediumDesktop: "1440px",
   },
   boxShadow: "0px 4px 12px rgba(186, 199, 213, 0.5)",
@@ -48,5 +48,14 @@ export const theme = {
       buttonHover: colorNames.blueRibbon,
       buttonActive: colorNames.dodgerBlue,
     },
+    backdrop: {
+      background: colorNames.black,
+      text: colorNames.white,
+    },
+    detailsTile: {
+      background: colorNames.white,
+      primaryText: colorNames.black,
+      secondaryText: colorNames.stormGray,
+    }
   },
 };

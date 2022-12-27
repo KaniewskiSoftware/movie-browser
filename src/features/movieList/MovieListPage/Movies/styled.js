@@ -1,68 +1,77 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components";
 import { ReactComponent as star } from "./star.svg";
+import notfound from "./video.svg";
 
-export const Wrapper = styled.section`
+export const MovieLink = styled(Link)`
+display: flex;
+height: 100%;
+text-decoration: none;
+`
+
+export const Tiles = styled.section`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 24px;
-  margin: 0 auto;
-  max-width: 1368px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDesktop}) {
     margin: 0 24px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallDesktop}) {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
     grid-template-columns: repeat(2, 1fr);
     margin: 0 16px;
     grid-gap: 16px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
   }
 `;
 
-export const Image = styled.img`
-  display: block;
+export const ImageBackground = styled.div`
+  display: flex;
+  justify-content: center;
   width: 100%;
-  height: 434px;
-  aspect-ratio: 2/3;
   border-radius: 5px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.smallDesktop}) {
-    max-height: 380px;
-    width: auto;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
-    max-height: 340px;
-  }
+  flex-basis: 434px;
+  background-image: url(${notfound});
+  background-size: 35%;
+  background-repeat: no-repeat;
+  background-position: center;
+ 
+  color: ${({ theme }) => theme.colors.tile.background};
+  background-color: ${({ theme }) => theme.colors.tile.imageBackground};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    max-height: 240px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    width: 40%;
+    max-width: 198px;
+    height: 300px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
     max-width: 114px;
-    max-height: 169px;
+    height: 169px;
   }
 `;
 
+export const Image = styled.img`
+  width: 100%;
+  border-radius: 5px;
+  aspect-ratio: 2/3;
+`;
+
 export const Content = styled.div`
-  height: 100%;
   display: flex;
   flex-direction: column;
+  height: 100%;
   gap: 8px;
   color: ${({ theme }) => theme.colors.primaryText};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 100%;
+  }
 `;
 
 export const Title = styled.h2`

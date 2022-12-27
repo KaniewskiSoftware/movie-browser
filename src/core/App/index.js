@@ -1,11 +1,11 @@
 import { ThemeProvider } from "styled-components";
+import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import { Normalize } from "styled-normalize";
 import { GlobalStyle } from "./GlobalStyle";
 import { theme } from "./theme";
 import MovieListPage from "../../features/movieList/MovieListPage";
 import Header from "../../common/Header";
-import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
-import ErrorPage from "../../common/states/ErrorPage";
+import MovieDetailsPage from "../../features/movieDetails/MovieDetailsPage";
 
 function App() {
   return (
@@ -15,18 +15,18 @@ function App() {
       <HashRouter>
         <Header />
         <Switch>
-          <Route path="/movies">
+          <Route path={"/movies/:id"}>
+            <MovieDetailsPage />
+          </Route>
+          <Route path={"/movies"}>
             <MovieListPage />
           </Route>
-          <Route path="/people">
-            <ErrorPage />
-          </Route>
-          <Route path="/">
+          <Route path={"/"}>
             <Redirect to="/movies" />
           </Route>
         </Switch>
-      </HashRouter>
-    </ThemeProvider>
+      </HashRouter >
+    </ThemeProvider >
   );
 }
 
