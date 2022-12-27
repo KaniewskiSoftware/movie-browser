@@ -11,6 +11,7 @@ export const StyledButton = styled.button`
   border-radius: 5px;
   border: none;
   margin: 0 5px;
+  cursor: pointer;
 `;
 
 export const Title = styled.span`

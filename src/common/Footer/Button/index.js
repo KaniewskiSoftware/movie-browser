@@ -1,7 +1,7 @@
-import { StyledArrow, StyledButton, Title, Wrapper } from "./styled";
+import { StyledArrow, StyledButton, Title } from "./styled";
 
-const Button = ({ title, rotate, reverse }) => (
-  <StyledButton reverse={reverse}>
+const Button = ({ title, rotate, reverse, onClick }) => (
+  <StyledButton onClick={onClick} reverse={reverse}>
     <StyledArrow rotate={rotate} />
     <Title>{title}</Title>
   </StyledButton>
