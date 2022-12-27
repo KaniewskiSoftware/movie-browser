@@ -17,6 +17,9 @@ function App() {
           <Route path={"/movies"}>
             <MovieListPage />
           </Route>
+          <Route path={"/movies/:id"}>
+            <MovieListPage />
+          </Route>
           <Route path={"/"}>
             <Redirect to="/movies" />
           </Route>

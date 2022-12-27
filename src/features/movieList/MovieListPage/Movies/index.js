@@ -26,7 +26,7 @@ const Movies = () => {
     <Wrapper>
       <Tiles>
         {movies.map((movie) => (
-          <MovieLink key={movie.original_title} to={`/movie/${movie.id}`}>
+          <MovieLink key={movie.original_title} to={`/movies/${movie.id}`}>
             <Tile>
               <ImageBackground>
                 {movie.poster_path ? (
