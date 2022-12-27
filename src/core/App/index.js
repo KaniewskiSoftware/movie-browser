@@ -5,6 +5,7 @@ import { GlobalStyle } from "./GlobalStyle";
 import { theme } from "./theme";
 import MovieListPage from "../../features/movieList/MovieListPage";
 import Header from "../../common/Header";
+import MovieDetailsPage from "../../features/movieDetails/MovieDetailsPage";
 
 function App() {
   return (
@@ -14,10 +15,10 @@ function App() {
       <HashRouter>
         <Header />
         <Switch>
-          <Route path={"/movies"}>
-            <MovieListPage />
-          </Route>
           <Route path={"/movies/:id"}>
+            <MovieDetailsPage />
+          </Route>
+          <Route path={"/movies"}>
             <MovieListPage />
           </Route>
           <Route path={"/"}>
