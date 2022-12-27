@@ -1,4 +1,5 @@
 import { ThemeProvider } from "styled-components";
+import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import { Normalize } from "styled-normalize";
 import { GlobalStyle } from "./GlobalStyle";
 import { theme } from "./theme";
@@ -10,8 +11,17 @@ function App() {
     <ThemeProvider theme={theme}>
       <Normalize />
       <GlobalStyle />
-      <Header />
-      <MovieListPage />
+      <HashRouter>
+        <Header />
+        <Switch>
+          <Route path={"/movies"}>
+            <MovieListPage />
+          </Route>
+          <Route path={"/"}>
+            <Redirect to="/movies" />
+          </Route>
+        </Switch>
+      </HashRouter>
     </ThemeProvider>
   );
 }
