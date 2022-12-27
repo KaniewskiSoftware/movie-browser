@@ -6,6 +6,7 @@ const movieListSlice = createSlice({
     status: "loading",
     movies: [],
     genres: null,
+    query: "",
   },
   reducers: {
     fetchMovies: (state) => {
@@ -25,6 +26,10 @@ const movieListSlice = createSlice({
     fetchGenresError: (state) => {
       state.genres = null;
     },
+    isQuery: (state, { poayload: query }) => {
+      state.status = "loading";
+      state.query = query;
+    },
   },
 });
 
@@ -35,6 +40,7 @@ export const {
   fetchGenres,
   fetchGenresError,
   fetchGenresSuccess,
+  isQuery
 } = movieListSlice.actions;
 
 const selectMovieListState = (state) => state.movieList;
