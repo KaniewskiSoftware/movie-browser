@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectGenres, selectMovies } from "../../movieListSlice";
+import { selectGenres, selectMoviesByQuery } from "../../movieListSlice";
 import Tile from "../../../../common/Tile";
 import notfound from "./noposter.png";
 import {
@@ -14,10 +14,15 @@ import {
   Tags,
   Title,
 } from "./styled";
+import { useLocation } from "react-router-dom";
 
 const Movies = () => {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const query = searchParams.get("search");
+
   const genres = useSelector(selectGenres);
-  const movies = useSelector(selectMovies);
+  const movies = useSelector(state => selectMoviesByQuery(state, query));
 
   return (
     <Wrapper>
