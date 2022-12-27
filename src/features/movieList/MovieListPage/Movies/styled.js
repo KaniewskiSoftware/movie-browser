@@ -1,13 +1,18 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components";
 import { ReactComponent as star } from "./star.svg";
 import notfound from "./video.svg";
+
+export const MovieLink = styled(Link)`
+display: flex;
+height: 100%;
+text-decoration: none;
+`
 
 export const Tiles = styled.section`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 24px;
-  margin: 0 auto;
-  max-width: 1368px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDesktop}) {
     margin: 0 24px;

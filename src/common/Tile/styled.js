@@ -13,5 +13,6 @@ export const Container = styled.article`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     flex-direction: row;
     align-items: center;
+    width: 100%;
   }
 `;
