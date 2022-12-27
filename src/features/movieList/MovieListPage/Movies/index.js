@@ -20,13 +20,14 @@ import {
 const Movies = () => {
   const genres = useSelector(selectGenres);
   const movies = useSelector(selectMovies);
+  console.log(movies);
 
   return (
     <Wrapper>
       <Tiles>
         {movies.map((movie) => (
-          <MovieLink>
-            <Tile key={movie.original_title}>
+          <MovieLink key={movie.original_title} to={`/movie/${movie.id}`}>
+            <Tile>
               <ImageBackground>
                 {movie.poster_path ? (
                   <Image
