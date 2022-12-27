@@ -6,11 +6,11 @@ import Navigation from "../../features/navigation/Navigation";
 const Header = () => (
   <StyledHeader>
     <Wrapper>
-    <Logo src={png} />
+    <Logo src={png} alt=""/>
     <Navigation/>
     </Wrapper>
     <InputWrapper>
-    <Loupe src={svg}/>
+    <Loupe src={svg} alt=""/>
     <Input placeholder="Search for movies..."></Input>
     </InputWrapper>
   </StyledHeader>

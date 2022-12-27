@@ -9,8 +9,9 @@ export const Container = styled.article`
   box-shadow: ${({ theme }) => theme.boxShadow};
   background-color: ${({ theme }) => theme.colors.tile.background};
   color: ${({ theme }) => theme.colors.primaryText};
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     flex-direction: row;
+    align-items: center;
   }
 `;

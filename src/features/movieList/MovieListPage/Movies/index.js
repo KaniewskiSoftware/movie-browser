@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
 import { selectGenres, selectMovies } from "../../movieListSlice";
 import Tile from "../../../../common/Tile";
-import notfound from "./noposter.png";
 import {
   GreyText,
-  Wrapper,
+  Tiles,
   Content,
+  ImageBackground,
   Image,
   Rate,
   Rating,
@@ -20,17 +20,19 @@ const Movies = () => {
   const movies = useSelector(selectMovies);
 
   return (
-    <Wrapper>
+    <Tiles>
       {movies.map((movie) => (
         <Tile key={movie.original_title}>
-          {movie.poster_path ? (
-            <Image
-              src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-              alt=""
-            />
-          ) : (
-            <Image src={notfound} alt="" />
-          )}
+          <ImageBackground>
+            {movie.poster_path ? (
+              <Image
+                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                alt=""
+              />
+            ) : (
+              <Image />
+            )}
+          </ImageBackground>
           <Content>
             {movie.original_title && <Title>{movie.original_title}</Title>}
             {movie.release_date && (
@@ -59,7 +61,7 @@ const Movies = () => {
           </Content>
         </Tile>
       ))}
-    </Wrapper>
+    </Tiles>
   );
 };
 
