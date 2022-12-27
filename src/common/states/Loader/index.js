@@ -7,7 +7,7 @@ const Loader = () => {
 
     return (
         <Wrapper>
-            <Header title={"Search results for ?{query}"} />
+            <Header title={!query ? "" : `Search results for ${query}`} />
             <SpinnerBox>
                 <Spinner />
             </SpinnerBox>
