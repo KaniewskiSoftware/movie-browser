@@ -3,6 +3,7 @@ import { selectGenres, selectMoviesByQuery } from "../../movieListSlice";
 import Tile from "../../../../common/Tile";
 import { Wrapper } from "../../../../common/Wrapper";
 import { searchQueryParamName, useQueryParameter } from "../../../../common/Header/Search/queryParameters";
+import NoResults from "../../../../common/states/NoResults";
 import {
   GreyText,
   Tiles,
@@ -17,14 +18,16 @@ import {
   Title,
   MovieLink,
 } from "./styled";
+import SearchTitle from "../../../../common/states/SearchTitle";
 
 const Movies = () => {
   const query = useQueryParameter(searchQueryParamName)
   const genres = useSelector(selectGenres);
   const movies = useSelector(state => selectMoviesByQuery(state, query));
 
-  return (
+  return movies.length === 0 ? <NoResults /> : (
     <Wrapper>
+      <SearchTitle title={!query ? "" : `Search results for "${query}" (${movies.length})`} />
       <Tiles>
         {movies.map((movie) => (
           <MovieLink key={movie.original_title} to={`/movies/${movie.id}`}>
