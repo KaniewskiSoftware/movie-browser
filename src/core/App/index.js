@@ -5,7 +5,6 @@ import { GlobalStyle } from "./GlobalStyle";
 import { theme } from "./theme";
 import MovieListPage from "../../features/movieList/MovieListPage";
 import Header from "../../common/Header";
-import Footer from "../../common/Footer";
 import MovieDetailsPage from "../../features/movieDetails/MovieDetailsPage";
 
 function App() {

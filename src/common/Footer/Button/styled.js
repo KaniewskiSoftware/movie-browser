@@ -1,5 +1,6 @@
 import { ReactComponent as Arrow } from "./back_arrow.svg";
 import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 
 export const StyledButton = styled.button`
   display: flex;
@@ -13,6 +14,9 @@ export const StyledButton = styled.button`
   margin: 0 5px;
   cursor: pointer;
 `;
+// export const StyledLink = styled(Link)`
+
+// `;
 
 export const Title = styled.span`
   font-weight: 400;

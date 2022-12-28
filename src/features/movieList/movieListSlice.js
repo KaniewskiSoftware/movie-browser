@@ -26,9 +26,9 @@ const movieListSlice = createSlice({
     fetchGenresError: (state) => {
       state.genres = null;
     },
-    fetchPage: (state, {payload: page}) => {
-      state.page = page;
-    }
+    // setPage: (state, {payload: page}) => {
+    //   state.page = page;
+    // }
   },
 });
 
@@ -39,7 +39,7 @@ export const {
   fetchGenres,
   fetchGenresError,
   fetchGenresSuccess,
-  fetchPage,
+  setPage,
 } = movieListSlice.actions;
 
 const selectMovieListState = (state) => state.movieList;

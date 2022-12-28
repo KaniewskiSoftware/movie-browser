@@ -4,31 +4,42 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 import { Pagination } from "@mui/material";
-import { useSelector } from "react-redux";
-import { selectPage } from "../../features/movieList/movieListSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectPage, setPage } from "../../features/movieList/movieListSlice";
 import Button from "./Button";
 import { Wrapper } from "./styled";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const Footer = () => {
-  const page = useSelector(selectPage);
-  console.log(page);
+  const dispatch = useDispatch();
 
-  const [counter, setCounter] = useState(1);
+  const [currentPage, setCurrnetPage] = useState(1);
 
   // useEffect(()=>{
   //   dispatch(setPage(counter))
-  // },[counter])
+  // },[counter, dispatch])
+  
+  const firstPage = () => {
+    setCurrnetPage(1);
+  };
+  const nextPage = () => {
+    if (currentPage < 500) setCurrnetPage(currentPage + 1);
+  };
+  const prevPage = () => {
+    if (currentPage !== 1) setCurrnetPage(currentPage - 1);
+  };
+  const lastPage =() => {
+    setCurrnetPage(500);
+  };
 
   return (
     <Wrapper>
-      <Button onClick={() => setCounter(1)} title="First" />
-      <Button onClick={() => setCounter(counter - 1)} title="Previous" />
-      <p>Page {page} of 500</p>
-      <p> counter {counter}</p>
-      <Button onClick={() => setCounter(counter + 1)} rotate title="Next" />
-      <Button onClick={() => setCounter(500)} rotate title="Last" />
+      <Button onClick={firstPage} title="First" />
+      <Button onClick={prevPage} title="Previous" />
+      <p>Page {currentPage} of 500</p>
+      <Button onClick={nextPage} rotate title="Next" />
+      <Button onClick={lastPage} rotate title="Last" />
     </Wrapper>
   );
 };

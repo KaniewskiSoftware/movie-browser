@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { selectGenres, selectMovies } from "../../movieListSlice";
 import Tile from "../../../../common/Tile";
 import { Wrapper } from "../../../../common/Wrapper";
+import Footer from "../../../../common/Footer";
 import {
   GreyText,
   Tiles,
@@ -22,6 +23,7 @@ const Movies = () => {
   const movies = useSelector(selectMovies);
 
   return (
+    <>
     <Wrapper>
       <Tiles>
         {movies.map((movie) => (
@@ -68,6 +70,8 @@ const Movies = () => {
         ))}
       </Tiles>
     </Wrapper>
+    <Footer/>
+    </>
   );
 };
 
