@@ -13,6 +13,7 @@ const PageTitle = styled.div`
         font-weight: 500;
         margin-top: 24px;
         margin-bottom: 12px;
+        padding-left: 16px;
     };
 `;
 
