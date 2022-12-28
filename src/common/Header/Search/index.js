@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { fetchMovies, isQuery } from "../../../features/movieList/movieListSlice";
+import { loadingDelay } from "../../states/loadingDelay";
 import { searchQueryParamName, useQueryParameter, useReplaceQueryParameter } from "./queryParameters";
 import svg from "./Search.svg"
 import { Input, InputWrapper, Loupe } from "./styled";
@@ -17,7 +18,7 @@ const Search = () => {
         });
         setTimeout(() => {
             dispatch(fetchMovies());
-        }, 1000);
+        }, loadingDelay);
     };
 
     return (
