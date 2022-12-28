@@ -10,7 +10,7 @@ const SpinnerBox = styled.div`
   display: grid;
   justify-content: center;
   align-items: center;
-  margin-top: ${({ hasTitle }) => hasTitle ? '120px' : '219px'};
+  margin-top: ${({ hasTitle }) => hasTitle ? '96px' : '219px'};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     margin-top: 24px;

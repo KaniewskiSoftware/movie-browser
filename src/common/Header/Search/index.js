@@ -14,7 +14,8 @@ const Search = () => {
         replaceQueryParameter({
             key: searchQueryParamName,
             value: target.value.trim() !== "" ? target.value : undefined,
-        }); setTimeout(() => {
+        });
+        setTimeout(() => {
             dispatch(fetchMovies());
         }, 1000);
     };

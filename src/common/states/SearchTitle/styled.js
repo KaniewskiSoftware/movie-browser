@@ -5,6 +5,7 @@ const PageTitle = styled.div`
     font-size: 36px;
     line-height: 120%;
     margin-top: 56px;
+    margin-bottom: 24px;
     color: ${({ theme }) => theme.colors.primaryText};
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {

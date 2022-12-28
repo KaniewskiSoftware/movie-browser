@@ -1,7 +1,7 @@
 import { PageTitle } from "./styled";
 
-const Header = ({ title }) => (
+const SearchTitle = ({ title }) => (
     <PageTitle>{title}</PageTitle>
 );
 
-export default Header;
+export default SearchTitle;
