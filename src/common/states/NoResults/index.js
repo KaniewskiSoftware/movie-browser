@@ -1,13 +1,13 @@
 import { Plane, PlaneBox, Wrapper } from "./styled";
-import Header from "../Header";
-import { useQueryParameter } from "../../Header/Search/queryParameters";
+import SearchTitle from "../SearchTitle";
+import { searchQueryParamName, useQueryParameter } from "../../Header/Search/queryParameters";
 
 const NoResults = () => {
-    const query = useQueryParameter();
+    const query = useQueryParameter(searchQueryParamName);
 
     return (
         <Wrapper>
-            <Header title={`Sorry, there are no results for ${query}`} />
+            <SearchTitle title={`Sorry, there are no results for "${query}"`} />
             <PlaneBox>
                 <Plane />
             </PlaneBox>
