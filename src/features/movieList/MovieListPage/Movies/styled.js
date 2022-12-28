@@ -15,13 +15,11 @@ export const Tiles = styled.section`
   grid-gap: 24px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDesktop}) {
-    margin: 0 24px;
     grid-template-columns: repeat(3, 1fr);
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
     grid-template-columns: repeat(2, 1fr);
-    margin: 0 16px;
     grid-gap: 16px;
   }
 
@@ -102,33 +100,6 @@ export const GreyText = styled.p`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
     font-size: 13px;
-  }
-`;
-
-export const Tags = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-`;
-
-export const Tag = styled.div`
-  padding: 8px 16px;
-  font-size: 14px;
-  border-radius: 5px;
-  line-height: 1.4;
-  font-weight: 400;
-  background-color: ${({ theme }) => theme.colors.tile.tagBackground};
-  text-align: center;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    font-size: 12px;
-    padding: 6px 12px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
-    padding: 4px 8px;
-    line-height: 1.1;
-    font-size: 10px;
   }
 `;
 
