@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { ReactComponent as star } from "./star.svg";
 import notfound from "../../../../common/images/camera.svg";
+import profile from "../../../../common/images/profile.svg";
 
 export const Background = styled.section`
   display: flex;
@@ -122,7 +123,7 @@ export const ImageBackground = styled.div`
   background-size: 35%;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: ${({theme} )=> theme.colors.detailsTile.backgroundImage};
+  background-color: ${({ theme }) => theme.colors.detailsTile.backgroundImage};
 `;
 
 export const Image = styled.img`
@@ -186,6 +187,7 @@ export const Description = styled.p`
 
 export const Container = styled.section`
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
 `;
 
@@ -199,7 +201,8 @@ export const SubHeader = styled.h2`
 
 export const Tiles = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(1fr, 208px));
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 208px);
   grid-gap: 24px;
 `;
 
@@ -207,6 +210,50 @@ export const Tile = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
+  background-color: ${({theme}) => theme.colors.detailsTile.background} ;
+  padding: 16px;
+  gap: 8px;
 `;
 
-export const Portrait = styled.img``;
+export const PortraitBackground = styled.div`
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 100%;
+  height: 264px;
+  border-radius: 5px;
+  background-image: url(${profile});
+  background-size: 35%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: ${({ theme }) => theme.colors.detailsTile.backgroundImage};
+`;
+
+export const Portrait = styled.img`
+  max-width: 177px;
+  border-radius: 5px;
+  height: 100%;
+`;
+
+export const Storage = styled.div`
+display: flex;
+flex-direction: column;
+text-align: center;
+word-wrap: wrap;
+`
+export const FullName = styled.p`
+  margin: 0;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.3;
+  color: ${({ theme }) => theme.colors.primaryText};
+`;
+
+export const Role = styled.p`
+  margin: 0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: ${({ theme }) => theme.colors.credits.role};
+`;

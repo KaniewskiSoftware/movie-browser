@@ -57,6 +57,10 @@ export const theme = {
       primaryText: colorNames.black,
       secondaryText: colorNames.stormGray,
       backgroundImage: colorNames.silver,
+    },
+    credits: {
+      fullName: colorNames.woodSmoke,
+      role: colorNames.waterloo,
     }
   },
 };
