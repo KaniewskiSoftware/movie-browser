@@ -1,9 +1,13 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Tags = styled.div`
 display: flex;
 flex-wrap: wrap;
 gap: 8px;
+
+${({details}) => details && css`
+gap: 16px
+`}
 `;
 
 export const Tag = styled.div`

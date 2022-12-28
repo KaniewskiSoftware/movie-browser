@@ -17,7 +17,11 @@ import {
   PropertyText,
   Property,
   Properties,
+  TextBox,
+  Description,
+  MiniStar,
 } from "./styled";
+import { Tag, Tags } from "../../../../common/Tags/index";
 
 const Movie = () => {
   const movieDetails = useSelector(selectMovieDetails);
@@ -30,8 +34,10 @@ const Movie = () => {
           <Title>{movieDetails.original_title}</Title>
           <Rating>
             <Star />
-            <Rate>{movieDetails.vote_average.toFixed(1)}</Rate>
-            <SmallText>/10</SmallText>
+            <TextBox>
+              <Rate>{movieDetails.vote_average.toFixed(1)}</Rate>
+              <SmallText>/ 10</SmallText>
+            </TextBox>
           </Rating>
           <SmallText>{movieDetails.vote_count} votes</SmallText>
         </Backdrop>
@@ -60,6 +66,24 @@ const Movie = () => {
                 <PropertyText>{movieDetails.release_date}</PropertyText>
               </Property>
             </Properties>
+            {movieDetails.genres && (
+              <Tags details>
+                {movieDetails.genres.map((genre) => (
+                  <Tag key={genre.id}>{genre.name}</Tag>
+                ))}
+              </Tags>
+            )}
+            <Rating tile>
+              <MiniStar />
+              <TextBox>
+                <Rate tile>{movieDetails.vote_average.toFixed(1)}</Rate>
+                <SmallText tile>/ 10</SmallText>
+                <SmallText tile last>
+                  {movieDetails.vote_count} votes
+                </SmallText>
+              </TextBox>
+            </Rating>
+            <Description>{movieDetails.overview}</Description>
           </Content>
         </DetailsTile>
       </Wrapper>

@@ -15,7 +15,6 @@ export const Backdrop = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   padding-bottom: 56px;
-  margin-left: 20px;
   width: 63%;
   max-width: 1368px;
   height: 100%;
@@ -49,12 +48,11 @@ export const Rating = styled.div`
 export const Star = styled(star)`
   width: 40px;
   height: auto;
+`;
 
-  ${({ tile }) =>
-    tile &&
-    css`
-      width: 24px;
-    `}
+export const MiniStar = styled(star)`
+  width: 24px;
+  height: auto;
 `;
 
 export const Rate = styled.p`
@@ -63,17 +61,37 @@ export const Rate = styled.p`
   font-size: 30px;
   line-height: 1.3;
   position: relative;
+
+  ${({ tile }) =>
+    tile &&
+    css`
+      font-size: 22px;
+    `}
 `;
 
 export const TextBox = styled.div`
   display: flex;
-  align-items: flex-end;
+  align-items: baseline;
+  gap: 8px;
 `;
+
 export const SmallText = styled.p`
   margin: 0;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.2;
+
+  ${({ tile }) =>
+    tile &&
+    css`
+      font-size: 14px;
+    `}
+
+  ${({ last }) =>
+    last &&
+    css`
+      margin-left: 4px;
+    `}
 `;
 
 export const DetailsTile = styled.section`
@@ -90,6 +108,7 @@ export const Image = styled.img`
   width: 100%;
   max-width: 312px;
   border-radius: 5px;
+  align-self: center;
 `;
 
 export const Content = styled.div`
@@ -136,4 +155,11 @@ export const PropertyText = styled.p`
       color: ${({ theme }) => theme.colors.detailsTile.secondaryText};
       margin-right: 8px;
     `}
+`;
+
+export const Description = styled.p`
+  margin: 0;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.6;
 `;
