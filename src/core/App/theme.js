@@ -56,6 +56,7 @@ export const theme = {
       background: colorNames.white,
       primaryText: colorNames.black,
       secondaryText: colorNames.stormGray,
+      backgroundImage: colorNames.silver,
     }
   },
 };

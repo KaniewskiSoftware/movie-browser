@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { ReactComponent as star } from "./star.svg";
+import notfound from "../../../../common/images/camera.svg";
 
 export const Background = styled.section`
   display: flex;
@@ -94,21 +95,40 @@ export const SmallText = styled.p`
     `}
 `;
 
+export const DetailsWrapper = styled.div`
+  display: grid;
+  margin-top: 64px;
+  grid-gap: 64px;
+`;
+
 export const DetailsTile = styled.section`
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-gap: 40px;
+  gap: 40px;
   padding: 40px;
-  margin-top: 56px;
   background-color: ${({ theme }) => theme.colors.detailsTile.background};
   box-shadow: ${({ theme }) => theme.boxShadow};
 `;
 
+export const ImageBackground = styled.div`
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 312px;
+  height: 100%;
+  max-height: 464px;
+  border-radius: 5px;
+  background-image: url(${notfound});
+  background-size: 35%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: ${({theme} )=> theme.colors.detailsTile.backgroundImage};
+`;
+
 export const Image = styled.img`
   width: 100%;
-  max-width: 312px;
+  aspect-ratio: 2/3;
   border-radius: 5px;
-  align-self: center;
 `;
 
 export const Content = styled.div`
@@ -163,3 +183,30 @@ export const Description = styled.p`
   font-size: 20px;
   line-height: 1.6;
 `;
+
+export const Container = styled.section`
+  display: flex;
+  justify-content: flex-start;
+`;
+
+export const SubHeader = styled.h2`
+  margin: 0;
+  margin-bottom: 32px;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 1.2;
+`;
+
+export const Tiles = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(1fr, 208px));
+  grid-gap: 24px;
+`;
+
+export const Tile = styled.article`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const Portrait = styled.img``;

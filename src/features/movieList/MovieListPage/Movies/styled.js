@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import styled from "styled-components";
 import { ReactComponent as star } from "./star.svg";
-import notfound from "./video.svg";
+import notfound from "../../../../common/images/camera.svg";
 
 export const MovieLink = styled(Link)`
 display: flex;
