@@ -12,6 +12,7 @@ const PageTitle = styled.div`
         font-size: 14px;
         font-weight: 500;
         margin-top: 24px;
+        margin-bottom: 12px;
     };
 `;
 

@@ -13,7 +13,7 @@ const SpinnerBox = styled.div`
   margin-top: ${({ hasTitle }) => hasTitle ? '96px' : '219px'};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    margin-top: 24px;
+    margin-top: ${({ hasTitle }) => hasTitle ? '12px' : '66px'};
   };
 `;
 
