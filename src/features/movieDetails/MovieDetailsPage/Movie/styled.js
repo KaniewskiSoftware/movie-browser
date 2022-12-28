@@ -202,26 +202,24 @@ export const SubHeader = styled.h2`
 export const Tiles = styled.div`
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, 208px);
+  grid-template-columns: repeat(auto-fit, minmax(208px, 1fr));
   grid-gap: 24px;
 `;
 
 export const Tile = styled.article`
   display: flex;
   flex-direction: column;
-  align-items: center;
   height: 100%;
-  background-color: ${({theme}) => theme.colors.detailsTile.background} ;
+  min-height: 208px;
+  background-color: ${({ theme }) => theme.colors.detailsTile.background};
   padding: 16px;
   gap: 8px;
 `;
 
 export const PortraitBackground = styled.div`
-  display: flex;
-  justify-content: center;
-  align-self: center;
   width: 100%;
-  height: 264px;
+  min-height: 264px;
+  height: 100%;
   border-radius: 5px;
   background-image: url(${profile});
   background-size: 35%;
@@ -231,17 +229,20 @@ export const PortraitBackground = styled.div`
 `;
 
 export const Portrait = styled.img`
-  max-width: 177px;
+  width: 100%;
+  min-height: 264px;
   border-radius: 5px;
   height: 100%;
+  aspect-ratio: 2/3;
 `;
 
 export const Storage = styled.div`
-display: flex;
-flex-direction: column;
-text-align: center;
-word-wrap: wrap;
-`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  word-wrap: wrap;
+  height: 100%;
+`;
 export const FullName = styled.p`
   margin: 0;
   font-weight: 500;
