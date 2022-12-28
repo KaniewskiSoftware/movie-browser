@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovies, selectStatus } from "../movieListSlice";
+import { fetchMovies, selectPage, selectStatus } from "../movieListSlice";
 import ErrorPage from "../../../common/states/ErrorPage";
 import Loader from "../../../common/states/Loader";
 import { useEffect } from "react";
@@ -9,10 +9,11 @@ const MovieListPage = () => {
   const dispatch = useDispatch();
 
   const status = useSelector(selectStatus);
+  const page = useSelector(selectPage);
 
   useEffect(() => {
     dispatch(fetchMovies());
-  }, [dispatch]);
+  }, [dispatch, page]);
 
   return {
     loading: <Loader />,

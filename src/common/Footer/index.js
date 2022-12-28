@@ -16,10 +16,11 @@ const Footer = () => {
 
   const [currentPage, setCurrnetPage] = useState(1);
 
-  // useEffect(()=>{
-  //   dispatch(setPage(counter))
-  // },[counter, dispatch])
-  
+  useEffect(()=>{
+    dispatch(setPage(currentPage))
+    console.log(currentPage);
+  },[currentPage, dispatch])
+
   const firstPage = () => {
     setCurrnetPage(1);
   };
