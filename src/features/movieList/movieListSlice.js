@@ -42,6 +42,5 @@ const selectMovieListState = (state) => state.movieList;
 export const selectStatus = (state) => selectMovieListState(state).status;
 export const selectMovies = (state) => selectMovieListState(state).movies;
 export const selectGenres = (state) => selectMovieListState(state).genres;
-export const selectIsGenres = (state) => selectMovieListState(state).isGenres;
 
 export default movieListSlice.reducer;

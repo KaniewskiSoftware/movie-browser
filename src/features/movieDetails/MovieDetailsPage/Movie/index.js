@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { Wrapper } from "../../../../common/Wrapper";
-import { selectMovieDetails } from "../../movieDetailsSlice";
+import { selectCredits, selectMovieDetails } from "../../movieDetailsSlice";
 import {
   Backdrop,
   Background,
@@ -30,7 +30,9 @@ import { Tag, Tags } from "../../../../common/Tags/index";
 
 const Movie = () => {
   const movieDetails = useSelector(selectMovieDetails);
+  const credits = useSelector(selectCredits);
   console.log(movieDetails);
+  console.log(credits);
 
   return (
     <>
