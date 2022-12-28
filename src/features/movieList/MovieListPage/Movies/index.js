@@ -2,8 +2,7 @@ import { useSelector } from "react-redux";
 import { selectGenres, selectMoviesByQuery } from "../../movieListSlice";
 import Tile from "../../../../common/Tile";
 import { Wrapper } from "../../../../common/Wrapper";
-import { useQueryParameter } from "../../../../common/Header/Search/queryParameters";
-import searchQueryParamName from "../../../../common/Header/Search/searchQueryParamName";
+import { searchQueryParamName, useQueryParameter } from "../../../../common/Header/Search/queryParameters";
 import {
   GreyText,
   Tiles,
