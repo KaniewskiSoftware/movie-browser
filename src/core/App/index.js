@@ -6,6 +6,7 @@ import { theme } from "./theme";
 import MovieListPage from "../../features/movieList/MovieListPage";
 import Header from "../../common/Header";
 import MovieDetailsPage from "../../features/movieDetails/MovieDetailsPage";
+import Footer from "../../common/Footer";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           </Route>
           <Route path={"/movies"}>
             <MovieListPage />
+            <Footer/>
           </Route>
           <Route path={"/"}>
             <Redirect to="/movies" />

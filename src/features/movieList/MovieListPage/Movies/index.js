@@ -23,7 +23,6 @@ const Movies = () => {
   const movies = useSelector(selectMovies);
 
   return (
-    <>
     <Wrapper>
       <Tiles>
         {movies.map((movie) => (
@@ -70,8 +69,6 @@ const Movies = () => {
         ))}
       </Tiles>
     </Wrapper>
-    <Footer/>
-    </>
   );
 };
 
