@@ -38,10 +38,12 @@ export const Rating = styled.div`
   gap: 8px;
   align-items: center;
 
-  ${({ tile }) => tile && css`
-  margin: 0;
-  gap: 16px;
-  `}
+  ${({ tile }) =>
+    tile &&
+    css`
+      margin: 0;
+      gap: 16px;
+    `}
 `;
 
 export const Star = styled(star)`
@@ -106,6 +108,7 @@ export const TileTitle = styled.h1`
 `;
 
 export const Year = styled.p`
+  margin: 0;
   font-weight: 400;
   font-size: 22px;
   line-height: 1.2;
