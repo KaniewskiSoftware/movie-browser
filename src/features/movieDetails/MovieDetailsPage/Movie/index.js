@@ -15,6 +15,8 @@ import {
   TileTitle,
   Year,
   PropertyText,
+  Property,
+  Properties,
 } from "./styled";
 
 const Movie = () => {
@@ -34,6 +36,7 @@ const Movie = () => {
           <SmallText>{movieDetails.vote_count} votes</SmallText>
         </Backdrop>
       </Background>
+
       <Wrapper>
         <DetailsTile>
           <Image
@@ -42,7 +45,21 @@ const Movie = () => {
           <Content>
             <TileTitle>{movieDetails.original_title}</TileTitle>
             <Year>{movieDetails.release_date.slice(0, 4)}</Year>
-            <PropertyText>Production:</PropertyText>
+            <Properties>
+              <Property>
+                <PropertyText entitled>Production:</PropertyText>
+                {movieDetails.production_countries.map((country, index) => (
+                  <PropertyText key={country.name}>
+                    {index > 0 && ", "}
+                    {country.name}
+                  </PropertyText>
+                ))}
+              </Property>
+              <Property>
+                <PropertyText entitled>Release date:</PropertyText>
+                <PropertyText>{movieDetails.release_date}</PropertyText>
+              </Property>
+            </Properties>
           </Content>
         </DetailsTile>
       </Wrapper>

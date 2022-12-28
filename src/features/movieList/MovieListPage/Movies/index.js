@@ -11,11 +11,10 @@ import {
   Rate,
   Rating,
   Star,
-  Tag,
-  Tags,
   Title,
   MovieLink,
 } from "./styled";
+import { Tag, Tags } from "../../../../common/Tags";
 
 const Movies = () => {
   const genres = useSelector(selectGenres);

@@ -37,11 +37,22 @@ export const Rating = styled.div`
   margin-bottom: 16px;
   gap: 8px;
   align-items: center;
+
+  ${({ tile }) => tile && css`
+  margin: 0;
+  gap: 16px;
+  `}
 `;
 
 export const Star = styled(star)`
   width: 40px;
   height: auto;
+
+  ${({ tile }) =>
+    tile &&
+    css`
+      width: 24px;
+    `}
 `;
 
 export const Rate = styled.p`
@@ -100,21 +111,26 @@ export const Year = styled.p`
   line-height: 1.2;
 `;
 
-export const Property = styled.div`
+export const Properties = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 8px;
 `;
+
+export const Property = styled.div`
+  display: flex;
+`;
+
 export const PropertyText = styled.p`
   margin: 0;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.2;
-  color: ${({ theme }) => theme.colors.detailsTile.secondaryText};
 
-  ${({ name }) =>
-    name &&
+  ${({ entitled }) =>
+    entitled &&
     css`
-      color: ${({ theme }) => theme.colors.detailsTile.primaryText};
+      color: ${({ theme }) => theme.colors.detailsTile.secondaryText};
       margin-right: 8px;
     `}
 `;
