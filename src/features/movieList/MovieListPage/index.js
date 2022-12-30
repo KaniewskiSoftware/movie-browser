@@ -1,17 +1,24 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovies, selectPage, selectStatus } from "../movieListSlice";
+import { fetchMovies, selectPage, selectStatus, setPage } from "../movieListSlice";
 import ErrorPage from "../../../common/states/ErrorPage";
 import Loader from "../../../common/states/Loader";
 import { useEffect } from "react";
 import Movies from "./Movies";
+import { useQueryParameter } from "../../../common/Footer/queryParameters";
 
 const MovieListPage = () => {
   const dispatch = useDispatch();
 
   const status = useSelector(selectStatus);
-  const page = useSelector(selectPage);
+  const page = +useQueryParameter("page");
 
   useEffect(() => {
+    if(!page){
+      dispatch(setPage(1))
+      }
+      else {
+       dispatch(setPage(page)) 
+    }
     dispatch(fetchMovies());
   }, [dispatch, page]);
 

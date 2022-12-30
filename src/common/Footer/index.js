@@ -1,44 +1,37 @@
-import PaginationItem from "@mui/material/PaginationItem";
-import Stack from "@mui/material/Stack";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-
-import { Pagination } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { selectPage, setPage } from "../../features/movieList/movieListSlice";
 import Button from "./Button";
 import { Wrapper } from "./styled";
-import { Link, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useQueryParameter, useReplaceQueryParameter } from "./queryParameters";
 
 const Footer = () => {
-  const dispatch = useDispatch();
+  const queryparam = +useQueryParameter("page");
+  const page = queryparam ? queryparam : 1;
 
-  const [currentPage, setCurrnetPage] = useState(1);
-
-  useEffect(()=>{
-    dispatch(setPage(currentPage))
-    console.log(currentPage);
-  },[currentPage, dispatch])
+  const replaceQueryParameter = useReplaceQueryParameter();
+  const setPage = (page) => {
+    replaceQueryParameter({
+      key: "page",
+      value: page,
+    });
+  };
 
   const firstPage = () => {
-    setCurrnetPage(1);
+    setPage(1);
   };
   const nextPage = () => {
-    if (currentPage < 500) setCurrnetPage(currentPage + 1);
+    if (page < 500) setPage(page + 1);
   };
   const prevPage = () => {
-    if (currentPage !== 1) setCurrnetPage(currentPage - 1);
+    if (page !== 1) setPage(page - 1);
   };
-  const lastPage =() => {
-    setCurrnetPage(500);
+  const lastPage = () => {
+    setPage(500);
   };
 
   return (
     <Wrapper>
       <Button onClick={firstPage} title="First" />
       <Button onClick={prevPage} title="Previous" />
-      <p>Page {currentPage} of 500</p>
+      <p>Page {page} of 500</p>
       <Button onClick={nextPage} rotate title="Next" />
       <Button onClick={lastPage} rotate title="Last" />
     </Wrapper>
