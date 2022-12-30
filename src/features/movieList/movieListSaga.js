@@ -12,6 +12,7 @@ import {
 } from "./movieListSlice";
 
 function* fetchMoviesHandler() {
+  const query = yield select(selectQuery);
   try {
     yield delay(loadingDelay); //for loader demo purpose
 
