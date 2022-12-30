@@ -2,8 +2,7 @@ import { useSelector } from "react-redux";
 import { selectGenres, selectMovies } from "../../movieListSlice";
 import Tile from "../../../../common/Tile";
 import { Wrapper } from "../../../../common/Wrapper";
-import { searchQueryParamName, useQueryParameter } from "../../../../common/Header/Search/queryParameters";
-import NoResults from "../../../../common/states/NoResults";
+import Footer from "../../../../common/Footer";
 import {
   GreyText,
   Tiles,
@@ -26,7 +25,7 @@ const Movies = () => {
   const movies = useSelector(selectMovies);
 
   return movies.length === 0 ? <NoResults /> : (
-    <Wrapper>
+    <><Wrapper>
       <SearchTitle title={!query ? "" : `Search results for "${query}" (${movies.length})`} />
       <Tiles>
         {movies.map((movie) => (
@@ -73,6 +72,8 @@ const Movies = () => {
         ))}
       </Tiles>
     </Wrapper>
+      <Footer />
+    </>
   );
 };
 

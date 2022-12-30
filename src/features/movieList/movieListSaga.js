@@ -8,7 +8,7 @@ import {
   fetchGenres,
   fetchGenresError,
   fetchGenresSuccess,
-  selectQuery,
+  selectPage,
 } from "./movieListSlice";
 
 function* fetchMoviesHandler() {
@@ -17,10 +17,11 @@ function* fetchMoviesHandler() {
     yield delay(loadingDelay); //for loader demo purpose
 
     yield put(fetchGenres());
+    const page = yield select(selectPage);
 
-    const data = yield call(getMovies, query);
-    const movies = data;
+    const movies = yield call(getMovies, page);
     yield put(fetchMoviesSuccess(movies.results));
+
   } catch (error) {
     yield put(fetchMoviesError());
   }

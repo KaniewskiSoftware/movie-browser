@@ -1,9 +1,9 @@
 import { apiKey } from "../../common/apiData/apiKey";
 import { apiLink } from "../../common/apiData/apiLink";
 
-const getPopularMovies = async () => {
+export const getMovies = async () => {
   const response = await fetch(
-    `${apiLink}/movie/popular?api_key=${apiKey}&language=en`
+    `${apiLink}/movie/popular?api_key=${apiKey}&page=${page}&language=en`
   );
 
   if (!response.ok) {
