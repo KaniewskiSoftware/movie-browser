@@ -44,6 +44,10 @@ export const Rating = styled.div`
     css`
       margin: 0;
       gap: 16px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        margin-top: auto;
+      }
     `}
 `;
 
@@ -102,13 +106,19 @@ export const DetailsWrapper = styled.div`
   grid-gap: 64px;
 `;
 
-export const DetailsTile = styled.section`
+export const DetailsTile = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 40px;
   padding: 40px;
   background-color: ${({ theme }) => theme.colors.detailsTile.background};
   box-shadow: ${({ theme }) => theme.boxShadow};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    grid-template-areas:
+      "image content content"
+      "description description description";
+  }
 `;
 
 export const ImageBackground = styled.div`
@@ -116,7 +126,6 @@ export const ImageBackground = styled.div`
   justify-content: center;
   align-self: center;
   width: 312px;
-  height: 100%;
   max-height: 464px;
   border-radius: 5px;
   background-image: url(${notfound});
@@ -124,6 +133,11 @@ export const ImageBackground = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-color: ${({ theme }) => theme.colors.detailsTile.backgroundImage};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    grid-area: image;
+    width: 248px;
+  }
 `;
 
 export const Image = styled.img`
@@ -138,6 +152,11 @@ export const Content = styled.div`
   padding: 8px 0 8px;
   gap: 24px;
   color: ${({ theme }) => theme.colors.detailsTile.primaryText};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    grid-area: content;
+    height: 100%;
+  }
 `;
 
 export const TileTitle = styled.h1`
@@ -184,12 +203,23 @@ export const Description = styled.p`
   font-size: 20px;
   line-height: 1.6;
 
-  ${({big}) => big && css`
-  
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    display: none;
-  }
-  `}
+  ${({ big }) =>
+    big &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        display: none;
+      }
+    `}
+  ${({ small }) =>
+    small &&
+    css`
+      display: none;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        display: block;
+        grid-area: description;
+      }
+    `}
 `;
 
 export const Container = styled.section`
@@ -204,7 +234,7 @@ export const SubHeader = styled.h2`
   font-weight: 600;
   font-size: 36px;
   line-height: 1.2;
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
     font-size: 20px;
   }
@@ -219,6 +249,10 @@ export const Tiles = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     grid-gap: 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    grid-template-columns: repeat(2, minmax(136px, 1fr));
   }
 `;
 
@@ -270,7 +304,6 @@ export const FullName = styled.p`
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
     font-size: 14px;
   }
-
 `;
 
 export const Role = styled.p`

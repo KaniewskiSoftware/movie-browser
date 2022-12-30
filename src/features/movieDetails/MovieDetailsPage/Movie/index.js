@@ -114,7 +114,7 @@ const Movie = () => {
               </Rating>
               <Description big>{movieDetails.overview}</Description>
             </Content>
-            <Description/>
+            <Description small>{movieDetails.overview}</Description>
           </DetailsTile>
 
           <Container>
