@@ -18,7 +18,7 @@ export const Counter = styled.div`
 `;
 
 export const Span = styled.span`
-color: ${({ theme }) => theme.colors.footer.text} ;
-font-weight: 600;
-margin: 0px 6px;
-`; 
+  color: ${({ theme }) => theme.colors.footer.text};
+  font-weight: 600;
+  margin: 0px 6px;
+`;

@@ -15,7 +15,7 @@ export const StyledButton = styled.button`
 
   &:disabled {
     background: ${({ theme }) => theme.colors.footer.disabled};
-    color: ${({ theme }) => theme.colors.footer.text} ;
+    color: ${({ theme }) => theme.colors.footer.text};
   }
 `;
 
@@ -27,9 +27,9 @@ export const Title = styled.span`
 
 export const StyledArrow = styled(Arrow)`
   color: ${({ theme }) => theme.colors.footer.arrow};
-  
-  ${StyledButton}:disabled &{
-    color: ${({ theme }) => theme.colors.footer.disabledArrow} ;
+
+  ${StyledButton}:disabled & {
+    color: ${({ theme }) => theme.colors.footer.disabledArrow};
   }
   ${({ rotate }) =>
     rotate &&

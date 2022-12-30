@@ -31,7 +31,9 @@ const Footer = () => {
     <Wrapper>
       <Button disabled={page === 1} onClick={firstPage} title="First" />
       <Button disabled={page === 1} onClick={prevPage} title="Previous" />
-      <Counter>Page <Span>{page}</Span> of <Span> 500</Span></Counter>
+      <Counter>
+        Page <Span>{page}</Span> of <Span> 500</Span>
+      </Counter>
       <Button disabled={page === 500} onClick={nextPage} rotate title="Next" />
       <Button disabled={page === 500} onClick={lastPage} rotate title="Last" />
     </Wrapper>
