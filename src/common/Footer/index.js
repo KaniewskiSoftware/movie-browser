@@ -1,5 +1,5 @@
 import Button from "./Button";
-import { Wrapper } from "./styled";
+import { Counter, Span, Wrapper } from "./styled";
 import { useQueryParameter, useReplaceQueryParameter } from "./queryParameters";
 
 const Footer = () => {
@@ -29,11 +29,11 @@ const Footer = () => {
 
   return (
     <Wrapper>
-      <Button onClick={firstPage} title="First" />
-      <Button onClick={prevPage} title="Previous" />
-      <p>Page {page} of 500</p>
-      <Button onClick={nextPage} rotate title="Next" />
-      <Button onClick={lastPage} rotate title="Last" />
+      <Button disabled={page === 1} onClick={firstPage} title="First" />
+      <Button disabled={page === 1} onClick={prevPage} title="Previous" />
+      <Counter>Page <Span>{page}</Span> of <Span> 500</Span></Counter>
+      <Button disabled={page === 500} onClick={nextPage} rotate title="Next" />
+      <Button disabled={page === 500} onClick={lastPage} rotate title="Last" />
     </Wrapper>
   );
 };
