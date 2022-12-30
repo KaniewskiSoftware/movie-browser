@@ -9,6 +9,7 @@ import {
   fetchGenresError,
   fetchGenresSuccess,
   selectPage,
+  selectQuery,
 } from "./movieListSlice";
 
 function* fetchMoviesHandler() {

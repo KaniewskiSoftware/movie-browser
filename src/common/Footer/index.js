@@ -1,6 +1,6 @@
 import Button from "./Button";
 import { Counter, Span, Wrapper } from "./styled";
-import { useQueryParameter, useReplaceQueryParameter } from "./queryParameters";
+import { useQueryParameter, useReplaceQueryParameter } from "../../core/queryParameters";
 
 const Footer = () => {
   const queryparam = +useQueryParameter("page");

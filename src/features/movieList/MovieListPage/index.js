@@ -4,7 +4,7 @@ import ErrorPage from "../../../common/states/ErrorPage";
 import Loader from "../../../common/states/Loader";
 import { useEffect } from "react";
 import Movies from "./Movies";
-import { useQueryParameter } from "../../../common/Footer/queryParameters";
+import { useQueryParameter } from "../../../core/queryParameters";
 
 const MovieListPage = () => {
   const dispatch = useDispatch();

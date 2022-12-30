@@ -1,13 +1,10 @@
-import { useDispatch } from "react-redux";
-import { fetchMoviesByQuery } from "../../../features/movieList/movieListSlice";
-import { searchQueryParamName, useQueryParameter, useReplaceQueryParameter } from "./queryParameters";
+import { searchQueryParamName, useQueryParameter, useReplaceQueryParameter } from "../../../core/queryParameters";
 import svg from "./Search.svg"
 import { Input, InputWrapper, Loupe } from "./styled";
 
 const Search = () => {
     const query = useQueryParameter(searchQueryParamName);
     const replaceQueryParameter = useReplaceQueryParameter();
-    const dispatch = useDispatch();
 
     const onInputChange = ({ target }) => {
         replaceQueryParameter({
