@@ -6,6 +6,7 @@ const movieListSlice = createSlice({
     status: "loading",
     movies: [],
     genres: null,
+    page: "1",
   },
   reducers: {
     fetchMovies: (state) => {
@@ -25,6 +26,10 @@ const movieListSlice = createSlice({
     fetchGenresError: (state) => {
       state.genres = null;
     },
+    setPage: (state, {payload: page}) => {
+      state.page = page;
+      console.log(page);
+    }
   },
 });
 
@@ -35,6 +40,7 @@ export const {
   fetchGenres,
   fetchGenresError,
   fetchGenresSuccess,
+  setPage,
 } = movieListSlice.actions;
 
 const selectMovieListState = (state) => state.movieList;
@@ -43,5 +49,6 @@ export const selectStatus = (state) => selectMovieListState(state).status;
 export const selectMovies = (state) => selectMovieListState(state).movies;
 export const selectGenres = (state) => selectMovieListState(state).genres;
 export const selectIsGenres = (state) => selectMovieListState(state).isGenres;
+export const selectPage = (state) => selectMovieListState(state).page;
 
 export default movieListSlice.reducer;
