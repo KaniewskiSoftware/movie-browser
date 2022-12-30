@@ -21,7 +21,7 @@ import {
 import SearchTitle from "../../../../common/states/SearchTitle";
 
 const Movies = () => {
-  const query = useQueryParameter(searchQueryParamName)
+  const query = useQueryParameter(searchQueryParamName);
   const genres = useSelector(selectGenres);
   const movies = useSelector(state => selectMoviesByQuery(state, query));
 
