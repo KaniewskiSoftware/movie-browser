@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectGenres, selectMoviesByQuery } from "../../movieListSlice";
+import { selectGenres, selectMovies } from "../../movieListSlice";
 import Tile from "../../../../common/Tile";
 import { Wrapper } from "../../../../common/Wrapper";
 import { searchQueryParamName, useQueryParameter } from "../../../../common/Header/Search/queryParameters";
@@ -23,7 +23,7 @@ import SearchTitle from "../../../../common/states/SearchTitle";
 const Movies = () => {
   const query = useQueryParameter(searchQueryParamName);
   const genres = useSelector(selectGenres);
-  const movies = useSelector(state => selectMoviesByQuery(state, query));
+  const movies = useSelector(selectMovies);
 
   return movies.length === 0 ? <NoResults /> : (
     <Wrapper>
