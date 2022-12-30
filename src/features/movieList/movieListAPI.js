@@ -23,22 +23,15 @@ export const getGenres = async () => {
   return await response.json();
 };
 
-const getMoviesByQuery = async (query) => {
+export const getMoviesByQuery = async (query) => {
   if (!query) {
     return;
+  };
+  const response = await fetch(`${apiLink}/search/movie?api_key=${apiKey}`);
+
+  if (!response.ok) {
+    new Error(response.statusText);
   }
 
-  const response = await fetch(`${apiLink}search/movie?api_key=${apiKey}&language=en-US&query=${query}`);
-
-  const movies = await response.json();
-
-  return movies;
-};
-
-export const getMovies = (query) => {
-  if (!!query) {
-    return getMoviesByQuery(query);
-  }
-
-  return getPopularMovies();
+  return await response.json();
 };
