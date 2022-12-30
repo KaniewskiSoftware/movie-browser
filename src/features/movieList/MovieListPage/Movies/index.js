@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { selectGenres, selectMovies } from "../../movieListSlice";
 import Tile from "../../../../common/Tile";
 import { Wrapper } from "../../../../common/Wrapper";
-import { searchQueryParamName, useQueryParameter } from "../../../../common/Header/Search/queryParameters";
+import { useQueryParameter, searchQueryParamName } from "../../../../core/queryParameters";
 import NoResults from "../../../../common/states/NoResults";
 import Footer from "../../../../common/Footer";
 import {
@@ -20,6 +20,7 @@ import {
   MovieLink,
 } from "./styled";
 import SearchTitle from "../../../../common/states/SearchTitle";
+
 
 const Movies = () => {
   const query = useQueryParameter(searchQueryParamName);

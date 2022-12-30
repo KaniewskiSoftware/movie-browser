@@ -1,4 +1,4 @@
-import { useQueryParameter, searchQueryParamName } from "../../Header/Search/queryParameters";
+import { useQueryParameter, searchQueryParamName } from "../../../core/queryParameters";
 import SearchTitle from "../SearchTitle";
 import { Spinner, SpinnerBox, Wrapper } from "./styled";
 

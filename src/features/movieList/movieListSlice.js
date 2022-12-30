@@ -27,13 +27,11 @@ const movieListSlice = createSlice({
     fetchGenresError: (state) => {
       state.genres = null;
     },
-    isQuery: (state, { poayload: query }) => {
-      state.status = "loading";
+    isQuery: (state, { payload: query }) => {
       state.query = query;
     },
     setPage: (state, { payload: page }) => {
       state.page = page;
-      console.log(page);
     }
   },
 });

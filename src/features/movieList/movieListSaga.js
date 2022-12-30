@@ -1,5 +1,5 @@
 import { delay, call, put, takeLatest, select } from "redux-saga/effects";
-import { getGenres, getMovies } from "./movieListAPI";
+import { getGenres, getMovies, getMoviesByQuery } from "./movieListAPI";
 import { loadingDelay } from "../../common/states/loadingDelay";
 import {
   fetchMovies,
@@ -13,14 +13,14 @@ import {
 } from "./movieListSlice";
 
 function* fetchMoviesHandler() {
-  const query = yield select(selectQuery);
   try {
     yield delay(loadingDelay); //for loader demo purpose
 
     yield put(fetchGenres());
     const page = yield select(selectPage);
+    const query = yield select(selectQuery);
 
-    const movies = yield call(getMovies, page);
+    const movies = yield query === "" ? call(getMovies, page) : call(getMoviesByQuery, query, page);
     yield put(fetchMoviesSuccess(movies.results));
 
   } catch (error) {

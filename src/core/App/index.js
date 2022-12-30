@@ -6,7 +6,6 @@ import { theme } from "./theme";
 import MovieListPage from "../../features/movieList/MovieListPage";
 import Header from "../../common/Header";
 import MovieDetailsPage from "../../features/movieDetails/MovieDetailsPage";
-import Footer from "../../common/Footer";
 
 function App() {
   return (
