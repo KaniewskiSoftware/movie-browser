@@ -183,6 +183,13 @@ export const Description = styled.p`
   font-weight: 400;
   font-size: 20px;
   line-height: 1.6;
+
+  ${({big}) => big && css`
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    display: none;
+  }
+  `}
 `;
 
 export const Container = styled.section`
@@ -197,29 +204,38 @@ export const SubHeader = styled.h2`
   font-weight: 600;
   font-size: 36px;
   line-height: 1.2;
+  
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    font-size: 20px;
+  }
 `;
 
 export const Tiles = styled.div`
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(208px, 1fr));
+  grid-auto-rows: minmax(auto, 1fr);
   grid-gap: 24px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    grid-gap: 16px;
+  }
 `;
 
 export const Tile = styled.article`
   display: flex;
   flex-direction: column;
   height: 100%;
-  min-height: 208px;
   background-color: ${({ theme }) => theme.colors.detailsTile.background};
+  box-shadow: ${({ theme }) => theme.boxShadow};
   padding: 16px;
   gap: 8px;
 `;
 
 export const PortraitBackground = styled.div`
+  display: flex;
+  justify-content: center;
   width: 100%;
-  min-height: 264px;
-  height: 100%;
   border-radius: 5px;
   background-image: url(${profile});
   background-size: 35%;
@@ -230,10 +246,12 @@ export const PortraitBackground = styled.div`
 
 export const Portrait = styled.img`
   width: 100%;
-  min-height: 264px;
   border-radius: 5px;
-  height: 100%;
   aspect-ratio: 2/3;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    font-size: 14px;
+  }
 `;
 
 export const Storage = styled.div`
@@ -241,7 +259,6 @@ export const Storage = styled.div`
   flex-direction: column;
   text-align: center;
   word-wrap: wrap;
-  height: 100%;
 `;
 export const FullName = styled.p`
   margin: 0;
@@ -249,6 +266,11 @@ export const FullName = styled.p`
   font-size: 22px;
   line-height: 1.3;
   color: ${({ theme }) => theme.colors.primaryText};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    font-size: 14px;
+  }
+
 `;
 
 export const Role = styled.p`
@@ -257,4 +279,8 @@ export const Role = styled.p`
   font-size: 18px;
   line-height: 1.5;
   color: ${({ theme }) => theme.colors.credits.role};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    font-size: 13px;
+  }
 `;

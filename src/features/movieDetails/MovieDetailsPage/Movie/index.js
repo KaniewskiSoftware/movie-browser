@@ -112,15 +112,16 @@ const Movie = () => {
                   </SmallText>
                 </TextBox>
               </Rating>
-              <Description>{movieDetails.overview}</Description>
+              <Description big>{movieDetails.overview}</Description>
             </Content>
+            <Description/>
           </DetailsTile>
 
           <Container>
             <SubHeader>Cast</SubHeader>
             <Tiles>
               {credits.cast.map((actor) => (
-                <Tile key={actor.id}>
+                <Tile key={actor.credit_id}>
                   <PortraitBackground>
                     {actor.profile_path ? (
                       <Portrait
@@ -142,7 +143,7 @@ const Movie = () => {
             <SubHeader>Crew</SubHeader>
             <Tiles>
               {credits.crew.map((member) => (
-                <Tile key={member.id}>
+                <Tile key={member.credit_id}>
                   <PortraitBackground>
                     {member.profile_path ? (
                       <Portrait
