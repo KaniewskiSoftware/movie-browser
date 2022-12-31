@@ -7,24 +7,62 @@ export const Background = styled.section`
   display: flex;
   justify-content: center;
   width: 100%;
-  aspect-ratio: 6/11;
-  max-height: 770px;
+  height: 770px;
   background-color: ${({ theme }) => theme.colors.backdrop.background};
   color: ${({ theme }) => theme.colors.backdrop.text};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDesktop}) {
+    height: 540px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+    height: 480px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    height: 360px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    height: 148px;
+  }
 `;
 
 export const Backdrop = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-bottom: 56px;
-  width: 63%;
-  max-width: 1375px;
+  padding: 0 16px 56px;
+  width: 100%;
+  max-width: 1368px;
   height: 100%;
+  font-size: 16px;
   background-image: ${({ backdrop }) =>
     `url(https://image.tmdb.org/t/p/original/${backdrop})`};
   background-position: center;
   background-size: cover;
+  box-shadow: inset 0px 60px 120px -15px #000, inset -100px 0px 120px -10px #000,
+    inset 100px 0px 120px -10px #000, inset 0 -180px 180px -10px #000;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDesktop}) {
+    padding-bottom: 32px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    box-shadow: inset 0px 30px 60px -8px #000, inset -50px 0px 60px -5px #000,
+      inset 50px 0px 60px -5px #000, inset 0 -90px 90px -5px #000;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    padding-bottom: 10px;
+    box-shadow: inset 0px 20px 50px -6px #000, inset -35px 0px 40px 10px #000,
+      inset 35px 0px 40px 10px #000, inset 0 -45px 90px -5px #000;
+  }
+`;
+
+export const BackdropContent = styled.div`
+  position: absolute;
 `;
 
 export const Title = styled.h2`
@@ -32,6 +70,24 @@ export const Title = styled.h2`
   font-weight: 600;
   font-size: 64px;
   line-height: 1.2;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mediumDesktop}) {
+    font-size: 56px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+    font-size: 48px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
 `;
 
 export const Rating = styled.div`
@@ -39,6 +95,10 @@ export const Rating = styled.div`
   margin-bottom: 16px;
   gap: 8px;
   align-items: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    margin-bottom: 0;
+  }
 
   ${({ tile }) =>
     tile &&
@@ -68,7 +128,7 @@ export const Star = styled(star)`
     `}
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
-    height: 16px;
+    width: 16px;
   }
 `;
 
@@ -123,18 +183,23 @@ export const SmallText = styled.p`
         font-size: 13px;
       }
     `}
-  ${({ $display }) =>
-    $display &&
+
+  ${({ $big }) =>
+    $big &&
     css`
-      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+      @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
         display: none;
       }
     `}
 
-  ${({ last }) =>
-    last &&
+  ${({ $small }) =>
+    $small &&
     css`
-      margin-left: 4px;
+      display: none;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+        display: block;
+      }
     `}
 `;
 
@@ -166,6 +231,7 @@ export const DetailsTile = styled.div`
     grid-template-areas:
       "image content content"
       "description description description";
+    grid-template-rows: auto 1fr;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -225,7 +291,6 @@ export const Content = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     grid-area: content;
-    height: 100%;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -299,6 +364,24 @@ export const PropertyText = styled.p`
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     font-size: 12px;
   }
+
+  ${({ $big }) =>
+    $big &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        display: none;
+      }
+    `}
+
+  ${({ $small }) =>
+    $small &&
+    css`
+      display: none;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        display: block;
+      }
+    `}
 
   ${({ entitled }) =>
     entitled &&

@@ -30,12 +30,13 @@ import {
   FullName,
   Role,
   Storage,
+  BackdropContent,
 } from "./styled";
 import { Tag, Tags } from "../../../../common/Tags/index";
+import { Fragment } from "react";
 
 const Movie = () => {
   const movieDetails = useSelector(selectMovieDetails);
-  console.log(movieDetails);
   const credits = useSelector(selectCredits);
 
   return (
@@ -43,21 +44,28 @@ const Movie = () => {
       {movieDetails.backdrop_path && (
         <Background>
           <Backdrop backdrop={movieDetails.backdrop_path}>
-            {movieDetails.original_title && (
-              <Title>{movieDetails.original_title}</Title>
-            )}
-            {movieDetails.vote_average && (
-              <Rating>
-                <Star />
-                <TextBox>
-                  <Rate>{movieDetails.vote_average.toFixed(1)}</Rate>
-                  <SmallText>/ 10</SmallText>
-                </TextBox>
-              </Rating>
-            )}
-            {movieDetails.vote_count && (
-              <SmallText>{movieDetails.vote_count} votes</SmallText>
-            )}
+            <BackdropContent>
+              {movieDetails.original_title && (
+                <Title>{movieDetails.original_title}</Title>
+              )}
+              {movieDetails.vote_average && (
+                <Rating>
+                  <Star />
+                  <TextBox>
+                    <Rate>{movieDetails.vote_average.toFixed(1)}</Rate>
+                    <SmallText>/ 10</SmallText>
+                    {movieDetails.vote_count && (
+                      <SmallText $small>
+                        {movieDetails.vote_count} votes
+                      </SmallText>
+                    )}
+                  </TextBox>
+                </Rating>
+              )}
+              {movieDetails.vote_count && (
+                <SmallText $big>{movieDetails.vote_count} votes</SmallText>
+              )}
+            </BackdropContent>
           </Backdrop>
         </Background>
       )}
@@ -83,18 +91,32 @@ const Movie = () => {
                   <PropertyText entitled>Production:</PropertyText>
                   {movieDetails.production_countries.map(
                     (country, index, countries) => (
-                      <PropertyText key={country.name}>
-                        {country.name}
-                        {countries.length > 0 ? (
-                          index < countries.length - 1 ? (
-                            <span>,&nbsp;</span>
+                      <Fragment key={index}>
+                        <PropertyText $big key={country.name}>
+                          {country.name}
+                          {countries.length > 0 ? (
+                            index < countries.length - 1 ? (
+                              <span>,&nbsp;</span>
+                            ) : (
+                              ""
+                            )
                           ) : (
                             ""
-                          )
-                        ) : (
-                          ""
-                        )}
-                      </PropertyText>
+                          )}
+                        </PropertyText>
+                        <PropertyText $small key={country.iso_3166_1}>
+                          {country.iso_3166_1}
+                          {countries.length > 0 ? (
+                            index < countries.length - 1 ? (
+                              <span>,&nbsp;</span>
+                            ) : (
+                              ""
+                            )
+                          ) : (
+                            ""
+                          )}
+                        </PropertyText>
+                      </Fragment>
                     )
                   )}
                 </Property>
@@ -114,10 +136,10 @@ const Movie = () => {
                 <Star $mini />
                 <TextBox>
                   <Rate tile>{movieDetails.vote_average.toFixed(1)}</Rate>
-                  <SmallText tile $display>/ 10</SmallText>
-                  <SmallText tile last>
-                    {movieDetails.vote_count} votes
+                  <SmallText tile $big>
+                    / 10
                   </SmallText>
+                  <SmallText tile>{movieDetails.vote_count} votes</SmallText>
                 </TextBox>
               </Rating>
               <Description big>{movieDetails.overview}</Description>
