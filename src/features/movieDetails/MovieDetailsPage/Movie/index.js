@@ -20,7 +20,6 @@ import {
   Properties,
   TextBox,
   Description,
-  MiniStar,
   DetailsWrapper,
   Container,
   SubHeader,
@@ -36,9 +35,8 @@ import { Tag, Tags } from "../../../../common/Tags/index";
 
 const Movie = () => {
   const movieDetails = useSelector(selectMovieDetails);
-  const credits = useSelector(selectCredits);
   console.log(movieDetails);
-  console.log(credits);
+  const credits = useSelector(selectCredits);
 
   return (
     <>
@@ -83,12 +81,22 @@ const Movie = () => {
               <Properties>
                 <Property>
                   <PropertyText entitled>Production:</PropertyText>
-                  {movieDetails.production_countries.map((country, index) => (
-                    <PropertyText key={country.name}>
-                      {index > 0 && ", "}
-                      {country.name}
-                    </PropertyText>
-                  ))}
+                  {movieDetails.production_countries.map(
+                    (country, index, countries) => (
+                      <PropertyText key={country.name}>
+                        {country.name}
+                        {countries.length > 0 ? (
+                          index < countries.length - 1 ? (
+                            <span>,&nbsp;</span>
+                          ) : (
+                            ""
+                          )
+                        ) : (
+                          ""
+                        )}
+                      </PropertyText>
+                    )
+                  )}
                 </Property>
                 <Property>
                   <PropertyText entitled>Release date:</PropertyText>
@@ -103,10 +111,10 @@ const Movie = () => {
                 </Tags>
               )}
               <Rating tile>
-                <MiniStar />
+                <Star $mini />
                 <TextBox>
                   <Rate tile>{movieDetails.vote_average.toFixed(1)}</Rate>
-                  <SmallText tile>/ 10</SmallText>
+                  <SmallText tile $display>/ 10</SmallText>
                   <SmallText tile last>
                     {movieDetails.vote_count} votes
                   </SmallText>

@@ -7,7 +7,8 @@ export const Background = styled.section`
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 770px;
+  aspect-ratio: 6/11;
+  max-height: 770px;
   background-color: ${({ theme }) => theme.colors.backdrop.background};
   color: ${({ theme }) => theme.colors.backdrop.text};
 `;
@@ -18,7 +19,7 @@ export const Backdrop = styled.div`
   justify-content: flex-end;
   padding-bottom: 56px;
   width: 63%;
-  max-width: 1368px;
+  max-width: 1375px;
   height: 100%;
   background-image: ${({ backdrop }) =>
     `url(https://image.tmdb.org/t/p/original/${backdrop})`};
@@ -48,17 +49,27 @@ export const Rating = styled.div`
       @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
         margin-top: auto;
       }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        text-align: center;
+        gap: 4px;
+      }
     `}
 `;
 
 export const Star = styled(star)`
   width: 40px;
   height: auto;
-`;
 
-export const MiniStar = styled(star)`
-  width: 24px;
-  height: auto;
+  ${({ $mini }) =>
+    $mini &&
+    css`
+      width: 24px;
+    `}
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    height: 16px;
+  }
 `;
 
 export const Rate = styled.p`
@@ -68,10 +79,22 @@ export const Rate = styled.p`
   line-height: 1.3;
   position: relative;
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    font-size: 14px;
+  }
+
   ${({ tile }) =>
     tile &&
     css`
       font-size: 22px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        font-size: 16px;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        font-size: 13px;
+      }
     `}
 `;
 
@@ -87,10 +110,25 @@ export const SmallText = styled.p`
   font-size: 16px;
   line-height: 1.2;
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    font-size: 10px;
+  }
+
   ${({ tile }) =>
     tile &&
     css`
       font-size: 14px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        font-size: 13px;
+      }
+    `}
+  ${({ $display }) =>
+    $display &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        display: none;
+      }
     `}
 
   ${({ last }) =>
@@ -104,6 +142,16 @@ export const DetailsWrapper = styled.div`
   display: grid;
   margin-top: 64px;
   grid-gap: 64px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    margin-top: 24px;
+    grid-gap: 32px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    margin-top: 16px;
+    grid-gap: 21px;
+  }
 `;
 
 export const DetailsTile = styled.div`
@@ -118,6 +166,16 @@ export const DetailsTile = styled.div`
     grid-template-areas:
       "image content content"
       "description description description";
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 26px;
+    gap: 26px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    padding: 16px;
+    gap: 16px;
   }
 `;
 
@@ -138,6 +196,14 @@ export const ImageBackground = styled.div`
     grid-area: image;
     width: 248px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 164px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    width: 114px;
+  }
 `;
 
 export const Image = styled.img`
@@ -153,9 +219,17 @@ export const Content = styled.div`
   gap: 24px;
   color: ${({ theme }) => theme.colors.detailsTile.primaryText};
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+    gap: 16px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     grid-area: content;
     height: 100%;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    gap: 8px;
   }
 `;
 
@@ -164,6 +238,22 @@ export const TileTitle = styled.h1`
   font-weight: 600;
   font-size: 36px;
   line-height: 1.2;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+    font-size: 32px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 24px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    font-size: 22px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    font-size: 16px;
+  }
 `;
 
 export const Year = styled.p`
@@ -171,6 +261,18 @@ export const Year = styled.p`
   font-weight: 400;
   font-size: 22px;
   line-height: 1.2;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 18px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    font-size: 13px;
+  }
 `;
 
 export const Properties = styled.div`
@@ -181,6 +283,7 @@ export const Properties = styled.div`
 
 export const Property = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 export const PropertyText = styled.p`
@@ -189,11 +292,23 @@ export const PropertyText = styled.p`
   font-size: 18px;
   line-height: 1.2;
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    font-size: 12px;
+  }
+
   ${({ entitled }) =>
     entitled &&
     css`
       color: ${({ theme }) => theme.colors.detailsTile.secondaryText};
       margin-right: 8px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+        display: none;
+      }
     `}
 `;
 
@@ -202,6 +317,14 @@ export const Description = styled.p`
   font-weight: 400;
   font-size: 20px;
   line-height: 1.6;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    font-size: 14px;
+  }
 
   ${({ big }) =>
     big &&
@@ -235,8 +358,14 @@ export const SubHeader = styled.h2`
   font-size: 36px;
   line-height: 1.2;
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
     font-size: 20px;
+    margin-bottom: 12px;
   }
 `;
 
@@ -252,6 +381,10 @@ export const Tiles = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    grid-template-columns: repeat(auto-fit, minmax(136px, 1fr));
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
     grid-template-columns: repeat(2, minmax(136px, 1fr));
   }
 `;
@@ -264,6 +397,10 @@ export const Tile = styled.article`
   box-shadow: ${({ theme }) => theme.boxShadow};
   padding: 16px;
   gap: 8px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+    padding: 8px;
+  }
 `;
 
 export const PortraitBackground = styled.div`
@@ -282,10 +419,6 @@ export const Portrait = styled.img`
   width: 100%;
   border-radius: 5px;
   aspect-ratio: 2/3;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
-    font-size: 14px;
-  }
 `;
 
 export const Storage = styled.div`
