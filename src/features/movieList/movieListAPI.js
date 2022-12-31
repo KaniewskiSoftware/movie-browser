@@ -24,6 +24,9 @@ export const getGenres = async () => {
 };
 
 export const getMoviesByQuery = async (query, page) => {
+  if (!query) {
+    return;
+  };
   const response = await fetch(
     `${apiLink}/search/movie?api_key=${apiKey}&language=en-US&query=${query}&page=${page}`
   );
@@ -32,5 +35,5 @@ export const getMoviesByQuery = async (query, page) => {
     new Error(response.statusText);
   }
 
-  return await console.log(response);
+  return await response.json();
 };

@@ -29,6 +29,7 @@ const movieListSlice = createSlice({
     },
     isQuery: (state, { payload: query }) => {
       state.query = query;
+      state.status = "loading";
     },
     setPage: (state, { payload: page }) => {
       state.page = page;
@@ -47,7 +48,7 @@ export const {
   setPage,
 } = movieListSlice.actions;
 
-const selectMovieListState = (state) => state.movieList;
+export const selectMovieListState = (state) => state.movieList;
 
 export const selectStatus = (state) => selectMovieListState(state).status;
 export const selectMovies = (state) => selectMovieListState(state).movies;
