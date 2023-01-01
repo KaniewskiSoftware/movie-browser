@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import notfound from "../../../../../common/images/camera.svg";
 
 export const Container = styled.div`
   display: grid;

@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Tag, Tags } from "../../../../../common/Tags";
-import { Rate, Rating, SmallText, Star, TextBox } from "../Rating/index";
+import { Rate, RateBox, SmallText, Star, TextBox } from "../Rating/index";
 import {
   Container,
   Content,
@@ -15,14 +15,14 @@ import {
 } from "./styled";
 
 const DetailsTile = (
-  poster,
+  {poster,
   title,
   release,
   production,
   genres,
   vote,
   votes,
-  description
+  description}
 ) => (
   <Container>
     <ImageBackground>
@@ -79,7 +79,7 @@ const DetailsTile = (
           ))}
         </Tags>
       )}
-      <Rating tile>
+      <RateBox tile>
         <Star $mini />
         <TextBox>
           <Rate tile>{vote.toFixed(1)}</Rate>
@@ -88,7 +88,7 @@ const DetailsTile = (
           </SmallText>
           <SmallText tile>{votes} votes</SmallText>
         </TextBox>
-      </Rating>
+      </RateBox>
       <Description big>{description}</Description>
     </Content>
     <Description small>{description}</Description>

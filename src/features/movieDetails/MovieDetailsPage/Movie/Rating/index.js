@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import { ReactComponent as star } from "./star.svg";
 
-export const Container = styled.div`
+export const RateBox = styled.div`
   display: flex;
   margin-bottom: 16px;
   gap: 8px;

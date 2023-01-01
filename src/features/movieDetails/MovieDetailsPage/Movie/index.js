@@ -2,8 +2,6 @@ import { useSelector } from "react-redux";
 import { Wrapper } from "../../../../common/Wrapper";
 import { selectCredits, selectMovieDetails } from "../../movieDetailsSlice";
 import {
-  Backdrop,
-  DetailsTile,
   DetailsWrapper,
   Container,
   SubHeader,
@@ -16,33 +14,35 @@ import {
   Storage,
 } from "./styled";
 import Backdrop from "./Backdrop";
+import DetailsTile from "./DetailsTile";
 
 const Movie = () => {
   const movieDetails = useSelector(selectMovieDetails);
   const credits = useSelector(selectCredits);
+  console.log(movieDetails)
 
   return (
     <>
       {movieDetails.backdrop_path && (
-        <Backdrop 
-        backdrop={movieDetails.backdrop_path}
-        title={movieDetails.original_title}
-        vote={movieDetails.vote_average}
-        votes={movieDetails.vote_count}
+        <Backdrop
+          backdrop={movieDetails.backdrop_path}
+          title={movieDetails.original_title}
+          vote={movieDetails.vote_average}
+          votes={movieDetails.vote_count}
         />
       )}
-      <DetailsTile 
-      poster={movieDetails.poster_path}
-      title={movieDetails.original_title}
-      release={movieDetails.release_date}
-      production={movieDetails.production_countries}
-      genres={movieDetails.genres}
-      vote={movieDetails.vote_average}
-      votes={movieDetails.vote_count}
-      description={movieDetails.overview}
-      />
       <Wrapper>
         <DetailsWrapper>
+          <DetailsTile
+            poster={movieDetails.poster_path}
+            title={movieDetails.original_title}
+            release={movieDetails.release_date}
+            production={movieDetails.production_countries}
+            genres={movieDetails.genres}
+            vote={movieDetails.vote_average}
+            votes={movieDetails.vote_count}
+            description={movieDetails.overview}
+          />
           <Container>
             <SubHeader>Cast</SubHeader>
             <Tiles>

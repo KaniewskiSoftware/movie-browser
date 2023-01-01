@@ -1,5 +1,4 @@
-import styled, { css } from "styled-components";
-import notfound from "../../../../common/images/camera.svg";
+import styled from "styled-components";
 import profile from "../../../../common/images/profile.svg";
 
 export const DetailsWrapper = styled.div`
