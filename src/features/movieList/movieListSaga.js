@@ -23,7 +23,7 @@ function* fetchMoviesHandler() {
     const query = yield select(selectQuery);
 
     const movies = yield query === null ? call(getMovies, page) : call(getMoviesByQuery, query, page);
-    yield put(fetchMoviesSuccess(movies.results));
+    yield put(fetchMoviesSuccess(movies));
 
   } catch (error) {
     yield put(fetchMoviesError());

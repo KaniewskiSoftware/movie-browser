@@ -2,9 +2,10 @@ import Button from "./Button";
 import { Counter, Span, Wrapper } from "./styled";
 import { useQueryParameter, useReplaceQueryParameter } from "../../core/queryParameters";
 
-const Footer = () => {
+const Footer = ({ totalPages }) => {
   const queryparam = +useQueryParameter("page");
   const page = queryparam ? queryparam : 1;
+  const lastPageNumber = totalPages > 500 ? 500 : totalPages;
 
   const replaceQueryParameter = useReplaceQueryParameter();
   const setPage = (page) => {
@@ -18,13 +19,13 @@ const Footer = () => {
     setPage(1);
   };
   const nextPage = () => {
-    if (page < 500) setPage(page + 1);
+    if (page < lastPageNumber) setPage(page + 1);
   };
   const prevPage = () => {
     if (page !== 1) setPage(page - 1);
   };
   const lastPage = () => {
-    setPage(500);
+    setPage(lastPageNumber);
   };
 
   return (
@@ -32,10 +33,10 @@ const Footer = () => {
       <Button disabled={page === 1} onClick={firstPage} title="First" />
       <Button disabled={page === 1} onClick={prevPage} title="Previous" />
       <Counter>
-        Page <Span>{page}</Span> of <Span> 500</Span>
+        Page <Span>{page}</Span> of <Span> {lastPageNumber}</Span>
       </Counter>
-      <Button disabled={page === 500} onClick={nextPage} rotate title="Next" />
-      <Button disabled={page === 500} onClick={lastPage} rotate title="Last" />
+      <Button disabled={page === lastPageNumber} onClick={nextPage} rotate title="Next" />
+      <Button disabled={page === lastPageNumber} onClick={lastPage} rotate title="Last" />
     </Wrapper>
   );
 };
