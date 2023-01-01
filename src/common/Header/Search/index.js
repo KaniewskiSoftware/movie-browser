@@ -8,9 +8,16 @@ const Search = () => {
     const query = useQueryParameter(searchQueryParamName);
     const replaceQueryParameter = useReplaceQueryParameter();
     const dispatch = useDispatch();
+    const setPage = (page) => {
+        replaceQueryParameter({
+            key: "page",
+            value: page,
+        });
+    };
 
     const onInputChange = ({ target }) => {
         dispatch(isQuery());
+        setPage(1);
         replaceQueryParameter({
             key: searchQueryParamName,
             value: target.value.trim() !== "" ? target.value : "",
