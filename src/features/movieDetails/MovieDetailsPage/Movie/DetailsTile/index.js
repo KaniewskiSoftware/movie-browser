@@ -14,16 +14,16 @@ import {
   Year,
 } from "./styled";
 
-const DetailsTile = (
-  {poster,
+const DetailsTile = ({
+  poster,
   title,
   release,
   production,
   genres,
   vote,
   votes,
-  description}
-) => (
+  description,
+}) => (
   <Container>
     <ImageBackground>
       {poster ? (

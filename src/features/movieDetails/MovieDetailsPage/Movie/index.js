@@ -1,25 +1,19 @@
 import { useSelector } from "react-redux";
 import { Wrapper } from "../../../../common/Wrapper";
 import { selectCredits, selectMovieDetails } from "../../movieDetailsSlice";
+import { DetailsWrapper } from "./styled";
 import {
-  DetailsWrapper,
-  Container,
-  SubHeader,
-  Tiles,
-  Tile,
-  Portrait,
-  PortraitBackground,
-  FullName,
-  Role,
-  Storage,
-} from "./styled";
+  CreditContainer,
+  CreditHeader,
+  CreditTiles,
+} from "../../../../common/Credits/CreditEssentials";
 import Backdrop from "./Backdrop";
 import DetailsTile from "./DetailsTile";
+import Credits from "../../../../common/Credits";
 
 const Movie = () => {
   const movieDetails = useSelector(selectMovieDetails);
   const credits = useSelector(selectCredits);
-  console.log(movieDetails)
 
   return (
     <>
@@ -43,50 +37,32 @@ const Movie = () => {
             votes={movieDetails.vote_count}
             description={movieDetails.overview}
           />
-          <Container>
-            <SubHeader>Cast</SubHeader>
-            <Tiles>
+          <CreditContainer>
+            <CreditHeader>Cast</CreditHeader>
+            <CreditTiles>
               {credits.cast.map((actor) => (
-                <Tile key={actor.credit_id}>
-                  <PortraitBackground>
-                    {actor.profile_path ? (
-                      <Portrait
-                        src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
-                      />
-                    ) : (
-                      <Portrait />
-                    )}
-                  </PortraitBackground>
-                  <Storage>
-                    <FullName>{actor.original_name}</FullName>
-                    <Role>{actor.character}</Role>
-                  </Storage>
-                </Tile>
+                <Credits
+                  id={actor.credit_id}
+                  path={actor.profile_path}
+                  name={actor.original_name}
+                  role={actor.character}
+                />
               ))}
-            </Tiles>
-          </Container>
-          <Container>
-            <SubHeader>Crew</SubHeader>
-            <Tiles>
+            </CreditTiles>
+          </CreditContainer>
+          <CreditContainer>
+            <CreditHeader>Crew</CreditHeader>
+            <CreditTiles>
               {credits.crew.map((member) => (
-                <Tile key={member.credit_id}>
-                  <PortraitBackground>
-                    {member.profile_path ? (
-                      <Portrait
-                        src={`https://image.tmdb.org/t/p/w500/${member.profile_path}`}
-                      />
-                    ) : (
-                      <Portrait />
-                    )}
-                  </PortraitBackground>
-                  <Storage>
-                    <FullName>{member.original_name}</FullName>
-                    <Role>{member.job}</Role>
-                  </Storage>
-                </Tile>
+                <Credits
+                  id={member.credit_id}
+                  path={member.profile_path}
+                  name={member.original_name}
+                  role={member.job}
+                />
               ))}
-            </Tiles>
-          </Container>
+            </CreditTiles>
+          </CreditContainer>
         </DetailsWrapper>
       </Wrapper>
     </>
