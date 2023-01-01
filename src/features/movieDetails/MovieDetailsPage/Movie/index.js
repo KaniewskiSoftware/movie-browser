@@ -3,23 +3,7 @@ import { Wrapper } from "../../../../common/Wrapper";
 import { selectCredits, selectMovieDetails } from "../../movieDetailsSlice";
 import {
   Backdrop,
-  Background,
-  SmallText,
-  Rate,
-  Rating,
-  Star,
-  Title,
   DetailsTile,
-  ImageBackground,
-  Image,
-  Content,
-  TileTitle,
-  Year,
-  PropertyText,
-  Property,
-  Properties,
-  TextBox,
-  Description,
   DetailsWrapper,
   Container,
   SubHeader,
@@ -30,10 +14,8 @@ import {
   FullName,
   Role,
   Storage,
-  BackdropContent,
 } from "./styled";
-import { Tag, Tags } from "../../../../common/Tags/index";
-import { Fragment } from "react";
+import Backdrop from "./Backdrop";
 
 const Movie = () => {
   const movieDetails = useSelector(selectMovieDetails);
@@ -42,111 +24,25 @@ const Movie = () => {
   return (
     <>
       {movieDetails.backdrop_path && (
-        <Background>
-          <Backdrop backdrop={movieDetails.backdrop_path}>
-            <BackdropContent>
-              {movieDetails.original_title && (
-                <Title>{movieDetails.original_title}</Title>
-              )}
-              {movieDetails.vote_average && (
-                <Rating>
-                  <Star />
-                  <TextBox>
-                    <Rate>{movieDetails.vote_average.toFixed(1)}</Rate>
-                    <SmallText>/ 10</SmallText>
-                    {movieDetails.vote_count && (
-                      <SmallText $small>
-                        {movieDetails.vote_count} votes
-                      </SmallText>
-                    )}
-                  </TextBox>
-                </Rating>
-              )}
-              {movieDetails.vote_count && (
-                <SmallText $big>{movieDetails.vote_count} votes</SmallText>
-              )}
-            </BackdropContent>
-          </Backdrop>
-        </Background>
+        <Backdrop 
+        backdrop={movieDetails.backdrop_path}
+        title={movieDetails.original_title}
+        vote={movieDetails.vote_average}
+        votes={movieDetails.vote_count}
+        />
       )}
-
+      <DetailsTile 
+      poster={movieDetails.poster_path}
+      title={movieDetails.original_title}
+      release={movieDetails.release_date}
+      production={movieDetails.production_countries}
+      genres={movieDetails.genres}
+      vote={movieDetails.vote_average}
+      votes={movieDetails.vote_count}
+      description={movieDetails.overview}
+      />
       <Wrapper>
         <DetailsWrapper>
-          <DetailsTile>
-            <ImageBackground>
-              {movieDetails.poster_path ? (
-                <Image
-                  src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`}
-                  alt=""
-                />
-              ) : (
-                <Image />
-              )}
-            </ImageBackground>
-            <Content>
-              <TileTitle>{movieDetails.original_title}</TileTitle>
-              <Year>{movieDetails.release_date.slice(0, 4)}</Year>
-              <Properties>
-                <Property>
-                  <PropertyText entitled>Production:</PropertyText>
-                  {movieDetails.production_countries.map(
-                    (country, index, countries) => (
-                      <Fragment key={index}>
-                        <PropertyText $big key={country.name}>
-                          {country.name}
-                          {countries.length > 0 ? (
-                            index < countries.length - 1 ? (
-                              <span>,&nbsp;</span>
-                            ) : (
-                              ""
-                            )
-                          ) : (
-                            ""
-                          )}
-                        </PropertyText>
-                        <PropertyText $small key={country.iso_3166_1}>
-                          {country.iso_3166_1}
-                          {countries.length > 0 ? (
-                            index < countries.length - 1 ? (
-                              <span>,&nbsp;</span>
-                            ) : (
-                              ""
-                            )
-                          ) : (
-                            ""
-                          )}
-                        </PropertyText>
-                      </Fragment>
-                    )
-                  )}
-                </Property>
-                <Property>
-                  <PropertyText entitled>Release date:</PropertyText>
-                  <PropertyText>{movieDetails.release_date}</PropertyText>
-                </Property>
-              </Properties>
-              {movieDetails.genres && (
-                <Tags details>
-                  {movieDetails.genres.map((genre) => (
-                    <Tag key={genre.id}>{genre.name}</Tag>
-                  ))}
-                </Tags>
-              )}
-              <Rating tile>
-                <Star $mini />
-                <TextBox>
-                  <Rate tile>{movieDetails.vote_average.toFixed(1)}</Rate>
-                  <SmallText tile $big>
-                    / 10
-                  </SmallText>
-                  <SmallText tile>{movieDetails.vote_count} votes</SmallText>
-                </TextBox>
-              </Rating>
-              <Description big>{movieDetails.overview}</Description>
-            </Content>
-            <Description small>{movieDetails.overview}</Description>
-          </DetailsTile>
-
           <Container>
             <SubHeader>Cast</SubHeader>
             <Tiles>
