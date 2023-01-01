@@ -7,8 +7,8 @@ import {
   Tile,
 } from "./styled";
 
-const Credits = ({ id, path, name, role }) => (
-  <Tile key={id}>
+const Credits = ({ path, name, role }) => (
+  <Tile>
     <PortraitBackground>
       {path ? (
         <Portrait src={`https://image.tmdb.org/t/p/w500/${path}`} />

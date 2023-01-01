@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import profile from "../../../../../common/images/profile.svg";
+import profile from "../../common/images/profile.svg";
 
 export const Tile = styled.article`
   display: flex;

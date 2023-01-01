@@ -42,7 +42,7 @@ const Movie = () => {
             <CreditTiles>
               {credits.cast.map((actor) => (
                 <Credits
-                  id={actor.credit_id}
+                  key={actor.credit_id}
                   path={actor.profile_path}
                   name={actor.original_name}
                   role={actor.character}
@@ -55,7 +55,7 @@ const Movie = () => {
             <CreditTiles>
               {credits.crew.map((member) => (
                 <Credits
-                  id={member.credit_id}
+                  key={member.credit_id}
                   path={member.profile_path}
                   name={member.original_name}
                   role={member.job}
