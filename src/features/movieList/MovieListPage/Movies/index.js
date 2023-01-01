@@ -29,7 +29,7 @@ const Movies = () => {
   const totalResults = useSelector(selectTotalResults);
   const totalPages = useSelector(selectTotalPages);
 
-  return movies.length === 0 ? <NoResults /> : (
+  return totalResults === 0 ? <NoResults /> : (
     <>
       <Wrapper>
         <SearchTitle title={!query ? "" : `Search results for "${query}" (${totalResults})`} />
