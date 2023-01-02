@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const PageTitle = styled.div`
+const Title = styled.div`
     font-weight: 600;
     font-size: 36px;
     line-height: 120%;
@@ -17,4 +17,4 @@ const PageTitle = styled.div`
     };
 `;
 
-export { PageTitle };
+export { Title };

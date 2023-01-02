@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectGenres, selectMovieListState, selectMovies, selectTotalPages, selectTotalResults } from "../../movieListSlice";
+import { selectGenres, selectMovies, selectTotalPages, selectTotalResults } from "../../movieListSlice";
 import Tile from "../../../../common/Tile";
 import { Wrapper } from "../../../../common/Wrapper";
 import { useQueryParameter, searchQueryParamName } from "../../../../core/queryParameters";
@@ -19,7 +19,7 @@ import {
   Title,
   MovieLink,
 } from "./styled";
-import SearchTitle from "../../../../common/states/SearchTitle";
+import PageTitle from "../../../../common/PageTitle";
 
 
 const Movies = () => {
@@ -32,7 +32,7 @@ const Movies = () => {
   return totalResults === 0 ? <NoResults /> : (
     <>
       <Wrapper>
-        <SearchTitle title={!query ? "" : `Search results for "${query}" (${totalResults})`} />
+        <PageTitle title={!query ? "Popular movies" : `Search results for "${query}" (${totalResults})`} />
         <Tiles>
           {movies.map((movie) => (
             <MovieLink key={movie.original_title} to={`/movies/${movie.id}`}>

@@ -1,5 +1,5 @@
 import { useQueryParameter, searchQueryParamName } from "../../../core/queryParameters";
-import SearchTitle from "../SearchTitle";
+import PageTitle from "../../PageTitle";
 import { Spinner, SpinnerBox, Wrapper } from "./styled";
 
 const Loader = () => {
@@ -7,7 +7,7 @@ const Loader = () => {
 
     return (
         <Wrapper>
-            <SearchTitle title={!query ? "" : `Search results for "${query}"`} />
+            <PageTitle title={!query ? "" : `Search results for "${query}"`} />
             <SpinnerBox hasTitle={!!query}>
                 <Spinner />
             </SpinnerBox>

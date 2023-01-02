@@ -1,5 +1,5 @@
 import { Plane, PlaneBox, Wrapper } from "./styled";
-import SearchTitle from "../SearchTitle";
+import PageTitle from "../../PageTitle";
 import { searchQueryParamName, useQueryParameter } from "../../../core/queryParameters";
 
 const NoResults = () => {
@@ -7,7 +7,7 @@ const NoResults = () => {
 
     return (
         <Wrapper>
-            <SearchTitle title={`Sorry, there are no results for "${query}"`} />
+            <PageTitle title={`Sorry, there are no results for "${query}"`} />
             <PlaneBox>
                 <Plane />
             </PlaneBox>
