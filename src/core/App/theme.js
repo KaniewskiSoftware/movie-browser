@@ -9,7 +9,8 @@ const colorNames = {
   scienceBlue: "#0044CC",
   woodSmoke: "#18181B",
   stormGray: "#74788B",
-  black: "#000000"
+  black: "#000000",
+  lightBlue: "#D6E4FF",
 };
 
 const common = {
@@ -62,6 +63,14 @@ export const theme = {
     credits: {
       fullName: colorNames.woodSmoke,
       role: colorNames.waterloo,
-    }
+    },
+    footer: {
+      background: colorNames.lightBlue,
+      disabled: colorNames.mystic,
+      arrow: colorNames.scienceBlue,
+      disabledArrow: colorNames.waterloo,
+      text: colorNames.black,
+      counter: colorNames.waterloo,
+    },
   },
 };
