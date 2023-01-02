@@ -1,50 +1,69 @@
 import { useSelector } from "react-redux";
 import { Wrapper } from "../../../../common/Wrapper";
-import { selectMovieDetails } from "../../movieDetailsSlice";
+import { selectCredits, selectMovieDetails } from "../../movieDetailsSlice";
+import { DetailsWrapper } from "./styled";
 import {
-  Backdrop,
-  Background,
-  SmallText,
-  Rate,
-  Rating,
-  Star,
-  Title,
-  DetailsTile,
-  Image,
-  Content,
-  TileTitle,
-  Year,
-  PropertyText,
-} from "./styled";
+  CreditContainer,
+  CreditHeader,
+  CreditTiles,
+} from "../../../../common/Credits/CreditEssentials";
+import Backdrop from "./Backdrop";
+import DetailsTile from "./DetailsTile";
+import Credits from "../../../../common/Credits";
 
 const Movie = () => {
   const movieDetails = useSelector(selectMovieDetails);
-  console.log(movieDetails);
+  const credits = useSelector(selectCredits);
 
   return (
     <>
-      <Background>
-        <Backdrop backdrop={movieDetails.backdrop_path}>
-          <Title>{movieDetails.original_title}</Title>
-          <Rating>
-            <Star />
-            <Rate>{movieDetails.vote_average.toFixed(1)}</Rate>
-            <SmallText>/10</SmallText>
-          </Rating>
-          <SmallText>{movieDetails.vote_count} votes</SmallText>
-        </Backdrop>
-      </Background>
+      {movieDetails.backdrop_path && (
+        <Backdrop
+          backdrop={movieDetails.backdrop_path}
+          title={movieDetails.original_title}
+          vote={movieDetails.vote_average}
+          votes={movieDetails.vote_count}
+        />
+      )}
       <Wrapper>
-        <DetailsTile>
-          <Image
-            src={`https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`}
+        <DetailsWrapper>
+          <DetailsTile
+            poster={movieDetails.poster_path}
+            title={movieDetails.original_title}
+            release={movieDetails.release_date}
+            production={movieDetails.production_countries}
+            genres={movieDetails.genres}
+            vote={movieDetails.vote_average}
+            votes={movieDetails.vote_count}
+            description={movieDetails.overview}
           />
-          <Content>
-            <TileTitle>{movieDetails.original_title}</TileTitle>
-            <Year>{movieDetails.release_date.slice(0, 4)}</Year>
-            <PropertyText>Production:</PropertyText>
-          </Content>
-        </DetailsTile>
+          <CreditContainer>
+            <CreditHeader>Cast</CreditHeader>
+            <CreditTiles>
+              {credits.cast.map((actor) => (
+                <Credits
+                  key={actor.credit_id}
+                  path={actor.profile_path}
+                  name={actor.original_name}
+                  role={actor.character}
+                />
+              ))}
+            </CreditTiles>
+          </CreditContainer>
+          <CreditContainer>
+            <CreditHeader>Crew</CreditHeader>
+            <CreditTiles>
+              {credits.crew.map((member) => (
+                <Credits
+                  key={member.credit_id}
+                  path={member.profile_path}
+                  name={member.original_name}
+                  role={member.job}
+                />
+              ))}
+            </CreditTiles>
+          </CreditContainer>
+        </DetailsWrapper>
       </Wrapper>
     </>
   );

@@ -1,22 +1,21 @@
 import { useSelector } from "react-redux";
 import { selectGenres, selectMovies } from "../../movieListSlice";
-import Tile from "../../../../common/Tile";
 import { Wrapper } from "../../../../common/Wrapper";
 import Footer from "../../../../common/Footer";
 import {
   GreyText,
   Tiles,
+  Tile,
   Content,
   ImageBackground,
   Image,
   Rate,
   Rating,
   Star,
-  Tag,
-  Tags,
   Title,
   MovieLink,
 } from "./styled";
+import { Tag, Tags } from "../../../../common/Tags";
 
 const Movies = () => {
   const genres = useSelector(selectGenres);

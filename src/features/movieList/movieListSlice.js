@@ -28,7 +28,6 @@ const movieListSlice = createSlice({
     },
     setPage: (state, {payload: page}) => {
       state.page = page;
-      console.log(page);
     }
   },
 });

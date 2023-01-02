@@ -16,6 +16,7 @@ const colorNames = {
 const common = {
   breakpoints: {
     tiny: "467px",
+    small: "524px",
     mobile: "767px",
     medium: "991px",
     large: "1081px",
@@ -57,6 +58,11 @@ export const theme = {
       background: colorNames.white,
       primaryText: colorNames.black,
       secondaryText: colorNames.stormGray,
+      backgroundImage: colorNames.silver,
+    },
+    credits: {
+      fullName: colorNames.woodSmoke,
+      role: colorNames.waterloo,
     },
     footer: {
       background: colorNames.lightBlue,
