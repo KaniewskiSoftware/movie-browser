@@ -22,7 +22,6 @@ const Search = () => {
             key: searchQueryParamName,
             value: target.value.trim() !== "" ? target.value : "",
         });
-
     };
 
     return (
