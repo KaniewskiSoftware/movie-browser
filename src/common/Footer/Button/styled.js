@@ -31,8 +31,8 @@ export const StyledArrow = styled(Arrow)`
   ${StyledButton}:disabled & {
     color: ${({ theme }) => theme.colors.footer.disabledArrow};
   }
-  ${({ rotate }) =>
-    rotate &&
+  ${({ $rotate }) =>
+    $rotate &&
     css`
       transform: rotate(180deg);
       order: 2;
