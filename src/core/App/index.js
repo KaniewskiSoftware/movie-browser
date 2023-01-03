@@ -6,6 +6,7 @@ import { theme } from "./theme";
 import MovieListPage from "../../features/movieList/MovieListPage";
 import Header from "../../common/Header";
 import MovieDetailsPage from "../../features/movieDetails/MovieDetailsPage";
+import PeoplePage from "../../features/people/PeoplePage/PeopleList";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path={"/movies/:id"} element={<MovieDetailsPage />} />
           <Route path={"/movies"} element={<MovieListPage />} />
+          <Route path={"/people"} element={<PeoplePage />} />
           <Route path={"*"} element={<Navigate replace to="/movies" />} />
         </Routes>
       </BrowserRouter>
