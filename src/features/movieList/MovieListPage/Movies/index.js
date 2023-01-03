@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { selectGenres, selectMovies, selectTotalPages, selectTotalResults } from "../../movieListSlice";
-import Tile from "../../../../common/Tile";
 import { Wrapper } from "../../../../common/Wrapper";
 import { useQueryParameter, searchQueryParamName } from "../../../../core/queryParameters";
 import NoResults from "../../../../common/states/NoResults";
