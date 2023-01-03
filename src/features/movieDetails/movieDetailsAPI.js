@@ -12,3 +12,15 @@ export const getMovieDetails = async (id) => {
 
   return await response.json();
 };
+
+export const getCredits = async (id) => {
+  const response = await fetch(
+    `${apiLink}/movie/${id}/credits?api_key=${apiKey}&language=en`
+  );
+
+  if (!response.ok) {
+    new Error(response.statusText);
+  }
+
+  return await response.json();
+};

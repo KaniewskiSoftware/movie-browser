@@ -8,19 +8,18 @@ import Footer from "../../../../common/Footer";
 import {
   GreyText,
   Tiles,
+  Tile,
   Content,
   ImageBackground,
   Image,
   Rate,
   Rating,
   Star,
-  Tag,
-  Tags,
   Title,
   MovieLink,
 } from "./styled";
 import PageTitle from "../../../../common/PageTitle";
-
+import { Tag, Tags } from "../../../../common/Tags";
 
 const Movies = () => {
   const query = useQueryParameter(searchQueryParamName);
