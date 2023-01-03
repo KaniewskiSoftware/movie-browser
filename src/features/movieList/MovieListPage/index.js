@@ -1,16 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovies, selectStatus, setPage } from "../movieListSlice";
+import { fetchMovies, isQuery, selectStatus, setPage } from "../movieListSlice";
 import ErrorPage from "../../../common/states/ErrorPage";
 import Loader from "../../../common/states/Loader";
 import { useEffect } from "react";
 import Movies from "./Movies";
-import { useQueryParameter } from "../../../common/Footer/queryParameters";
+import { searchQueryParamName, useQueryParameter } from "../../../core/queryParameters";
 
 const MovieListPage = () => {
   const dispatch = useDispatch();
 
   const status = useSelector(selectStatus);
   const page = +useQueryParameter("page");
+  const query = useQueryParameter(searchQueryParamName);
 
   useEffect(() => {
     if (!page) {
@@ -18,8 +19,9 @@ const MovieListPage = () => {
     } else {
       dispatch(setPage(page));
     }
+    dispatch(isQuery(query));
     dispatch(fetchMovies());
-  }, [dispatch, page]);
+  }, [dispatch, page, query]);
 
   return {
     loading: <Loader />,

@@ -1,13 +1,18 @@
 import { Plane, PlaneBox, Wrapper } from "./styled";
-import Header from "../Header";
+import PageTitle from "../../PageTitle";
+import { searchQueryParamName, useQueryParameter } from "../../../core/queryParameters";
 
-const NoResults = () => (
-    <Wrapper>
-        <Header title={`Sorry, there are no results for “Muan”`} />
-        <PlaneBox>
-            <Plane />
-        </PlaneBox>
-    </Wrapper>
-);
+const NoResults = () => {
+    const query = useQueryParameter(searchQueryParamName);
+
+    return (
+        <Wrapper>
+            <PageTitle title={`Sorry, there are no results for "${query}"`} />
+            <PlaneBox>
+                <Plane />
+            </PlaneBox>
+        </Wrapper>
+    );
+}
 
 export default NoResults;

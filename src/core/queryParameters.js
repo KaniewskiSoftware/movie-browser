@@ -9,7 +9,13 @@ export const useQueryParameter = (key) => {
 export const useReplaceQueryParameter = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   return ({ key, value }) => {
-   searchParams.set(key, value);
+    if (!value) {
+      searchParams.delete(key);
+    } else {
+      searchParams.set(key, value);
+    };
     setSearchParams(searchParams);
-  }
+  };
 };
+
+export const searchQueryParamName = "search";
