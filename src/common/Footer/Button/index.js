@@ -1,8 +1,9 @@
 import { StyledArrow, StyledButton, Title } from "./styled";
 
-const Button = ({ title, rotate, reverse, onClick, disabled }) => (
-  <StyledButton disabled={disabled} onClick={onClick} reverse={reverse}>
-    <StyledArrow $rotate={rotate} />
+const Button = ({ title, rotate, onClick, disabled, mobile }) => (
+  <StyledButton disabled={disabled} onClick={onClick}>
+    <StyledArrow $rotate={rotate}  />
+    <StyledArrow $rotate={rotate} mobile={mobile} hide />
     <Title>{title}</Title>
   </StyledButton>
 );

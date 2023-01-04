@@ -5,6 +5,10 @@ export const Wrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   margin: 2rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    margin: 2rem 0.5rem;
+  }
 `;
 
 export const Counter = styled.div`
@@ -15,6 +19,11 @@ export const Counter = styled.div`
   line-height: 150%;
   color: ${({ theme }) => theme.colors.footer.counter};
   margin: 0px 16px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 10px;
+    margin: 0px 6px;
+  }
 `;
 
 export const Span = styled.span`
