@@ -4,10 +4,10 @@ const Navigation = () => (
   <Nav>
     <List>
       <Item>
-        <StyledNavLink to={"/movies"}>Movies</StyledNavLink>
+        <StyledNavLink to={"/movies"}>MOVIES</StyledNavLink>
       </Item>
       <Item>
-        <StyledNavLink to={"/people"}>People</StyledNavLink>
+        <StyledNavLink to={"/people"}>PEOPLE</StyledNavLink>
       </Item>
     </List>
   </Nav>
