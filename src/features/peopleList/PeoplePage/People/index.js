@@ -5,6 +5,7 @@ import Credits from "../../../../common/Credits";
 import { useSelector } from "react-redux";
 import { selectPeople, selectTotalPages } from "../../peopleSlice";
 import Footer from "../../../../common/Footer";
+import { PersonLink } from "./styled";
 
 const People = () => {
     const people = useSelector(selectPeople);
@@ -17,15 +18,16 @@ const People = () => {
                     <PageTitle title={"Popular people"} />
                     <CreditTiles>
                         {people.map((person) => (
-                            <Credits
-                                key={person.id}
-                                path={person.profile_path}
-                                name={person.name}
-                            />
+                            <PersonLink key={person.name} to={`/people/${person.id}`}>
+                                <Credits
+                                    key={person.id}
+                                    path={person.profile_path}
+                                    name={person.name}
+                                />
+                            </PersonLink>
                         ))}
                     </CreditTiles>
                 </CreditContainer>
-                <CreditContainer></CreditContainer>
             </Wrapper>
             <Footer
                 totalPages={totalPages}
