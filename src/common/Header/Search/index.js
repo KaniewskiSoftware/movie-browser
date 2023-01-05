@@ -1,38 +1,50 @@
 import { useDispatch } from "react-redux";
-import { searchQueryParamName, useQueryParameter, useReplaceQueryParameter } from "../../../core/queryParameters";
-import svg from "./Search.svg"
+import {
+  searchQueryParamName,
+  useQueryParameter,
+  useReplaceQueryParameter,
+} from "../../../core/queryParameters";
+import svg from "./Search.svg";
 import { Input, InputWrapper, Loupe } from "./styled";
 import { isQuery } from "../../../features/movieList/movieListSlice";
+import { useLocation } from "react-router-dom";
 
 const Search = () => {
-    const query = useQueryParameter(searchQueryParamName);
-    const replaceQueryParameter = useReplaceQueryParameter();
-    const dispatch = useDispatch();
-    const setPage = (page) => {
-        replaceQueryParameter({
-            key: "page",
-            value: page,
-        });
-    };
+  const location = useLocation();
+  const query = useQueryParameter(searchQueryParamName);
+  const replaceQueryParameter = useReplaceQueryParameter();
+  const dispatch = useDispatch();
 
-    const onInputChange = ({ target }) => {
-        dispatch(isQuery());
-        setPage(1);
-        replaceQueryParameter({
-            key: searchQueryParamName,
-            value: target.value.trim() !== "" ? target.value : "",
-        });
-    };
+  const setPage = (page) => {
+    replaceQueryParameter({
+      key: "page",
+      value: page,
+    });
+  };
 
-    return (
-        <InputWrapper>
-            <Loupe src={svg} />
-            <Input
-                placeholder="Search for movies..."
-                value={query || ""}
-                onChange={onInputChange} />
-        </InputWrapper>
-    );
+  const onInputChange = ({ target }) => {
+    dispatch(isQuery());
+    setPage(1);
+    replaceQueryParameter({
+      key: searchQueryParamName,
+      value: target.value.trim() !== "" ? target.value : "",
+    });
+  };
+
+  return (
+    <InputWrapper>
+      <Loupe src={svg} />
+      <Input
+        placeholder={
+          location.pathname.includes("people")
+            ? "Search for people..."
+            : "Search for movies..."
+        }
+        value={query || ""}
+        onChange={onInputChange}
+      />
+    </InputWrapper>
+  );
 };
 
 export default Search;
