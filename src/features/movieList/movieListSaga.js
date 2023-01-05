@@ -22,9 +22,10 @@ function* fetchMoviesHandler() {
     const page = yield select(selectPage);
     const query = yield select(selectQuery);
 
-    const movies = yield query === null ? call(getMovies, page) : call(getMoviesByQuery, query, page);
+    const movies = yield !query
+      ? call(getMovies, page)
+      : call(getMoviesByQuery, query, page);
     yield put(fetchMoviesSuccess(movies));
-
   } catch (error) {
     yield put(fetchMoviesError());
   }
@@ -41,5 +42,8 @@ function* fetchGenresHandler() {
 
 export function* movieListSaga() {
   yield takeLatest(fetchGenres.type, fetchGenresHandler);
-  yield takeLatest([fetchMovies.type, isQuery.type, setPage.type], fetchMoviesHandler);
+  yield takeLatest(
+    [fetchMovies.type, isQuery.type, setPage.type],
+    fetchMoviesHandler
+  );
 }

@@ -17,7 +17,9 @@ function* fetchPeopleHandler() {
     const page = yield select(selectPage);
     const query = yield select(selectQuery);
 
-    const people = yield !query ? call(getPeople, page) : call(getPeopleByQuery, query, page);
+    const people = yield !query
+      ? call(getPeople, page)
+      : call(getPeopleByQuery, query, page);
     yield put(fetchPeopleSuccess(people));
   } catch (error) {
     yield put(fetchPeopleError());
