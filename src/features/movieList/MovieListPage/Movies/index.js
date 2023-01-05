@@ -1,7 +1,15 @@
 import { useSelector } from "react-redux";
-import { selectGenres, selectMovies, selectTotalPages, selectTotalResults } from "../../movieListSlice";
+import {
+  selectGenres,
+  selectMovies,
+  selectTotalPages,
+  selectTotalResults,
+} from "../../movieListSlice";
 import { Wrapper } from "../../../../common/Wrapper";
-import { useQueryParameter, searchQueryParamName } from "../../../../core/queryParameters";
+import {
+  useQueryParameter,
+  searchQueryParamName,
+} from "../../../../core/queryParameters";
 import NoResults from "../../../../common/states/NoResults";
 import Footer from "../../../../common/Footer";
 import {
@@ -27,10 +35,18 @@ const Movies = () => {
   const totalResults = useSelector(selectTotalResults);
   const totalPages = useSelector(selectTotalPages);
 
-  return totalResults === 0 ? <NoResults /> : (
+  return totalResults === 0 ? (
+    <NoResults />
+  ) : (
     <>
       <Wrapper>
-        <PageTitle title={!query ? "Popular movies" : `Search results for "${query}" (${totalResults})`} />
+        <PageTitle
+          title={
+            !query
+              ? "Popular movies"
+              : `Search results for "${query}" (${totalResults})`
+          }
+        />
         <Tiles>
           {movies.map((movie) => (
             <MovieLink key={movie.original_title} to={`/movies/${movie.id}`}>
@@ -46,7 +62,9 @@ const Movies = () => {
                   )}
                 </ImageBackground>
                 <Content>
-                  {movie.original_title && <Title>{movie.original_title}</Title>}
+                  {movie.original_title && (
+                    <Title>{movie.original_title}</Title>
+                  )}
                   {movie.release_date && (
                     <GreyText>{movie.release_date.slice(0, 4)}</GreyText>
                   )}
@@ -76,9 +94,7 @@ const Movies = () => {
           ))}
         </Tiles>
       </Wrapper>
-      <Footer
-        totalPages={totalPages}
-      />
+      <Footer totalPages={totalPages} />
     </>
   );
 };

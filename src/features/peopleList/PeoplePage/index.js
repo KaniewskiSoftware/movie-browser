@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import ErrorPage from "../../../common/states/ErrorPage";
 import Loader from "../../../common/states/Loader";
 import { useEffect } from "react";
-import { useQueryParameter } from "../../../core/queryParameters";
-import { fetchPeople, selectStatus, setPage } from "../peopleSlice";
+import { searchQueryParamName, useQueryParameter } from "../../../core/queryParameters";
+import { fetchPeople, isQuery, selectStatus, setPage } from "../peopleSlice";
 import People from "./People";
 
 const PeoplePage = () => {
@@ -11,6 +11,7 @@ const PeoplePage = () => {
 
     const status = useSelector(selectStatus);
     const page = +useQueryParameter("page");
+    const query = useQueryParameter(searchQueryParamName);
 
     useEffect(() => {
         if (!page) {
@@ -18,8 +19,9 @@ const PeoplePage = () => {
         } else {
             dispatch(setPage(page));
         }
+        dispatch(isQuery(query));
         dispatch(fetchPeople());
-    }, [dispatch, page]);
+    }, [dispatch, page, query]);
 
     return {
         loading: <Loader />,
