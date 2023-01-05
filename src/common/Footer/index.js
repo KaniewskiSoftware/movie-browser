@@ -30,13 +30,13 @@ const Footer = ({ totalPages }) => {
 
   return (
     <Wrapper>
-      <Button disabled={page === 1} onClick={firstPage} title="First" />
+      <Button disabled={page === 1} onClick={firstPage} title="First" mobile="true" />
       <Button disabled={page === 1} onClick={prevPage} title="Previous" />
       <Counter>
         Page <Span>{page}</Span> of <Span> {lastPageNumber}</Span>
       </Counter>
       <Button disabled={page === lastPageNumber} onClick={nextPage} rotate title="Next" />
-      <Button disabled={page === lastPageNumber} onClick={lastPage} rotate title="Last" />
+      <Button disabled={page === lastPageNumber} onClick={lastPage} rotate title="Last" mobile="true" />
     </Wrapper>
   );
 };

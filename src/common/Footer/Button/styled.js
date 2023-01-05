@@ -17,12 +17,20 @@ export const StyledButton = styled.button`
     background: ${({ theme }) => theme.colors.footer.disabled};
     color: ${({ theme }) => theme.colors.footer.text};
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 8px 12px;
+  }
 `;
 
 export const Title = styled.span`
   font-weight: 400;
   font-size: 14px;
   line-height: 140%;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    display: none;
+  }
 `;
 
 export const StyledArrow = styled(Arrow)`
@@ -37,4 +45,20 @@ export const StyledArrow = styled(Arrow)`
       transform: rotate(180deg);
       order: 2;
     `}
+
+  ${({ mobile }) =>
+    mobile &&
+    css`
+      display: none;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        display: flex;
+      }
+    `};
+
+  ${({ hide }) =>
+    hide &&
+    css`
+      display: none;
+    `};
 `;
