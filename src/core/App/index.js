@@ -1,5 +1,5 @@
 import { ThemeProvider } from "styled-components";
-import { Route, Routes, Navigate, BrowserRouter } from "react-router-dom";
+import { Route, Routes, Navigate, HashRouter } from "react-router-dom";
 import { Normalize } from "styled-normalize";
 import { GlobalStyle } from "./GlobalStyle";
 import { theme } from "./theme";
@@ -13,7 +13,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Normalize />
       <GlobalStyle />
-      <BrowserRouter>
+      <HashRouter>
         <Header />
         <Routes>
           <Route path={"/movies/:id"} element={<MovieDetailsPage />} />
@@ -21,7 +21,7 @@ function App() {
           <Route path={"/people"} element={<PeoplePage />} />
           <Route path={"*"} element={<Navigate replace to="/movies" />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </ThemeProvider>
   );
 }

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { ReactComponent as sign } from "./Danger.svg";
 
@@ -42,7 +43,7 @@ const Text = styled.div`
   } ;
 `;
 
-const Button = styled.button`
+const Button = styled(Link)`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -55,6 +56,7 @@ const Button = styled.button`
   border: none;
   transition: background-color 1s;
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     background: ${({ theme }) => theme.colors.states.buttonHover};
