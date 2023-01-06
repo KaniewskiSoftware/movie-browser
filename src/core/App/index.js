@@ -7,6 +7,7 @@ import MovieListPage from "../../features/movieList/MovieListPage";
 import Header from "../../common/Header";
 import MovieDetailsPage from "../../features/movieDetails/MovieDetailsPage";
 import PeoplePage from "../../features/peopleList/PeoplePage";
+import PersonDetailsPage from "../../features/personDetails/PersonDetailsPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path={"/movies/:id"} element={<MovieDetailsPage />} />
           <Route path={"/movies"} element={<MovieListPage />} />
           <Route path={"/people"} element={<PeoplePage />} />
+          <Route path={"people/:id"} element={<PersonDetailsPage />} />
           <Route path={"*"} element={<Navigate replace to="/movies" />} />
         </Routes>
       </HashRouter>
