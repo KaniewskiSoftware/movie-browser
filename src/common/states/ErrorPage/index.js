@@ -5,7 +5,9 @@ const ErrorPage = () => (
         <Sign />
         <BiggerText>Ooops! Something went wrong... </BiggerText>
         <Text>Please check your network connection<br /> and try again</Text>
-        <Button>
+        <Button
+            to={"/movies"}
+        >
             <ButtonText>
                 Back to home page
             </ButtonText>
