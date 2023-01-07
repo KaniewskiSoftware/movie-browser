@@ -12,21 +12,8 @@ import {
 } from "../../../../core/queryParameters";
 import NoResults from "../../../../common/states/NoResults";
 import Footer from "../../../../common/Footer";
-import {
-  GreyText,
-  Tiles,
-  Tile,
-  Content,
-  ImageBackground,
-  Image,
-  Rate,
-  Rating,
-  Star,
-  Title,
-  MovieLink,
-} from "./styled";
 import PageTitle from "../../../../common/PageTitle";
-import { Tag, Tags } from "../../../../common/Tags";
+import MovieTiles from "../../../../common/MovieTiles";
 
 const Movies = () => {
   const query = useQueryParameter(searchQueryParamName);
@@ -47,52 +34,10 @@ const Movies = () => {
               : `Search results for "${query}" (${totalResults})`
           }
         />
-        <Tiles>
-          {movies.map((movie) => (
-            <MovieLink key={movie.original_title} to={`/movies/${movie.id}`}>
-              <Tile>
-                <ImageBackground>
-                  {movie.poster_path ? (
-                    <Image
-                      src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                      alt=""
-                    />
-                  ) : (
-                    <Image />
-                  )}
-                </ImageBackground>
-                <Content>
-                  {movie.original_title && (
-                    <Title>{movie.original_title}</Title>
-                  )}
-                  {movie.release_date && (
-                    <GreyText>{movie.release_date.slice(0, 4)}</GreyText>
-                  )}
-                  {movie.genre_ids && genres ? (
-                    <Tags>
-                      {movie.genre_ids.map((genre_id) => (
-                        <Tag key={genre_id}>
-                          {genres.find((genre) => genre.id === genre_id).name}
-                        </Tag>
-                      ))}
-                    </Tags>
-                  ) : (
-                    ""
-                  )}
-                  {movie.vote_average && (
-                    <Rating>
-                      <Star />
-                      <Rate>{movie.vote_average.toFixed(2)}</Rate>
-                      {movie.vote_count && (
-                        <GreyText>{`${movie.vote_count} votes`}</GreyText>
-                      )}
-                    </Rating>
-                  )}
-                </Content>
-              </Tile>
-            </MovieLink>
-          ))}
-        </Tiles>
+        <MovieTiles
+          genres={genres}
+          movies={movies}
+        />
       </Wrapper>
       <Footer totalPages={totalPages} />
     </>
