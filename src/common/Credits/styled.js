@@ -9,6 +9,7 @@ export const Tile = styled.article`
   box-shadow: ${({ theme }) => theme.boxShadow};
   padding: 16px;
   gap: 8px;
+  width: 100%;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
     padding: 8px;
