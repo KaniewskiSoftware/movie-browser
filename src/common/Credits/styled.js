@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import profile from "../../common/images/profile.svg";
 
@@ -63,3 +64,9 @@ export const Role = styled.p`
     font-size: 13px;
   }
 `;
+
+export const PersonLink = styled(Link)`
+display: flex;
+height: 100%;
+text-decoration: none;
+`

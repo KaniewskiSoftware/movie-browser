@@ -46,6 +46,7 @@ const Movie = () => {
                   path={actor.profile_path}
                   name={actor.original_name}
                   role={actor.character}
+                  id={actor.id}
                 />
               ))}
             </CreditTiles>
@@ -59,6 +60,7 @@ const Movie = () => {
                   path={member.profile_path}
                   name={member.original_name}
                   role={member.job}
+                  id={member.id}
                 />
               ))}
             </CreditTiles>

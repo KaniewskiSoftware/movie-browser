@@ -16,7 +16,6 @@ import {
   searchQueryParamName,
   useQueryParameter,
 } from "../../../../core/queryParameters";
-import { PersonLink } from "./styled";
 
 const People = () => {
   const people = useSelector(selectPeople);
@@ -37,13 +36,12 @@ const People = () => {
           />
           <CreditTiles>
             {people.map((person) => (
-              <PersonLink key={person.name} to={`/people/${person.id}`}>
-                <Credits
-                  key={person.id}
-                  path={person.profile_path}
-                  name={person.name}
-                />
-              </PersonLink>
+              <Credits
+                key={person.id}
+                path={person.profile_path}
+                name={person.name}
+                id={person.id}
+              />
             ))}
           </CreditTiles>
         </CreditContainer>
