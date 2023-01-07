@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import MovieTiles from "../../../../common/MovieTiles";
+import Title from "../../../../common/Title";
 import { Wrapper } from "../../../../common/Wrapper";
 import { selectCredits, selectPersonDetails } from "../../personDetailsSlice";
 
@@ -10,12 +11,16 @@ const Person = () => {
     return (
         <Wrapper>
             {personDetails.name}
-            CAST:
+            <Title
+                title={`Movies - cast (${personCredits.cast.length})`}
+            />
             <MovieTiles
                 movies={personCredits.cast}
                 genres={personCredits.cast.genres_ids}
             />
-            CREW:
+            <Title
+                title={`Movies - crew (${personCredits.crew.length})`}
+            />
             <MovieTiles
                 movies={personCredits.crew}
                 genres={personCredits.crew.genres_ids}

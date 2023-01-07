@@ -12,7 +12,7 @@ import {
 } from "../../../../core/queryParameters";
 import NoResults from "../../../../common/states/NoResults";
 import Footer from "../../../../common/Footer";
-import PageTitle from "../../../../common/PageTitle";
+import Title from "../../../../common/Title";
 import MovieTiles from "../../../../common/MovieTiles";
 
 const Movies = () => {
@@ -27,7 +27,7 @@ const Movies = () => {
   ) : (
     <>
       <Wrapper>
-        <PageTitle
+        <Title
           title={
             !query
               ? "Popular movies"
