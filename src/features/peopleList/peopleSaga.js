@@ -1,6 +1,6 @@
 import { call, delay, put, select, takeLatest } from "redux-saga/effects";
+import { getPeople, getPeopleByQuery } from "../../common/apiData/apiRequests";
 import { loadingDelay } from "../../common/states/loadingDelay";
-import { getPeople, getPeopleByQuery } from "./peopleAPI";
 import {
   fetchPeople,
   fetchPeopleError,
