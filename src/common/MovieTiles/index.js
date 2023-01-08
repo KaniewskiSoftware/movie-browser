@@ -46,7 +46,7 @@ const MovieTiles = ({ genres, movies }) => (
                         ) : (
                             ""
                         )}
-                        {movie.vote_average && (
+                        {movie.vote_average > 0 && (
                             <Rating>
                                 <Star />
                                 <Rate>{movie.vote_average.toFixed(2)}</Rate>
