@@ -8,7 +8,7 @@ import {
   CreditTiles,
 } from "../../../../common/Credits/CreditEssentials";
 import Backdrop from "./Backdrop";
-import DetailsTile from "./DetailsTile";
+import DetailsTile from "../../../../common/DetailsTile";
 import Credits from "../../../../common/Credits";
 
 const Movie = () => {

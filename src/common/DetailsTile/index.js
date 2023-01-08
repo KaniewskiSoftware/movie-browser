@@ -1,6 +1,6 @@
 import { Fragment } from "react";
-import { Tag, Tags } from "../../../../../common/Tags";
-import { Rate, RateBox, SmallText, Star, TextBox } from "../Rating/index";
+import { Tag, Tags } from "../Tags";
+import { Rate, RateBox, SmallText, Star, TextBox } from "../../features/movieDetails/MovieDetailsPage/Movie/Rating/index";
 import {
   Container,
   Content,
