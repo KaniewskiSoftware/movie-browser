@@ -1,4 +1,3 @@
-import { useDispatch } from "react-redux";
 import {
   searchQueryParamName,
   useQueryParameter,
@@ -6,14 +5,14 @@ import {
 } from "../../../core/queryParameters";
 import svg from "./Search.svg";
 import { Input, InputWrapper, Loupe } from "./styled";
-import { isQuery } from "../../../features/movieList/movieListSlice";
-import { useLocation } from "react-router-dom";
+import { createSearchParams, useLocation, useNavigate } from "react-router-dom";
+import { toMovie, toMovies, toPeople, toPerson } from "../../../core/App/routes";
 
 const Search = () => {
   const location = useLocation();
   const query = useQueryParameter(searchQueryParamName);
   const replaceQueryParameter = useReplaceQueryParameter();
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const setPage = (page) => {
     replaceQueryParameter({
@@ -23,12 +22,23 @@ const Search = () => {
   };
 
   const onInputChange = ({ target }) => {
-    dispatch(isQuery());
-    setPage(1);
-    replaceQueryParameter({
-      key: searchQueryParamName,
-      value: target.value.trim() !== "" ? target.value : "",
-    });
+    if (location.pathname.split("/")[1] === toMovie.split("/")[1]) {
+      navigate({
+        pathname: toMovies,
+        search: createSearchParams({ [searchQueryParamName]: target.value }).toString()
+      });
+    } else if (location.pathname.split("/")[1] === toPerson.split("/")[1]) {
+      navigate({
+        pathname: toPeople,
+        search: createSearchParams({ [searchQueryParamName]: target.value }).toString()
+      });
+    } else {
+      setPage(1);
+      replaceQueryParameter({
+        key: searchQueryParamName,
+        value: target.value.trim() !== "" ? target.value : "",
+      });
+    };
   };
 
   return (
