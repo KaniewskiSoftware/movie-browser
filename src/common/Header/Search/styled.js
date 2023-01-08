@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const InputWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   height: 48px;
   width: 432px;
   border: 1px solid ${({ theme }) => theme.colors.header.inputBorder};
@@ -27,13 +28,24 @@ export const Loupe = styled.img`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     margin: 12px 20px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+  width: 12px;
+  height: 12px;
+}
 `;
 
 export const Input = styled.input`
   border: none;
   outline: none;
+  font-size: 15px;
+  line-height: 1.5;
 
   ::placeholder {
     color: ${({ theme }) => theme.colors.header.placeholder};
   }
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+  font-size: 13px;
+  line-height: 1.3;
+}
 `;
