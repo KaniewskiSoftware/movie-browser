@@ -1,4 +1,4 @@
-import PageTitle from "../../../../common/PageTitle";
+import Title from "../../../../common/Title";
 import { Wrapper } from "../../../../common/Wrapper";
 import {
   CreditContainer,
@@ -28,7 +28,7 @@ const People = () => {
     <>
       <Wrapper>
         <CreditContainer>
-          <PageTitle
+          <Title
             title={
               !query
                 ? "Popular people"
@@ -37,7 +37,10 @@ const People = () => {
           />
           <CreditTiles>
             {people.map((person) => (
-              <PersonLink key={person.name} to={`/people/${person.id}`}>
+              <PersonLink
+                key={person.name}
+                to={`/people/${person.id}`}
+              >
                 <Credits
                   key={person.id}
                   path={person.profile_path}
