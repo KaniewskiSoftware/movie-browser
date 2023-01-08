@@ -16,7 +16,7 @@ import {
 const MovieTiles = ({ genres, movies }) => (
     <Tiles>
         {movies.map((movie) => (
-            <MovieLink key={movie.original_title} to={`/movies/${movie.id}`}>
+            <MovieLink key={movies.indexOf(movie)} to={`/movies/${movie.id}`}>
                 <Tile>
                     <ImageBackground>
                         {movie.poster_path ? (
