@@ -1,6 +1,6 @@
 import { delay, takeLatest, call, put, select } from "redux-saga/effects";
+import { getCredits, getMovieDetails } from "../../common/apiData/apiRequests";
 import { loadingDelay } from "../../common/states/loadingDelay";
-import { getCredits, getMovieDetails } from "./movieDetailsAPI";
 import {
   fetchCredits,
   fetchMovieDetails,
