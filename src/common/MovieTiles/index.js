@@ -29,8 +29,8 @@ const MovieTiles = ({ genres, movies }) => (
                         )}
                     </ImageBackground>
                     <Content>
-                        {movie.original_title && (
-                            <Title>{movie.original_title}</Title>
+                        {movie.title && (
+                            <Title>{movie.title}</Title>
                         )}
                         {movie.release_date && (
                             <GreyText>{movie.release_date.slice(0, 4)}</GreyText>
