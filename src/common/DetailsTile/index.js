@@ -103,7 +103,7 @@ const DetailsTile = ({
           ))}
         </Tags>
       )}
-      {vote && votes && (
+      {vote > 0 && votes && (
         <RateBox tile>
           <Star $mini />
           <TextBox>
