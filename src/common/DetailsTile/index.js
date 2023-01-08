@@ -25,6 +25,8 @@ const DetailsTile = ({
   title,
   release,
   production,
+  dateBirth,
+  placeBirth,
   genres,
   vote,
   votes,
@@ -75,12 +77,23 @@ const DetailsTile = ({
             ))}
           </Property>
         )}
-
         {release && (
           <Property>
             <PropertyText entitled>Release date:</PropertyText>
             <PropertyText>{release}</PropertyText>
           </Property>
+        )}
+        {dateBirth && (
+          <Property>
+            <PropertyText entitled>Date of birth:</PropertyText>
+            <PropertyText>{dateBirth}</PropertyText>
+          </Property>
+        )}
+        {placeBirth && (
+          <Property>
+          <PropertyText entitled>Place of birth:</PropertyText>
+          <PropertyText>{placeBirth}</PropertyText>
+        </Property>
         )}
       </Properties>
       {genres && (
