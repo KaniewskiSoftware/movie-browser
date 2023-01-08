@@ -8,6 +8,7 @@ import Header from "../../common/Header";
 import MovieDetailsPage from "../../features/movieDetails/MovieDetailsPage";
 import PeoplePage from "../../features/peopleList/PeoplePage";
 import PersonDetailsPage from "../../features/personDetails/PersonDetailsPage";
+import { toMovie, toMovies, toPeople, toPerson } from "./routes";
 
 function App() {
   return (
@@ -17,10 +18,10 @@ function App() {
       <HashRouter>
         <Header />
         <Routes>
-          <Route path={"/movies/:id"} element={<MovieDetailsPage />} />
-          <Route path={"/movies"} element={<MovieListPage />} />
-          <Route path={"/people"} element={<PeoplePage />} />
-          <Route path={"people/:id"} element={<PersonDetailsPage />} />
+          <Route path={toMovie} element={<MovieDetailsPage />} />
+          <Route path={toMovies} element={<MovieListPage />} />
+          <Route path={toPeople} element={<PeoplePage />} />
+          <Route path={toPerson} element={<PersonDetailsPage />} />
           <Route path={"*"} element={<Navigate replace to="/movies" />} />
         </Routes>
       </HashRouter>
