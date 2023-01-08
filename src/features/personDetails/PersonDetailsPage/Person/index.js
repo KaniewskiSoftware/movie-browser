@@ -20,16 +20,30 @@ const Person = () => {
                     placeBirth={personDetails.place_of_birth}
                     description={personDetails.biography}
                 />
-                <Title title={personCredits.cast.length > 0 ? `Movies - cast (${personCredits.cast.length})` : ""} />
-                <MovieTiles
-                    movies={personCredits.cast}
-                    genres={personCredits.cast.genres_ids}
-                />
-                <Title title={personCredits.crew.length > 0 ? `Movies - crew (${personCredits.crew.length})` : ""} />
-                <MovieTiles
-                    movies={personCredits.crew}
-                    genres={personCredits.crew.genres_ids}
-                />
+                {personCredits.cast.length > 0 ? <>
+                    <Title
+                        title={`Movies - cast (${personCredits.cast.length})`}
+                        credits
+                    />
+                    <MovieTiles
+                        movies={personCredits.cast}
+                        genres={personCredits.cast.genres_ids}
+                    />
+                </>
+                    : null
+                }
+                {personCredits.crew.length > 0 ? <>
+                    <Title
+                        title={`Movies - crew (${personCredits.crew.length})`}
+                        credits
+                    />
+                    <MovieTiles
+                        movies={personCredits.crew}
+                        genres={personCredits.crew.genres_ids}
+                    />
+                </>
+                    : null
+                }
             </DetailsWrapper>
         </Wrapper>
     );

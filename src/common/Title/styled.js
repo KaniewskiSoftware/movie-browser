@@ -4,7 +4,7 @@ const StyledTitle = styled.div`
     font-weight: 600;
     font-size: 36px;
     line-height: 120%;
-    margin-top: 56px;
+    margin-top: ${({ credits }) => credits ? "64px" : "56px"};
     margin-bottom: 24px;
     color: ${({ theme }) => theme.colors.primaryText};
 
