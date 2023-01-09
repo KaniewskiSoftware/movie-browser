@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
-import notfound from "../../common/images/camera.svg";
+import notFound from "../images/camera.svg";
+import personNotFound from "../images/profile.svg";
 
 export const Container = styled.div`
   display: grid;
@@ -34,7 +35,7 @@ export const ImageBackground = styled.div`
   width: 312px;
   max-height: 464px;
   border-radius: 5px;
-  background-image: url(${notfound});
+  background-image: url(${({ person }) => person ? personNotFound : notFound});
   background-size: 35%;
   background-repeat: no-repeat;
   background-position: center;
@@ -54,7 +55,9 @@ export const ImageBackground = styled.div`
   }
 `;
 
-export const Image = styled.img`
+export const Image = styled(({ isPoster, ...props }) =>
+  isPoster ? <img {...props} alt="poster" /> : <div {...props} />
+)`
   width: 100%;
   aspect-ratio: 2/3;
   border-radius: 5px;

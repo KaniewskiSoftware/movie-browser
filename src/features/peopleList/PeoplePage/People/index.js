@@ -16,7 +16,6 @@ import {
   searchQueryParamName,
   useQueryParameter,
 } from "../../../../core/queryParameters";
-import { PersonLink } from "../../../../common/Credits/styled";
 
 const People = () => {
   const people = useSelector(selectPeople);

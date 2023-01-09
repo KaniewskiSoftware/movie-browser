@@ -43,7 +43,7 @@ const Search = () => {
 
   return (
     <InputWrapper>
-      <Loupe src={svg} />
+      <Loupe src={svg} alt="Loupe" />
       <Input
         placeholder={
           location.pathname.includes("people")

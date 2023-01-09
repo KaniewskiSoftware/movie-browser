@@ -29,7 +29,9 @@ export const PortraitBackground = styled.div`
   background-color: ${({ theme }) => theme.colors.detailsTile.backgroundImage};
 `;
 
-export const Portrait = styled.img`
+export const Portrait = styled(({ isPath, ...props }) =>
+  isPath ? <img {...props} alt="portrait" /> : <div {...props} />
+)`
   width: 100%;
   border-radius: 5px;
   aspect-ratio: 2/3;

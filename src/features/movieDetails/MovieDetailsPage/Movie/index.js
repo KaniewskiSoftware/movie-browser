@@ -37,40 +37,47 @@ const Movie = () => {
             votes={movieDetails.vote_count}
             description={movieDetails.overview}
           />
-          <CreditContainer>
-            <CreditHeader>Cast</CreditHeader>
-            <CreditTiles
+
+          {credits.cast.length > 0 && (
+            <CreditContainer>
+              <CreditHeader>Cast</CreditHeader>
+              <CreditTiles
               single={credits.cast.length === 1}
               double={credits.cast.length === 2}
-            >
-              {credits.cast.map((actor) => (
-                <Credits
-                  key={actor.credit_id}
-                  path={actor.profile_path}
-                  name={actor.original_name}
-                  role={actor.character}
-                  id={actor.id}
-                />
-              ))}
-            </CreditTiles>
-          </CreditContainer>
-          <CreditContainer>
-            <CreditHeader>Crew</CreditHeader>
-            <CreditTiles
+              >
+                {credits.cast.map((actor) => (
+                  <Credits
+                    key={actor.credit_id}
+                    path={actor.profile_path}
+                    name={actor.original_name}
+                    role={actor.character}
+                    id={actor.id}
+                  />
+                ))}
+              </CreditTiles>
+            </CreditContainer>
+          )}
+          
+          {credits.crew.length > 0 && (
+            <CreditContainer>
+              <CreditHeader>Crew</CreditHeader>
+              <CreditTiles
               single={credits.crew.length === 1}
               double={credits.crew.length === 2}
-            >
-              {credits.crew.map((member) => (
-                <Credits
-                  key={member.credit_id}
-                  path={member.profile_path}
-                  name={member.original_name}
-                  role={member.job}
-                  id={member.id}
-                />
-              ))}
-            </CreditTiles>
-          </CreditContainer>
+              >
+                {credits.crew.map((member) => (
+                  <Credits
+                    key={member.credit_id}
+                    path={member.profile_path}
+                    name={member.original_name}
+                    role={member.job}
+                    id={member.id}
+                  />
+                ))}
+              </CreditTiles>
+            </CreditContainer>
+          )}
+
         </DetailsWrapper>
       </Wrapper>
     </>

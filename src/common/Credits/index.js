@@ -16,7 +16,10 @@ const Credits = ({ path, name, role, id }) => (
     <Tile>
       <PortraitBackground>
         {path ? (
-          <Portrait src={`https://image.tmdb.org/t/p/w500/${path}`} />
+          <Portrait
+            isPath
+            src={`https://image.tmdb.org/t/p/w500/${path}`}
+          />
         ) : (
           <Portrait />
         )}
