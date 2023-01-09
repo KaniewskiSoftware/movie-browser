@@ -10,6 +10,9 @@ This site allows you to browse the most popular movies and actors from the publi
 
 !["Preview of the page"](animation.gif)
 
+## API
+
+Source of the API is the [![TMDB](tmdblogo.png)](https://www.themoviedb.org/)
 ## Technologies
 
 - React
