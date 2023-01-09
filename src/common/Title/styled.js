@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-const StyledTitle = styled.h2`
+const StyledTitle = styled.h1`
   margin: 0;
   font-weight: 600;
   font-size: 36px;
