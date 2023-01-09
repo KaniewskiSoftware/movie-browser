@@ -37,10 +37,14 @@ const Movie = () => {
             votes={movieDetails.vote_count}
             description={movieDetails.overview}
           />
+
           {credits.cast.length > 0 && (
             <CreditContainer>
               <CreditHeader>Cast</CreditHeader>
-              <CreditTiles>
+              <CreditTiles
+              single={credits.cast.length === 1}
+              double={credits.cast.length === 2}
+              >
                 {credits.cast.map((actor) => (
                   <Credits
                     key={actor.credit_id}
@@ -53,10 +57,14 @@ const Movie = () => {
               </CreditTiles>
             </CreditContainer>
           )}
+          
           {credits.crew.length > 0 && (
             <CreditContainer>
               <CreditHeader>Crew</CreditHeader>
-              <CreditTiles>
+              <CreditTiles
+              single={credits.crew.length === 1}
+              double={credits.crew.length === 2}
+              >
                 {credits.crew.map((member) => (
                   <Credits
                     key={member.credit_id}
@@ -69,6 +77,7 @@ const Movie = () => {
               </CreditTiles>
             </CreditContainer>
           )}
+
         </DetailsWrapper>
       </Wrapper>
     </>

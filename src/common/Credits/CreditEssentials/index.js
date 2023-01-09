@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const CreditContainer = styled.section`
   display: flex;
@@ -42,4 +42,21 @@ export const CreditTiles = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
     grid-template-columns: repeat(2, minmax(136px, 1fr));
   }
+  ${({ single }) =>
+    single &&
+    css`
+      grid-template-columns: 35%;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        grid-template-columns: 49%;
+      }
+    `}
+
+  ${({ double }) =>
+    double &&
+    css`
+      @media (min-width: ${({ theme }) => theme.breakpoints.medium}) {
+        grid-template-columns: repeat(auto-fit, minmax(208px, 35%));
+      }
+    `}
 `;
