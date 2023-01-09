@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 
-const StyledTitle = styled.div`
+const StyledTitle = styled.h2`
+  margin: 0;
   font-weight: 600;
   font-size: 36px;
   line-height: 120%;
@@ -20,12 +21,13 @@ const StyledTitle = styled.div`
     margin-bottom: 12px;
   }
 
-  ${({ person }) =>
-    person &&
+  ${({ credits }) =>
+    credits &&
     css`
       @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
         font-size: 20px;
-        margin: 0;
+        margin-top: 24px;
+        margin-bottom: 16px;
       }
     `}
 `;
