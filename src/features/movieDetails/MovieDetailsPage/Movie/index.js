@@ -39,7 +39,10 @@ const Movie = () => {
           />
           <CreditContainer>
             <CreditHeader>Cast</CreditHeader>
-            <CreditTiles>
+            <CreditTiles
+              single={credits.cast.length === 1}
+              double={credits.cast.length === 2}
+            >
               {credits.cast.map((actor) => (
                 <Credits
                   key={actor.credit_id}
@@ -53,7 +56,10 @@ const Movie = () => {
           </CreditContainer>
           <CreditContainer>
             <CreditHeader>Crew</CreditHeader>
-            <CreditTiles>
+            <CreditTiles
+              single={credits.crew.length === 1}
+              double={credits.crew.length === 2}
+            >
               {credits.crew.map((member) => (
                 <Credits
                   key={member.credit_id}
