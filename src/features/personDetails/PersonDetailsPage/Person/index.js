@@ -24,6 +24,7 @@ const Person = () => {
                     <Title
                         title={`Movies - cast (${personCredits.cast.length})`}
                         credits
+                        tag
                     />
                     <MovieTiles
                         movies={personCredits.cast}
@@ -36,6 +37,7 @@ const Person = () => {
                     <Title
                         title={`Movies - crew (${personCredits.crew.length})`}
                         credits
+                        tag
                     />
                     <MovieTiles
                         movies={personCredits.crew}

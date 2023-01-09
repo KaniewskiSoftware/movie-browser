@@ -9,7 +9,7 @@ height: 100%;
 text-decoration: none;
 `
 
-export const Tiles = styled.section`
+export const Tiles = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 24px;

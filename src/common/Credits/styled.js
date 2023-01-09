@@ -41,7 +41,6 @@ export const Storage = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  word-wrap: wrap;
 `;
 export const FullName = styled.p`
   margin: 0;

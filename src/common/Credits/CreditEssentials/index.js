@@ -36,12 +36,9 @@ export const CreditTiles = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    grid-template-columns: repeat(auto-fit, minmax(136px, 1fr));
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
     grid-template-columns: repeat(2, minmax(136px, 1fr));
   }
+  
   ${({ single }) =>
     single &&
     css`

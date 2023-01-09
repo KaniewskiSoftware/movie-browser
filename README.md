@@ -1,10 +1,39 @@
-# Movie Browser
+# Movies Browser
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This site allows you to browse the most popular movies and actors from the public tmdb API. You can also get to know each of the above better on the details pages. There is a search engine in the upper right corner. It searches for movies or actors depending on which subpage you are currently on. Layout was designed in Figma by professionalist.
 
 ## Demo
 
-[MovieBrowser](https://kaniewskisoftware.github.io/movie-browser/)
+[MoviesBrowser](https://kaniewskisoftware.github.io/movie-browser/)
+
+## Preview
+
+!["Preview of the page"](animation.gif)
+
+## Technologies
+
+- React
+- NPM
+- React app
+- React Hooks
+- React Router
+- Redux (Toolkit)
+- Redux Saga
+- API (fetch)
+- Error Handling
+- JavaScript: ES6+
+- Responsive Web Design
+- Figma
+- Trello
+- CSS Grid
+- CSS Flexbox
+
+## Contributors
+
+- [GrzegorzJendernal](https://github.com/GrzegorzJendernal)
+- [FilipBuchwald](https://github.com/FilipBuchwald)
+- [KaniewskiSoftware](https://github.com/KaniewskiSoftware)
+
 ## Available Scripts
 
 In the project directory, you can run:
