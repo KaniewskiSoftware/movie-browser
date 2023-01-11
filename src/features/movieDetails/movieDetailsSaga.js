@@ -1,5 +1,7 @@
 import { delay, takeLatest, call, put, select } from "redux-saga/effects";
-import { getCredits, getMovieDetails } from "../../common/apiData/apiRequests";
+import { apiKey } from "../../common/apiData/apiKey";
+import { apiLink } from "../../common/apiData/apiLink";
+import { getData } from "../../common/apiData/apiRequests";
 import { loadingDelay } from "../../common/states/loadingDelay";
 import {
   fetchCredits,
@@ -16,7 +18,7 @@ function* fetchMovieDetailsHandler() {
 
     yield put(fetchCredits());
     yield delay(loadingDelay); //for loader demo purpose
-    const movie = yield call(getMovieDetails, id);
+    const movie = yield call(getData, `${apiLink}/movie/${id}?api_key=${apiKey}&language=en`);
     yield put(fetchMovieDetailsSuccess(movie));
   } catch (error) {
     yield put(fetchError());
@@ -27,7 +29,7 @@ function* fetchCreditsHandler() {
   try {
     const id = yield select(selectMovieId);
 
-    const movie = yield call(getCredits, id);
+    const movie = yield call(getData, `${apiLink}/movie/${id}/credits?api_key=${apiKey}&language=en`);
     yield put(fetchCreditsSuccess(movie));
   } catch (error) {
     yield put(fetchError());
