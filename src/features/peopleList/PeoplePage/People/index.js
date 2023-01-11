@@ -16,6 +16,7 @@ import {
   searchQueryParamName,
   useQueryParameter,
 } from "../../../../core/queryParameters";
+import NoResults from "../../../../common/states/NoResults";
 
 const People = () => {
   const people = useSelector(selectPeople);
@@ -23,7 +24,9 @@ const People = () => {
   const totalResults = useSelector(selectTotalResults);
   const query = useQueryParameter(searchQueryParamName);
 
-  return (
+  return totalResults === 0 ? (
+    <NoResults />
+  ) : (
     <>
       <Wrapper>
         <CreditContainer>
