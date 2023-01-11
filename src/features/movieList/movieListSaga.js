@@ -1,9 +1,7 @@
 import { delay, call, put, takeLatest, select } from "redux-saga/effects";
-import {
-  getGenres,
-  getMovies,
-  getMoviesByQuery,
-} from "../../common/apiData/apiRequests";
+import { apiKey } from "../../common/apiData/apiKey";
+import { apiLink } from "../../common/apiData/apiLink";
+import { getData } from "../../common/apiData/apiRequests";
 import { loadingDelay } from "../../common/states/loadingDelay";
 import {
   fetchMovies,
@@ -26,9 +24,10 @@ function* fetchMoviesHandler() {
     const page = yield select(selectPage);
     const query = yield select(selectQuery);
 
-    const movies = yield !query
-      ? call(getMovies, page)
-      : call(getMoviesByQuery, query, page);
+    const movies = yield call(getData, !query
+      ? `${apiLink}/movie/popular?api_key=${apiKey}&page=${page}&language=en`
+      : `${apiLink}/search/movie?api_key=${apiKey}&language=en-US&query=${query}&page=${page}`
+    );
     yield put(fetchMoviesSuccess(movies));
   } catch (error) {
     yield put(fetchMoviesError());
@@ -37,7 +36,7 @@ function* fetchMoviesHandler() {
 
 function* fetchGenresHandler() {
   try {
-    const genres = yield call(getGenres);
+    const genres = yield call(getData(`${apiLink}/genre/movie/list?api_key=${apiKey}`));
     yield put(fetchGenresSuccess(genres.genres));
   } catch (error) {
     yield put(fetchGenresError());
