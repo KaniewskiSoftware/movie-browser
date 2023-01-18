@@ -51,7 +51,7 @@ const MovieTiles = ({ genres, movies }) => (
                 ))}
               </Tags>
             ) : (
-              null
+              ""
             )}
             {movie.vote_average > 0 && (
               <Rating>
