@@ -40,7 +40,7 @@ const MovieTiles = ({ genres, movies }) => (
             ) : movie.department || movie.character ? (
               <GreyText>{movie.department || movie.character}</GreyText>
             ) : (
-              <></>
+              null
             )}
             {movie.genre_ids && genres ? (
               <Tags>
@@ -51,7 +51,7 @@ const MovieTiles = ({ genres, movies }) => (
                 ))}
               </Tags>
             ) : (
-              ""
+              null
             )}
             {movie.vote_average > 0 && (
               <Rating>
