@@ -37,10 +37,7 @@ const People = () => {
                 : `Search results for "${query}" (${totalResults})`
             }
           />
-          <CreditTiles
-            single={people.length === 1}
-            double={people.length === 2}
-          >
+          <CreditTiles>
             {people.map((person) => (
               <Credits
                 key={person.id}

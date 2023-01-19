@@ -70,4 +70,9 @@ export const PersonLink = styled(Link)`
 display: flex;
 height: 100%;
 text-decoration: none;
+transition: transform 1s;
+
+&:hover {
+  transform: scale(1.05);
+}
 `

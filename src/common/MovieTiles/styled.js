@@ -7,6 +7,12 @@ export const MovieLink = styled(Link)`
 display: flex;
 height: 100%;
 text-decoration: none;
+
+transition: transform 1s;
+
+&:hover {
+  transform: scale(1.05);
+}
 `
 
 export const Tiles = styled.div`
