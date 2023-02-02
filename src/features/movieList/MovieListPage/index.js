@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovies, isQuery, selectStatus, setPage } from "../movieListSlice";
+import { fetchMovies, setQuery, selectStatus, setPage } from "../movieListSlice";
 import ErrorPage from "../../../common/states/ErrorPage";
 import Loader from "../../../common/states/Loader";
 import { useEffect } from "react";
@@ -19,7 +19,9 @@ const MovieListPage = () => {
     } else {
       dispatch(setPage(page));
     }
-    dispatch(isQuery(query));
+    if (!!query) {
+      dispatch(setQuery(query))
+    }
     dispatch(fetchMovies());
   }, [dispatch, page, query]);
 
