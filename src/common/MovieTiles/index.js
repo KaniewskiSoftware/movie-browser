@@ -21,7 +21,7 @@ const MovieTiles = ({ genres, movies }) => (
           <ImageBackground>
             {movie.poster_path ? (
               <Image
-                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                 alt=""
               />
             ) : (
@@ -39,9 +39,7 @@ const MovieTiles = ({ genres, movies }) => (
               <GreyText>{movie.release_date.slice(0, 4)}</GreyText>
             ) : movie.department || movie.character ? (
               <GreyText>{movie.department || movie.character}</GreyText>
-            ) : (
-              null
-            )}
+            ) : null}
             {movie.genre_ids && genres ? (
               <Tags>
                 {movie.genre_ids.map((genre_id) => (
