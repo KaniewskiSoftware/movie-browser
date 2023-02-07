@@ -3,11 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const movieListSlice = createSlice({
   name: "movieList",
   initialState: {
-    status: "loading",
-    movies: [],
+    status: "initial",
+    movies: null,
     genres: null,
-    query: "",
-    page: "1",
+    query: null,
+    page: null,
     totalResults: 0,
     totalPages: 0,
   },
@@ -31,7 +31,7 @@ const movieListSlice = createSlice({
     fetchGenresError: (state) => {
       state.genres = null;
     },
-    isQuery: (state, { payload: query }) => {
+    setQuery: (state, { payload: query }) => {
       state.query = query;
       state.status = "loading";
     },
@@ -48,7 +48,7 @@ export const {
   fetchGenres,
   fetchGenresError,
   fetchGenresSuccess,
-  isQuery,
+  setQuery,
   setPage,
 } = movieListSlice.actions;
 

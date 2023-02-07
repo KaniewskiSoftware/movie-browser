@@ -15,7 +15,7 @@ import {
   selectPage,
   selectQuery,
   setPage,
-  isQuery,
+  setQuery,
 } from "./movieListSlice";
 
 function* fetchMoviesHandler() {
@@ -47,7 +47,7 @@ function* fetchGenresHandler() {
 export function* movieListSaga() {
   yield takeLatest(fetchGenres.type, fetchGenresHandler);
   yield takeLatest(
-    [fetchMovies.type, isQuery.type, setPage.type],
+    [fetchMovies.type, setQuery.type, setPage.type],
     fetchMoviesHandler
   );
 }
