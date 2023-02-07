@@ -3,10 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const peopleSlice = createSlice({
     name: "peopleList",
     initialState: {
-        status: "loading",
-        people: [],
-        query: "",
-        page: "1",
+        status: "initial",
+        people: null,
+        query: null,
+        page: null,
         totalResults: 0,
         totalPages: 0,
     },
@@ -23,7 +23,7 @@ const peopleSlice = createSlice({
         fetchPeopleError: (state) => {
             state.status = "error";
         },
-        isQuery: (state, { payload: query }) => {
+        setQuery: (state, { payload: query }) => {
             state.query = query;
             state.status = "loading";
         },
@@ -37,7 +37,7 @@ export const {
     fetchPeople,
     fetchPeopleSuccess,
     fetchPeopleError,
-    isQuery,
+    setQuery,
     setPage,
 } = peopleSlice.actions;
 
