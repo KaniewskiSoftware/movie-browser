@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import {
-  selectGenres,
   selectMovies,
   selectTotalPages,
   selectTotalResults,
@@ -17,7 +16,6 @@ import MovieTiles from "../../../../common/MovieTiles";
 
 const Movies = () => {
   const query = useQueryParameter(searchQueryParamName);
-  const genres = useSelector(selectGenres);
   const movies = useSelector(selectMovies);
   const totalResults = useSelector(selectTotalResults);
   const totalPages = useSelector(selectTotalPages);
@@ -35,7 +33,6 @@ const Movies = () => {
           }
         />
         <MovieTiles
-          genres={genres}
           movies={movies}
         />
       </Wrapper>

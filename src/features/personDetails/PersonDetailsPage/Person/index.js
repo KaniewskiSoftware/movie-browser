@@ -3,13 +3,12 @@ import DetailsTile from "../../../../common/DetailsTile";
 import MovieTiles from "../../../../common/MovieTiles";
 import Title from "../../../../common/Title";
 import { Wrapper } from "../../../../common/Wrapper";
-import { selectCredits, selectGenres, selectPersonDetails } from "../../personDetailsSlice";
+import { selectCredits, selectPersonDetails } from "../../personDetailsSlice";
 import { DetailsWrapper } from "./styled";
 
 const Person = () => {
     const personDetails = useSelector(selectPersonDetails);
     const personCredits = useSelector(selectCredits);
-    const genres = useSelector(selectGenres);
 
     return (
         <Wrapper>
@@ -29,7 +28,6 @@ const Person = () => {
                     />
                     <MovieTiles
                         movies={personCredits.cast}
-                        genres={genres}
                     />
                 </>
                     : null
@@ -42,7 +40,6 @@ const Person = () => {
                     />
                     <MovieTiles
                         movies={personCredits.crew}
-                        genres={genres}
                     />
                 </>
                     : null
