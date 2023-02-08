@@ -1,6 +1,5 @@
 import { delay, takeLatest, call, put, select } from "redux-saga/effects";
 import {
-  getGenres,
   getPersonCredits,
   getPersonDetails,
 } from "../../common/apiData/apiRequests";
@@ -12,9 +11,6 @@ import {
   fetchPersonDetailsSuccess,
   selectPersonId,
   fetchCreditsSuccess,
-  fetchGenresSuccess,
-  fetchGenresError,
-  fetchGenres,
 } from "./personDetailsSlice";
 
 function* fetchPersonDetailsHandler() {
@@ -22,7 +18,6 @@ function* fetchPersonDetailsHandler() {
     const id = yield select(selectPersonId);
 
     yield put(fetchCredits());
-    yield put(fetchGenres());
     yield delay(loadingDelay); //for loader demo purpose
     const person = yield call(getPersonDetails, id);
     yield put(fetchPersonDetailsSuccess(person));
@@ -42,17 +37,7 @@ function* fetchPersonCreditsHandler() {
   }
 }
 
-function* fetchGenresHandler() {
-  try {
-    const genres = yield call(getGenres);
-    yield put(fetchGenresSuccess(genres.genres));
-  } catch (error) {
-    yield put(fetchGenresError());
-  }
-}
-
 export function* personDetailsSaga() {
   yield takeLatest(fetchPersonDetails.type, fetchPersonDetailsHandler);
   yield takeLatest(fetchCredits.type, fetchPersonCreditsHandler);
-  yield takeLatest(fetchGenres.type, fetchGenresHandler);
 }

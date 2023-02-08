@@ -7,7 +7,6 @@ const personDetailsSlice = createSlice({
     personDetails: null,
     personId: null,
     credits: null,
-    genres: null,
   },
   reducers: {
     fetchPersonDetails: (state) => {
@@ -29,13 +28,6 @@ const personDetailsSlice = createSlice({
     fetchCreditsSuccess: (state, { payload: credits }) => {
       state.credits = credits;
     },
-    fetchGenres: () => {},
-    fetchGenresSuccess: (state, { payload: genres }) => {
-      state.genres = genres;
-    },
-    fetchGenresError: (state) => {
-      state.genres = null;
-    },
   },
 });
 
@@ -46,9 +38,6 @@ export const {
   setPersonId,
   fetchCredits,
   fetchCreditsSuccess,
-  fetchGenres,
-  fetchGenresError,
-  fetchGenresSuccess,
 } = personDetailsSlice.actions;
 
 const selectPersonDetailsState = (state) => state.personDetails;
@@ -59,6 +48,5 @@ export const selectPersonDetails = (state) =>
 export const selectPersonId = (state) =>
   selectPersonDetailsState(state).personId;
 export const selectCredits = (state) => selectPersonDetailsState(state).credits;
-export const selectGenres = (state) => selectPersonDetailsState(state).genres;
 
 export default personDetailsSlice.reducer;
