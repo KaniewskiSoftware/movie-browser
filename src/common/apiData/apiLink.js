@@ -1,1 +1,1 @@
-export const apiLink = "https://api.themoviedb.org/3"
+export const apiLink = "https://api.themoviedb.org/3";
