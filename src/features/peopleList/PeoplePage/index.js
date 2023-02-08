@@ -3,7 +3,7 @@ import ErrorPage from "../../../common/states/ErrorPage";
 import Loader from "../../../common/states/Loader";
 import { useEffect } from "react";
 import { searchQueryParamName, useQueryParameter } from "../../../core/queryParameters";
-import { fetchPeople, isQuery, selectStatus, setPage } from "../peopleSlice";
+import { fetchPeople, setQuery, selectStatus, setPage } from "../peopleSlice";
 import People from "./People";
 
 const PeoplePage = () => {
@@ -19,7 +19,9 @@ const PeoplePage = () => {
         } else {
             dispatch(setPage(page));
         }
-        dispatch(isQuery(query));
+        if (!!query) {
+            dispatch(setQuery(query));
+        }
         dispatch(fetchPeople());
     }, [dispatch, page, query]);
 

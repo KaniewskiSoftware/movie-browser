@@ -3,10 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const movieDetailsSlice = createSlice({
   name: "movieDetails",
   initialState: {
-    status: "loading",
-    movieDetails: [],
+    status: "initial",
+    movieDetails: null,
     movieId: null,
-    credits: [],
+    credits: null,
   },
   reducers: {
     fetchMovieDetails: (state) => {

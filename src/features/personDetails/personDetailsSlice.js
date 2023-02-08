@@ -3,10 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const personDetailsSlice = createSlice({
   name: "personDetails",
   initialState: {
-    status: "loading",
-    personDetails: [],
+    status: "initial",
+    personDetails: null,
     personId: null,
-    credits: [],
+    credits: null,
     genres: null,
   },
   reducers: {
