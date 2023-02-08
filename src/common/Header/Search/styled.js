@@ -40,6 +40,7 @@ export const Input = styled.input`
   outline: none;
   font-size: 15px;
   line-height: 1.5;
+  width: 75%;
 
   ::placeholder {
     color: ${({ theme }) => theme.colors.header.placeholder};
