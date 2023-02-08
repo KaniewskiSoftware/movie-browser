@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { selectGenres } from "../apiData/genres/genresSlice";
 import { Tag, Tags } from "../Tags";
 import {
   Content,
@@ -14,7 +15,9 @@ import {
   Title,
 } from "./styled";
 
-const MovieTiles = ({ genres, movies }) => {
+const MovieTiles = ({ movies }) => {
+  const genres = useSelector(selectGenres);
+  
   return (
     <Tiles>
       {movies.map((movie) => (
@@ -46,7 +49,7 @@ const MovieTiles = ({ genres, movies }) => {
                 <Tags>
                   {movie.genre_ids.map((genre_id) => (
                     <Tag key={genre_id}>
-                      {genres.find((genre) => genre.id === genre_id).name}
+                      {genres[genre_id]}
                     </Tag>
                   ))}
                 </Tags>

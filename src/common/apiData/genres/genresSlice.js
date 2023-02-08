@@ -5,6 +5,7 @@ const genresSlice = createSlice({
   initialState: {
     status: "initial",
     genres: null,
+    isGenres: false,
   },
   reducers: {
     fetchGenres: (state) => {
@@ -13,6 +14,7 @@ const genresSlice = createSlice({
     fetchGenresSuccess: (state, { payload: genres }) => {
       state.genres = genres;
       state.status = "success";
+      state.isGenres = true;
     },
     fetchGenresError: (state) => {
       state.genres = null;
@@ -22,11 +24,12 @@ const genresSlice = createSlice({
 });
 
 export const { fetchGenres, fetchGenresError, fetchGenresSuccess } =
-  genres.actions;
+  genresSlice.actions;
 
 const selectGenresState = (state) => state.genres;
 
-export const selectGenresLoading = (state) => selectGenresState(state).status;
+export const selectGenresStatus = (state) => selectGenresState(state).status;
+export const selectIsGenres = (state) => selectGenresState(state).isGenres;
 export const selectGenres = (state) => selectGenresState(state).genres;
 
 export default genresSlice.reducer;
