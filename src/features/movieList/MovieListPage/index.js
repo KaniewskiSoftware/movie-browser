@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchMovies,
-  setQuery,
   selectStatus,
   setPage,
+  setQuery,
 } from "../movieListSlice";
 import ErrorPage from "../../../common/states/ErrorPage";
 import Loader from "../../../common/states/Loader";
@@ -35,7 +35,7 @@ const MovieListPage = () => {
     } else {
       dispatch(setPage(page));
     }
-    if (!!query) {
+    if (query !== null) {
       dispatch(setQuery(query));
     }
     dispatch(fetchMovies());

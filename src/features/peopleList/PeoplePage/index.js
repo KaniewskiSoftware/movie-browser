@@ -19,7 +19,7 @@ const PeoplePage = () => {
         } else {
             dispatch(setPage(page));
         }
-        if (!!query) {
+        if (query !== null) {
             dispatch(setQuery(query));
         }
         dispatch(fetchPeople());
