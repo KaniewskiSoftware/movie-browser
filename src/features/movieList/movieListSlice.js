@@ -29,7 +29,7 @@ const movieListSlice = createSlice({
     },
     setPage: (state, { payload: page }) => {
       state.page = page;
-    }
+    },
   },
 });
 
@@ -47,7 +47,9 @@ export const selectStatus = (state) => selectMovieListState(state).status;
 export const selectMovies = (state) => selectMovieListState(state).movies;
 export const selectPage = (state) => selectMovieListState(state).page;
 export const selectQuery = (state) => selectMovieListState(state).query;
-export const selectTotalResults = (state) => selectMovieListState(state).totalResults;
-export const selectTotalPages = (state) => selectMovieListState(state).totalPages;
+export const selectTotalResults = (state) =>
+  selectMovieListState(state).totalResults;
+export const selectTotalPages = (state) =>
+  selectMovieListState(state).totalPages;
 
 export default movieListSlice.reducer;

@@ -13,7 +13,10 @@ import {
   searchQueryParamName,
   useQueryParameter,
 } from "../../../core/queryParameters";
-import { fetchGenres, selectIsGenres } from "../../../common/apiData/genres/genresSlice";
+import {
+  fetchGenres,
+  selectIsGenres,
+} from "../../../common/apiData/genres/genresSlice";
 
 const MovieListPage = () => {
   const dispatch = useDispatch();
@@ -36,7 +39,7 @@ const MovieListPage = () => {
       dispatch(setQuery(query));
     }
     dispatch(fetchMovies());
-  }, [dispatch,isGenres, page, query]);
+  }, [dispatch, isGenres, page, query]);
 
   return {
     loading: <Loader />,

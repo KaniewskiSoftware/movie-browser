@@ -1,8 +1,5 @@
 import { delay, call, put, takeLatest, select } from "redux-saga/effects";
-import {
-  getMovies,
-  getMoviesByQuery,
-} from "../../common/apiData/apiRequests";
+import { getMovies, getMoviesByQuery } from "../../common/apiData/apiRequests";
 import { loadingDelay } from "../../common/states/loadingDelay";
 import {
   fetchMovies,
