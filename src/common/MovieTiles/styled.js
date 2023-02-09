@@ -1,19 +1,18 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { ReactComponent as star } from "./star.svg";
 import notfound from "../images/camera.svg";
 
 export const MovieLink = styled(Link)`
-display: flex;
-height: 100%;
-text-decoration: none;
+  display: flex;
+  height: 100%;
+  text-decoration: none;
+  transition: transform 0.3s;
 
-transition: transform 1s;
-
-&:hover {
-  transform: scale(1.05);
-}
-`
+  &:hover {
+    transform: scale(1.02);
+  }
+`;
 
 export const Tiles = styled.div`
   display: grid;
@@ -45,7 +44,7 @@ export const Tile = styled.article`
   box-shadow: ${({ theme }) => theme.boxShadow};
   background-color: ${({ theme }) => theme.colors.tile.background};
   color: ${({ theme }) => theme.colors.primaryText};
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     flex-direction: row;
     align-items: center;
@@ -63,7 +62,7 @@ export const ImageBackground = styled.div`
   background-size: 35%;
   background-repeat: no-repeat;
   background-position: center;
- 
+
   color: ${({ theme }) => theme.colors.tile.background};
   background-color: ${({ theme }) => theme.colors.tile.imageBackground};
 
